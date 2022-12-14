@@ -1,0 +1,23 @@
+# reweight card file created with https://github.com/schoef/gridpacks on 2021-06-22 08:38:51
+# Command line arguments: ../../../../make_reweight_card.py --couplings 2 cHq1Re11 0.5 cHq1Re22 0.5 cHq1Re33 0.5 cHq3Re11 0.5 cHq3Re22 0.5 cHq3Re33 0.5 cHuRe11 0.5 cHuRe22 0.5 cHuRe33 0.5 cHdRe11 0.5 cHdRe22 0.5 cHdRe33 0.5 cHudRe11 0.5 cHudRe22 0.5 cHudRe33 0.5 --filename ttZ01j-vec_reweight_card.dat --overwrite --auto_width_particles 6
+# Polynomial order: 2
+change rwgt_dir rwgt
+
+launch --rwgt_name=dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.
+
+launch --rwgt_name=cHq1Re11_0p_cHq1Re22_0p_cHq1Re33_0p_cHq3Re11_0p_cHq3Re22_0p_cHq3Re33_0p_cHuRe11_0p_cHuRe22_0p_cHuRe33_0p_cHdRe11_0p_cHdRe22_0p_cHdRe33_0p_cHudRe11_0p_cHudRe22_0p_cHudRe33_0p
+set cHq1Re11 0.000000
+set cHq1Re22 0.000000
+set cHq1Re33 0.000000
+set cHq3Re11 0.000000
+set cHq3Re22 0.000000
+set cHq3Re33 0.000000
+set cHuRe11 0.000000
+set cHuRe22 0.000000
+set cHuRe33 0.000000
+set cHdRe11 0.000000
+set cHdRe22 0.000000
+set cHdRe33 0.000000
+set cHudRe11 0.000000
+set cHudRe22 0.000000
+set cHudRe33 0.000000

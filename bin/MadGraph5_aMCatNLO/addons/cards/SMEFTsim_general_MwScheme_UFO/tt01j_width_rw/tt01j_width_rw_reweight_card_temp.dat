@@ -1,0 +1,36 @@
+# reweight card file created with https://github.com/schoef/gridpacks on 2021-06-21 07:19:49
+# Command line arguments: ../../../../make_reweight_card.py --couplings 2 cuWRe11 0.5 cuWRe22 0.5 cuWRe33 0.5 cdWRe11 0.5 cdWRe22 0.5 cdWRe33 0.5 cuBRe11 0.5 cuBRe22 0.5 cuBRe33 0.5 cdBRe11 0.5 cdBRe22 0.5 cdBRe33 0.5 cHq1Re11 0.5 cHq1Re22 0.5 cHq1Re33 0.5 cHq3Re11 0.5 cHq3Re22 0.5 cHq3Re33 0.5 cHuRe11 0.5 cHuRe22 0.5 cHuRe33 0.5 cHdRe11 0.5 cHdRe22 0.5 cHdRe33 0.5 cHudRe11 0.5 cHudRe22 0.5 cHudRe33 0.5 --referencepoint cuWRe11 0.5 cuWRe22 0.5 cuWRe33 0.5 cdWRe11 0.5 cdWRe22 0.5 cdWRe33 0.5 cuBRe11 0.5 cuBRe22 0.5 cuBRe33 0.5 cdBRe11 0.5 cdBRe22 0.5 cdBRe33 0.5 --filename WZTo3L1Nu_reweight_card.dat --overwrite --auto_width_particles 6
+# Polynomial order: 2
+# Reference Point: cuWRe11 0.5 cuWRe22 0.5 cuWRe33 0.5 cdWRe11 0.5 cdWRe22 0.5 cdWRe33 0.5 cuBRe11 0.5 cuBRe22 0.5 cuBRe33 0.5 cdBRe11 0.5 cdBRe22 0.5 cdBRe33 0.5
+change rwgt_dir rwgt
+
+launch --rwgt_name=dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.
+
+launch --rwgt_name=cuWRe11_0p_cuWRe22_0p_cuWRe33_0p_cdWRe11_0p_cdWRe22_0p_cdWRe33_0p_cuBRe11_0p_cuBRe22_0p_cuBRe33_0p_cdBRe11_0p_cdBRe22_0p_cdBRe33_0p_cHq1Re11_0p_cHq1Re22_0p_cHq1Re33_0p_cHq3Re11_0p_cHq3Re22_0p_cHq3Re33_0p_cHuRe11_0p_cHuRe22_0p_cHuRe33_0p_cHdRe11_0p_cHdRe22_0p_cHdRe33_0p_cHudRe11_0p_cHudRe22_0p_cHudRe33_0p
+set cuWRe11 0.000000
+set cuWRe22 0.000000
+set cuWRe33 0.000000
+set cdWRe11 0.000000
+set cdWRe22 0.000000
+set cdWRe33 0.000000
+set cuBRe11 0.000000
+set cuBRe22 0.000000
+set cuBRe33 0.000000
+set cdBRe11 0.000000
+set cdBRe22 0.000000
+set cdBRe33 0.000000
+set cHq1Re11 0.000000
+set cHq1Re22 0.000000
+set cHq1Re33 0.000000
+set cHq3Re11 0.000000
+set cHq3Re22 0.000000
+set cHq3Re33 0.000000
+set cHuRe11 0.000000
+set cHuRe22 0.000000
+set cHuRe33 0.000000
+set cHdRe11 0.000000
+set cHdRe22 0.000000
+set cHdRe33 0.000000
+set cHudRe11 0.000000
+set cHudRe22 0.000000
+set cHudRe33 0.000000

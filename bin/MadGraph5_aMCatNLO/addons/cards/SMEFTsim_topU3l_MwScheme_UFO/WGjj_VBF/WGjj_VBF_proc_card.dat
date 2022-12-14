@@ -1,0 +1,16 @@
+import model SMEFTsim_topU3l_MwScheme_UFO
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+define p = 21 2 4 1 3 -2 -4 -1 -3 5 -5 # pass to 5 flavors
+define j = p
+define lep = e+ e- mu+ mu- ta+ ta-
+define nu = ve ve~ vm vm~ vt vt~
+define p = p b b~
+define j = j b b~
+define w = w+ w-
+generate p p > w a j j $$ t t~ NP=2, w > lep nu
+output WGjj_VBF 

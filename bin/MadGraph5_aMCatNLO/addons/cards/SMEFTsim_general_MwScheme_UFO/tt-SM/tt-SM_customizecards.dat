@@ -1,0 +1,28 @@
+# Reference Point: cuWRe33 1 cdWRe33 1 cHudRe33 1 cHq3Re33 1 cuWIm33 1 cdWIm33 1 cHudIm33 1
+
+set param_card MASS 6 172.5
+set param_card YUKAWA 6 172.5
+set param_card DECAY 6 auto
+set param_card SMEFT 2 0.e+00
+set param_card SMEFT 66 0.e+00
+set param_card SMEFT 93 0.e+00
+set param_card SMEFT 121 0.e+00
+set param_card SMEFT 124 0.e+00
+set param_card SMEFT 126 0.e+00
+set param_card SMEFT 127 0.e+00
+set param_card SMEFT 130 0.e+00
+set param_card SMEFT 132 0.e+00
+set param_card SMEFT 139 0.e+00
+set param_card SMEFT 142 0.e+00
+set param_card SMEFT 144 0.e+00
+set param_card SMEFT 145 0.e+00
+set param_card SMEFT 148 0.e+00
+set param_card SMEFT 150 0.e+00
+set param_card SMEFT 151 0.e+00
+set param_card SMEFT 152 0.e+00
+set param_card SMEFT 153 0.e+00
+
+set param_card SMEFTcpv 2 0.e+00
+set param_card SMEFTcpv 63 0.e+00
+set param_card SMEFTcpv 90 0.e+00
+set param_card SMEFTcpv 129 0.e+00
