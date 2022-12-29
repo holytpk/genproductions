@@ -33,6 +33,6 @@ define l+ = e+ mu+ ta+
 define l- = e- mu- ta-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
-#generate p p > w+ z j j QED=4 QCD=0 SMHLOOP=0 NPprop=0 NP=1 
-generate p p > w+ z SMHLOOP=0 NPprop=0 NP=1 
+generate p p > w+ z j j QED=4 QCD=0 SMHLOOP=0 NPprop=0 NP=1 
+#generate p p > w+ z SMHLOOP=0 NPprop=0 NP=1 
 output WPhadZlepJJ_EWK_LO_SM_mjj100_pTj10 --nojpeg
