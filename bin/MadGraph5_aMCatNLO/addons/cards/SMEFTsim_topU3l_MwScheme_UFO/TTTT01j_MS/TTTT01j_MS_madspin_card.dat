@@ -23,8 +23,11 @@ set max_running_process 1
 
 # specify the decay for the final state particles
 #(inclusive top decays in this case)
-decay t > w+ b SMHLOOP=0 NPprop=0 NP=0, w+ > all all SMHLOOP=0 NPprop=0 NP=0 
-decay t~ > w- b~ SMHLOOP=0 NPprop=0 NP=0, w- > all all SMHLOOP=0 NPprop=0 NP=0
+#decay t > w+ b SMHLOOP=0 NPprop=0 NP=0, w+ > all all SMHLOOP=0 NPprop=0 NP=0 
+#decay t~ > w- b~ SMHLOOP=0 NPprop=0 NP=0, w- > all all SMHLOOP=0 NPprop=0 NP=0
+
+decay w+ > all all SMHLOOP=0 NPprop=0 NP=0 
+decay w- > all all SMHLOOP=0 NPprop=0 NP=0
 
 # running the actual code
 launch
