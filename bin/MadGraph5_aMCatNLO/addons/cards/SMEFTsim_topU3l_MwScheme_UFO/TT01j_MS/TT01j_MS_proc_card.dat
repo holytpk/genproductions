@@ -2,8 +2,10 @@ import model SMEFTsim_topU3l_MwScheme_UFO-massless_4t
 #import model SMEFTsim_topU3l_MwScheme_UFO
 define p = g u c d s u~ c~ d~ s~
 define j = g u c d s u~ c~ d~ s~
-define l+ = e+ mu+
-define l- = e- mu-
+define q = u c d s 
+define q~ = u~ c~ d~ s~
+define l+ = e+ mu+ ta+
+define l- = e- mu- ta-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
 define p = p b b~
@@ -11,6 +13,8 @@ define p = p b b~
 
 ##### FIXME input b's!!
 
-generate p p > t t~ SMHLOOP=0 NPprop=0 NP=1 @0
-add process p p > t t~ j SMHLOOP=0 NPprop=0 NP=1 @0
+generate p p > t t~ > w+ w- b b~ SMHLOOP=0 NPprop=0 NP=1, w+ > l+ vl SMHLOOP=0 NPprop=0 NP=0, w- > q q~ @0
+add process p p > t t~ > w+ w- b b~ SMHLOOP=0 NPprop=0 NP=1, w- > l- vl~ SMHLOOP=0 NPprop=0 NP=0, w+ > q q~ @1
+add process p p > t t~ > w+ w- b b~ j SMHLOOP=0 NPprop=0 NP=1, w+ > l+ vl SMHLOOP=0 NPprop=0 NP=0, w- > q q~ @0
+add process p p > t t~ > w+ w- b b~ j SMHLOOP=0 NPprop=0 NP=1, w- > l- vl~ SMHLOOP=0 NPprop=0 NP=0, w+ > q q~ @1
 output TT01j_MS -nojpeg
