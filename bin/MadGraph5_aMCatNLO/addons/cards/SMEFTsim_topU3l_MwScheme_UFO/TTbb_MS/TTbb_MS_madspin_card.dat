@@ -32,8 +32,8 @@ define vp = vl vl~
 
 # specify the decay for the final state particles
 #(inclusive top decays in this case)
-decay t > w+ b SMHLOOP=0 NPprop=0 NP=0, w+ > lp np SMHLOOP=0 NPprop=0 NP=0 
-decay t~ > w- b~ SMHLOOP=0 NPprop=0 NP=0, w- > lp np SMHLOOP=0 NPprop=0 NP=0
+decay t > w+ b SMHLOOP=0 NPprop=0 NP=0, w+ > lp vp SMHLOOP=0 NPprop=0 NP=0 
+decay t~ > w- b~ SMHLOOP=0 NPprop=0 NP=0, w- > lp vp SMHLOOP=0 NPprop=0 NP=0
 
 # running the actual code
 launch
