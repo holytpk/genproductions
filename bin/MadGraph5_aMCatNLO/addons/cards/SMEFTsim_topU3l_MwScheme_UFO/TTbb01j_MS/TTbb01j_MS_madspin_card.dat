@@ -22,6 +22,14 @@ set ms_dir ./madspingrid
 
 set max_running_process 1
 
+define l+ = e+ mu+ ta+ 
+define l- = e- mu- ta-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+
+define lp = l+ l-
+define vp = vl vl~
+
 # specify the decay for the final state particles
 #(inclusive top decays in this case)
 decay t > w+ b SMHLOOP=0 NPprop=0 NP=0, w+ > all all SMHLOOP=0 NPprop=0 NP=0 
