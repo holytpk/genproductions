@@ -13,4 +13,4 @@ add process p p > t t~, t > had had b, t~ > l- vl~ b~   @1  NPprop=0 SMHLOOP=0 N
 add process p p > t t~ j, t > l+ vl b, t~ > had had b~    @2  NPprop=0 SMHLOOP=0 NP=1
 add process p p > t t~ j, t > had had b, t~ > l- vl~ b~ @3  NPprop=0 SMHLOOP=0 NP=1
 
-output TT01jDebug -nojpeg
+output TT01j1l_HT800 -nojpeg
