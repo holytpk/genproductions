@@ -9,6 +9,6 @@ define vl~ = ve~ vm~ vt~
 define had = u c d s u~ c~ d~ s~
 
 generate    p p > t t~, t > l+ vl b, t~ > l- vl~ b~      @0  NPprop=0 SMHLOOP=0 NP=1
-add process p p > t t~ j, t > l+ vl b, t~ > l- vl~ b~    @2  NPprop=0 SMHLOOP=0 NP=1
+add process p p > t t~ j, t > l+ vl b, t~ > l- vl~ b~    @1  NPprop=0 SMHLOOP=0 NP=1
 
 output TT01j2l_HT800 -nojpeg
