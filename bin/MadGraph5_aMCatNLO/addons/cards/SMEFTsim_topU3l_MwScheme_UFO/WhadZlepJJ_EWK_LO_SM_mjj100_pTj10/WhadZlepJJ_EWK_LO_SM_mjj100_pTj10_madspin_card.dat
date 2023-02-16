@@ -24,5 +24,6 @@ define vl~ = ve~ vm~ vt~
 
 decay z > l- l+ SMHLOOP=0 NPprop=0 NP=0
 decay w+ > j j SMHLOOP=0 NPprop=0 NP=0
+decay w- > j j SMHLOOP=0 NPprop=0 NP=0
 # running the actual code
 launch
