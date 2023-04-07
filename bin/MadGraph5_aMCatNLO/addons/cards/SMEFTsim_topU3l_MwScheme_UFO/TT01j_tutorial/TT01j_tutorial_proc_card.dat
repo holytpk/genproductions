@@ -10,6 +10,7 @@ define had = u c d s u~ c~ d~ s~
 
 generate    p p > t t~      @0  NPprop=0 SMHLOOP=0 NP=1
 add process p p > t t~ j    @1  NPprop=0 SMHLOOP=0 NP=1
+#add process p p > t t~ j j  @2  NPprop=0 SMHLOOP=0 NP=1
 
 # in 2l decay:
 #generate    p p > t t~, t > l+ vl b, t~ > l- vl~ b~      @0  NPprop=0 SMHLOOP=0 NP=1
