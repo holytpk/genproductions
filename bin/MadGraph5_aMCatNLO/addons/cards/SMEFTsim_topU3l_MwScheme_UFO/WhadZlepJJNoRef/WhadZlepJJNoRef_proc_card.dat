@@ -26,7 +26,7 @@ set ignore_six_quark_processes False
 set loop_optimized_output True
 set complex_mass_scheme False
 #import model sm-ckm_no_b_mass
-import model SMEFTsim_topU3l_MwScheme_UFO-massless_VBS
+import model SMEFTsim_topU3l_MwScheme_UFO-massless_VH
 define p = g u c d s b u~ c~ d~ s~ b~
 define j = p 
 define l+ = e+ mu+ ta+

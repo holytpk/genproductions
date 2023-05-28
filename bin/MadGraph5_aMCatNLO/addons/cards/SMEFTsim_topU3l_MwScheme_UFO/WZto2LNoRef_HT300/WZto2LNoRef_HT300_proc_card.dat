@@ -14,4 +14,4 @@ define w = w+ w-
 generate    p p > w z  , w > j j , z > l+ l- @0 SMHLOOP=0 NPprop=0 NP=1
 add process p p > w z j, w > j j , z > l+ l- @1 SMHLOOP=0 NPprop=0 NP=1
 
-output Zto2LNoRef_HT300
+output WZto2LNoRef_HT300
