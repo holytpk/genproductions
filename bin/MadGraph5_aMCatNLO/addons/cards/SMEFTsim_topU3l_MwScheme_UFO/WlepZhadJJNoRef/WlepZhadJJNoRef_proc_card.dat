@@ -26,14 +26,16 @@ set ignore_six_quark_processes False
 set loop_optimized_output True
 set complex_mass_scheme False
 #import model sm-ckm_no_b_mass
-import model SMEFTsim_topU3l_MwScheme_UFO-massless_VH
+import model SMEFTsim_topU3l_MwScheme_UFO-massless_VBS
 define p = g u c d s b u~ c~ d~ s~ b~
 define j = p 
 define l+ = e+ mu+ ta+
 define l- = e- mu- ta-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
-generate p p > w+ z j j QED=4 QCD=0 SMHLOOP=0 NPprop=0 NP=1 
-add process p p > w- z j j QED=4 QCD=0 SMHLOOP=0 NPprop=0 NP=1 
+#generate p p > w+ z j j QED=4 QCD=0 SMHLOOP=0 NPprop=0 NP=1 
+#add process p p > w- z j j QED=4 QCD=0 SMHLOOP=0 NPprop=0 NP=1 
+generate p p > w+ z j j SMHLOOP=0 NPprop=0 NP=1 
+add process p p > w- z j j SMHLOOP=0 NPprop=0 NP=1 
 #generate p p > w+ z SMHLOOP=0 NPprop=0 NP=1 
 output WlepZhadJJNoRef --nojpeg

@@ -110,10 +110,10 @@ Block SMEFT
    23 0. # cbWRe 
    24 0. # cdBRe 
    25 0. # cbBRe 
-   26 0. # cHj1 
-   27 0. # cHQ1 
-   28 0. # cHj3 
-   29 0. # cHQ3 
+   26 0.1000e-15 # cHj1 
+   27 0.2000e-15 # cHQ1 
+   28 0.3000e-15 # cHj3 
+   29 0.4000e-15 # cHQ3 
    30 0. # cHu 
    31 0. # cHt 
    32 0. # cHd 

@@ -1,7 +1,6 @@
-# reweight card file created with https://github.com/schoef/gridpacks on 2023-07-05 19:04:53
-# Command line arguments: ../../../../make_reweight_card.py --couplings 2 cW 1 cWtil 1 --referencepoint cW 1 cWtil 1 --filename test_reweight_card.dat --overwrite
+# reweight card file created with https://github.com/schoef/gridpacks on 2023-07-12 20:52:43
+# Command line arguments: ../../../../make_reweight_card.py --couplings 2 cW 1 cWtil 1 --filename WZto2LNoRef2WC_HT300_reweight_card.dat --overwrite
 # Polynomial order: 2
-# Reference Point: cW 1 cWtil 1
 change rwgt_dir rwgt
 
 launch --rwgt_name=dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.
