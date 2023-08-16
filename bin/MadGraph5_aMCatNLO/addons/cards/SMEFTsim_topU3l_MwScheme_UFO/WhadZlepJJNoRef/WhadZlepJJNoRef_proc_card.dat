@@ -33,9 +33,12 @@ define l+ = e+ mu+ ta+
 define l- = e- mu- ta-
 define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
+define w = w+ w-
 #generate p p > w+ z j j QED=4 QCD=0 SMHLOOP=0 NPprop=0 NP=1 
 #add process p p > w- z j j QED=4 QCD=0 SMHLOOP=0 NPprop=0 NP=1 
-generate p p > w+ z j j SMHLOOP=0 NPprop=0 NP=1 
-add process p p > w- z j j SMHLOOP=0 NPprop=0 NP=1 
+#generate p p > w+ z j j SMHLOOP=0 NPprop=0 NP=1 
+#add process p p > w- z j j SMHLOOP=0 NPprop=0 NP=1 
+
+generate p p > w z j j, w > j j, z > l+ l- SMHLOOP=0 NPprop=0 NP=1 
 
 output WhadZlepJJNoRef --nojpeg
