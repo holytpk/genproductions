@@ -12,4 +12,4 @@ generate    p p > t t~, t > l+ vl b, t~ > l- vl~ b~     @0  NPprop=0 SMHLOOP=0 N
 add process p p > t t~ j, t > l+ vl b, t~ > l- vl~ b~    @1  NPprop=0 SMHLOOP=0 NP=1
 add process p p > t t~ j j, t > l+ vl b, t~ > l- vl~ b~    @2  NPprop=0 SMHLOOP=0 NP=1
 
-output TT012j2lCA -nojpeg
+output TT012j2lCA_HT500 -nojpeg
