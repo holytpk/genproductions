@@ -13,4 +13,4 @@ add process p p > t t~, (t > had had b NPprop=0 SMHLOOP=0 NP=0), (t~ > l- vl~ b~
 add process p p > t t~ j, (t > l+ vl b NPprop=0 SMHLOOP=0 NP=0), (t~ > had had b~ NPprop=0 SMHLOOP=0 NP=0)    @2  NPprop=0 SMHLOOP=0 NP=1
 add process p p > t t~ j, (t > had had b NPprop=0 SMHLOOP=0 NP=0), (t~ > l- vl~ b~ NPprop=0 SMHLOOP=0 NP=0) @3  NPprop=0 SMHLOOP=0 NP=1
 
-output TT01j1lCA -nojpeg
+output TT01j1lCA_HT500_test -nojpeg
