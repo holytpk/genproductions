@@ -12,5 +12,7 @@ generate    p p > t t~, (t > l+ vl b NPprop=0 SMHLOOP=0 NP=0), (t~ > had had b~ 
 add process p p > t t~, (t > had had b NPprop=0 SMHLOOP=0 NP=0), (t~ > l- vl~ b~ NPprop=0 SMHLOOP=0 NP=0)   @1  NPprop=0 SMHLOOP=0 NP=1
 add process p p > t t~ j, (t > l+ vl b NPprop=0 SMHLOOP=0 NP=0), (t~ > had had b~ NPprop=0 SMHLOOP=0 NP=0)    @2  NPprop=0 SMHLOOP=0 NP=1
 add process p p > t t~ j, (t > had had b NPprop=0 SMHLOOP=0 NP=0), (t~ > l- vl~ b~ NPprop=0 SMHLOOP=0 NP=0) @3  NPprop=0 SMHLOOP=0 NP=1
+add process p p > t t~ j j, (t > l+ vl b NPprop=0 SMHLOOP=0 NP=0), (t~ > had had b~ NPprop=0 SMHLOOP=0 NP=0)    @4  NPprop=0 SMHLOOP=0 NP=1
+add process p p > t t~ j j, (t > had had b NPprop=0 SMHLOOP=0 NP=0), (t~ > l- vl~ b~ NPprop=0 SMHLOOP=0 NP=0) @5  NPprop=0 SMHLOOP=0 NP=1
 
-output TT01j1lCA_HT500_test -nojpeg
+output TT012j1lCARef -nojpeg
