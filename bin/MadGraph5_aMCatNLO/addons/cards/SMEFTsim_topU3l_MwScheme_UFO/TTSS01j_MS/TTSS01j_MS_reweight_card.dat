@@ -1,0 +1,31 @@
+# reweight card file created with https://github.com/schoef/gridpacks on 2023-01-11 05:11:11
+# Command line arguments: ../../../../make_reweight_card.py --couplings 2 QtQb1Re 1 QtQb8Re 1 --filename TTSS01j_MS_reweight_card.dat --overwrite
+# Polynomial order: 2
+change rwgt_dir rwgt
+
+launch --rwgt_name=dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.
+
+launch --rwgt_name=QtQb1Re_0p_QtQb8Re_0p
+set QtQb1Re 0.000000
+set QtQb8Re 0.000000
+
+launch --rwgt_name=QtQb1Re_1p_QtQb8Re_0p
+set QtQb1Re 1.000000
+set QtQb8Re 0.000000
+
+launch --rwgt_name=QtQb1Re_0p_QtQb8Re_1p
+set QtQb1Re 0.000000
+set QtQb8Re 1.000000
+
+launch --rwgt_name=QtQb1Re_2p_QtQb8Re_0p
+set QtQb1Re 2.000000
+set QtQb8Re 0.000000
+
+launch --rwgt_name=QtQb1Re_1p_QtQb8Re_1p
+set QtQb1Re 1.000000
+set QtQb8Re 1.000000
+
+launch --rwgt_name=QtQb1Re_0p_QtQb8Re_2p
+set QtQb1Re 0.000000
+set QtQb8Re 2.000000
+

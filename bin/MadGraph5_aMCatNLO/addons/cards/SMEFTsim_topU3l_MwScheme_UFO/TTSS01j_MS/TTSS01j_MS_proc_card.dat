@@ -1,0 +1,18 @@
+#import model SMEFTsim_topU3l_MwScheme_UFO
+import model SMEFTsim_general_MwScheme_UFO
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+define p = p b b~
+#define j = j b b~
+
+##### FIXME input b's!!
+
+generate p p > t t SMHLOOP=0 NPprop=0 NP=1 @0
+add process p p > t~ t~ SMHLOOP=0 NPprop=0 NP=1 @0
+#generate p p > t t j j SMHLOOP=0 NPprop=0 NP=1 @0
+#add process p p > t~ t~ j j SMHLOOP=0 NPprop=0 NP=1 @0
+output TTSS01j_MS -nojpeg
