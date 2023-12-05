@@ -11,7 +11,7 @@ define vl = ve vm vt
 define vl~ = ve~ vm~ vt~
 define w = w+ w-
 
-generate    p p > w z  , w > j j , z > l+ l- @0 SMHLOOP=0 NPprop=0 NP=1
-add process p p > w z j, w > j j , z > l+ l- @1 SMHLOOP=0 NPprop=0 NP=1
+generate    p p > w z   SMHLOOP=0 NPprop=0 NP=1, w > j j , z > l+ l- @0 
+add process p p > w z j SMHLOOP=0 NPprop=0 NP=1, w > j j , z > l+ l- @1 
 
 output WZto2L_HT300
