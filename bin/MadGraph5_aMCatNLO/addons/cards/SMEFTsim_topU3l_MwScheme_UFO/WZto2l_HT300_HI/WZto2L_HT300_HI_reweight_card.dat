@@ -1,0 +1,58 @@
+# reweight card file created with https://github.com/schoef/gridpacks on 2023-11-08 00:54:00
+# Command line arguments: ../../../../make_reweight_card.py --couplings 2 cHj3 1 cW 1 cWtil 1 --filename WZto1L1NuNoRef_HT300_reweight_card.dat --overwrite
+# Polynomial order: 2
+change rwgt_dir rwgt
+change helicity False
+
+launch --rwgt_name=dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.
+
+launch --rwgt_name=cHj3_0p_cW_0p_cWtil_0p
+set cHj3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+
+launch --rwgt_name=cHj3_1p_cW_0p_cWtil_0p
+set cHj3 1.000000
+set cW 0.000000
+set cWtil 0.000000
+
+launch --rwgt_name=cHj3_0p_cW_1p_cWtil_0p
+set cHj3 0.000000
+set cW 1.000000
+set cWtil 0.000000
+
+launch --rwgt_name=cHj3_0p_cW_0p_cWtil_1p
+set cHj3 0.000000
+set cW 0.000000
+set cWtil 1.000000
+
+launch --rwgt_name=cHj3_2p_cW_0p_cWtil_0p
+set cHj3 2.000000
+set cW 0.000000
+set cWtil 0.000000
+
+launch --rwgt_name=cHj3_1p_cW_1p_cWtil_0p
+set cHj3 1.000000
+set cW 1.000000
+set cWtil 0.000000
+
+launch --rwgt_name=cHj3_1p_cW_0p_cWtil_1p
+set cHj3 1.000000
+set cW 0.000000
+set cWtil 1.000000
+
+launch --rwgt_name=cHj3_0p_cW_2p_cWtil_0p
+set cHj3 0.000000
+set cW 2.000000
+set cWtil 0.000000
+
+launch --rwgt_name=cHj3_0p_cW_1p_cWtil_1p
+set cHj3 0.000000
+set cW 1.000000
+set cWtil 1.000000
+
+launch --rwgt_name=cHj3_0p_cW_0p_cWtil_2p
+set cHj3 0.000000
+set cW 0.000000
+set cWtil 2.000000
+
