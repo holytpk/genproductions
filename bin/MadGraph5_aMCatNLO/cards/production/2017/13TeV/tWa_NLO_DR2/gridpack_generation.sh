@@ -36,11 +36,7 @@ make_tarball () {
 
     EXTRA_TAR_ARGS=""
     if [ -e $CARDSDIR/${name}_externaltarball.dat ]; then
-        EXTRA_TAR_ARGS="external_tarball header_for_madspin.txt "
-    fi
-    ### include merge.pl script for LO event merging 
-    if [ -e merge.pl ]; then
-        EXTRA_TAR_ARGS+="merge.pl "
+        EXTRA_TAR_ARGS="${name}_externaltarball.dat header_for_madspin.txt"
     fi
     XZ_OPT="$XZ_OPT" tar -cJpsf ${PRODHOME}/${name}_${scram_arch}_${cmssw_version}_tarball.tar.xz mgbasedir process runcmsgrid.sh gridpack_generation*.log InputCards $EXTRA_TAR_ARGS
 
@@ -60,68 +56,14 @@ make_gridpack () {
     echo "queue: ${queue}"
     echo "scram_arch: ${scram_arch}"
     echo "cmssw_version: ${cmssw_version}"
-
-    ########################
-    #Locating the proc card#
-    ########################
-
-    if [ ! -d $CARDSDIR ]; then
-      echo $CARDSDIR " does not exist!"
-      if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
-    fi
-
-    if [ ! -e $CARDSDIR/${name}_proc_card.dat ]; then
-      echo $CARDSDIR/${name}_proc_card.dat " does not exist!"
-      if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
-    fi
-
-    if [ ! -e $CARDSDIR/${name}_run_card.dat ]; then
-      echo $CARDSDIR/${name}_run_card.dat " does not exist!"
-      if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
-    fi
-
-    if [ -e $CARDSDIR/${name}_madspin_card.dat ]; then
-      if grep -F "Nevents_for_max_weight" $CARDSDIR/${name}_madspin_card.dat; then
-        sed -i 's|Nevents_for_max_weight|Nevents_for_max_weigth|g' $CARDSDIR/${name}_madspin_card.dat
-        echo "Unfixing the typo fix : Nevents_for_max_weight -> Nevents_for_max_weigth"
-      fi
-    fi
-
-    # avoid compute_widths in customizecards 
-    if [ -e $CARDSDIR/${name}_customizecards.dat ]; then
-        if grep -F "compute_widths" $CARDSDIR/${name}_customizecards.dat ; then
-            echo "<<compute_widths X>> is used in your customizecards.dat"
-            echo "This could be problematic from time to time, so instead use <<set decay wX AUTO>> for width computations. Please take a look at \"compute_widths\" under \"Troubleshooting_and_Suggestions\" section."
-            echo "https://twiki.cern.ch/twiki/bin/view/CMS/QuickGuideMadGraph5aMCatNLO#Troubleshooting_and_Suggestions"
-            exit 1;
-        fi
-    fi
-
-    # avoid characters in weight names that potentially corrupt lhe header 
-    if [ -e $CARDSDIR/${name}_reweight_card.dat ]; then
-        for weightname in `grep rwgt_name $CARDSDIR/${name}_reweight_card.dat` ; do
-            if [[ "$weightname" == *"rwgt_name="* ]]; then
-                remove="rwgt_name="
-                weightname=${weightname#*$remove}
-            else
-                continue
-            fi
-            if [[ $weightname == *['!'@#\$%^\&*()\+\[\]{}]* ]]; then 
-                echo " Please remove problematic characters from weight name: $weightname"  
-                exit 1;    
-            fi
-        done 
-    fi
-
+    
     # CMS Connect runs git status inside its own script.
     if [ $iscmsconnect -eq 0 ]; then
       cd $PRODHOME
-      if [ -x "$(command -v git)" ]; then
-        git status
-        echo "Current git revision is:"
-        git rev-parse HEAD
-        git diff | cat
-      fi
+      git status
+      echo "Current git revision is:"
+      git rev-parse HEAD
+      git diff | cat
       cd -
     fi
     
@@ -129,7 +71,7 @@ make_gridpack () {
     MGBASEDIR=mgbasedir
     
     MG_EXT=".tar.gz"
-    MG=MG5_aMC_v2.6.5$MG_EXT
+    MG=MG5_aMC_v2.6.0$MG_EXT
     MGSOURCE=https://cms-project-generators.web.cern.ch/cms-project-generators/$MG
     
     MGBASEDIRORIG=$(echo ${MG%$MG_EXT} | tr "." "_")
@@ -144,17 +86,15 @@ make_gridpack () {
     
       cd $GEN_FOLDER
     
+    #   export SCRAM_ARCH=slc6_amd64_gcc472 #Here one should select the correct architechture corresponding with the CMSSW release
+    #   export RELEASE=CMSSW_5_3_32_patch3
+    
       export SCRAM_ARCH=${scram_arch}
       export RELEASE=${cmssw_version}
     
       ############################
       #Create a workplace to work#
       ############################
-      export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch
-      set +u
-      source $VO_CMS_SW_DIR/cmsset_default.sh
-      set -u
-
       scram project -n ${name}_gridpack CMSSW ${RELEASE} ;
       if [ ! -d ${name}_gridpack ]; then  
         if [ "${BASH_SOURCE[0]}" != "${0}" ]; then echo "yes here"; return 1; else exit 1; fi
@@ -164,12 +104,7 @@ make_gridpack () {
       WORKDIR=`pwd`
       eval `scram runtime -sh`
     
-      # use python 2.7 and include python bindings from default to allow "import htcondor" after cmsenv
-      set +u 
-      if [ ! -z "${PYTHON27PATH}" ] ; then export PYTHONPATH=${PYTHON27PATH} ; fi 
-      if [ ! -z "${PYTHON_BINDINGS}" ] ; then export PYTHONPATH=${PYTHONPATH}:${PYTHON_BINDINGS} ; fi
-      set -u 
-        
+    
       #############################################
       #Copy, Unzip and Delete the MadGraph tarball#
       #############################################
@@ -207,9 +142,6 @@ make_gridpack () {
     
       if [ "$queue" == "local" ]; then
           echo "set run_mode 2" >> mgconfigscript
-      elif [ "$queue" == "pdmv" ]; then
-          echo "set run_mode 2" >> mgconfigscript
-	  echo "set nb_core $NB_CORE" >> mgconfigscript
       else
           #suppress lsf emails
           export LSB_JOB_REPORT_MAIL="N"
@@ -256,14 +188,12 @@ make_gridpack () {
       if [ -e $CARDSDIR/${name}_extramodels.dat ]; then
         echo "Loading extra models specified in $CARDSDIR/${name}_extramodels.dat"
         #strip comments
-        sed 's:#.*$::g' $CARDSDIR/${name}_extramodels.dat | while read -r model || [ -n "$model" ]
+        sed 's:#.*$::g' $CARDSDIR/${name}_extramodels.dat | while read model
         do
           #get needed BSM model
           if [[ $model = *[!\ ]* ]]; then
             echo "Loading extra model $model"
-            #wget --no-check-certificate https://cms-project-generators.web.cern.ch/cms-project-generators/$model	
-            #wget --no-check-certificate https://chatterj.web.cern.ch/chatterj/models/$model	
-            wget --no-check-certificate https://schoef.web.cern.ch/schoef/models/$model	
+            wget --no-check-certificate https://cms-project-generators.web.cern.ch/cms-project-generators/$model	
             cd models
             if [[ $model == *".zip"* ]]; then
               unzip ../$model
@@ -288,7 +218,31 @@ make_gridpack () {
       fi
     
       echo `pwd`
-
+    
+    
+      if [ -z ${carddir} ]; then
+        echo "Card directory not provided"
+        if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
+      fi
+    
+      if [ ! -d $CARDSDIR ]; then
+        echo $CARDSDIR " does not exist!"
+        if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
+      fi  
+      
+      ########################
+      #Locating the proc card#
+      ########################
+      if [ ! -e $CARDSDIR/${name}_proc_card.dat ]; then
+        echo $CARDSDIR/${name}_proc_card.dat " does not exist!"
+        if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
+      fi
+    
+      if [ ! -e $CARDSDIR/${name}_run_card.dat ]; then
+        echo $CARDSDIR/${name}_run_card.dat " does not exist!"
+        if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
+      fi  
+      
       cp $CARDSDIR/${name}_proc_card.dat ${name}_proc_card.dat
       
       #*FIXME* workaround for broken cluster_local_path handling. 
@@ -301,25 +255,8 @@ make_gridpack () {
       ########################
     
       sed -i '$ a display multiparticles' ${name}_proc_card.dat
-
-      #check if MadSTR plugin is needed (DR/DS removal,  https://arxiv.org/pdf/1907.04898.pdf)
-      runMadSTR=`grep "istr" $CARDSDIR/${name}_run_card.dat | grep -v "#" |  cut -d  "="  -f 1`
-      if [ -z ${runMadSTR} ] ; then
-          runMadSTR=0 # plugin settings not found in run_card
-      else
-          if [ "${runMadSTR}" -lt 1 ] || [ "${runMadSTR}" -gt 6 ] ; then
-              echo "istr should be between 1 and 6" # wrong settings 
-              exit 1
-	  fi
-      fi
-      if [  "$runMadSTR" == 0 ]; then 
-	  ./$MGBASEDIRORIG/bin/mg5_aMC ${name}_proc_card.dat # normal run without plugin 
-      else
-	  echo "Invoke MadSTR plugin when starting MG5_aMC@NLO" 
-	  cp -r $PRODHOME/PLUGIN/MadSTR $MGBASEDIRORIG/PLUGIN/ # copy plugin 
-          ./$MGBASEDIRORIG/bin/mg5_aMC --mode=MadSTR ${name}_proc_card.dat # run invoking MadSTR plugin
-      fi
-	
+      ./$MGBASEDIRORIG/bin/mg5_aMC ${name}_proc_card.dat
+    
       is5FlavorScheme=0
       if tail -n 20 $LOGFILE | grep -q -e "^p *=.*b\~.*b" -e "^p *=.*b.*b\~"; then 
         is5FlavorScheme=1
@@ -360,7 +297,7 @@ make_gridpack () {
       echo "WARNING: If you changed the process card you need to clean the folder and run from scratch"
     
       if [ "$is5FlavorScheme" -eq -1 ]; then
-        if grep -q -e "^p *=.*b\~.*b" -e "^p *=.*b.*b\~" $LOGFILE_NAME*.log; then 
+        if cat $LOGFILE_NAME*.log | grep -q -e "^p *=.*b\~.*b" -e "^p *=.*b.*b\~"; then 
             is5FlavorScheme=1
         else
             is5FlavorScheme=0
@@ -402,6 +339,21 @@ make_gridpack () {
           if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
         fi
       fi
+      
+      if [ -z ${carddir} ]; then
+        echo "Card directory not provided"
+        if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
+      fi
+    
+      if [ ! -d $CARDSDIR ]; then
+        echo $CARDSDIR " does not exist!"
+        if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
+      fi
+      
+      if [ ! -e $CARDSDIR/${name}_run_card.dat ]; then
+        echo $CARDSDIR/${name}_run_card.dat " does not exist!"
+        if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
+      fi  
     
     fi  
     
@@ -433,25 +385,15 @@ make_gridpack () {
     
     cd processtmp
     
-    #automatically detect NLO mode or LO mode from output directory
-    isnlo=0
-    if [ -e ./MCatNLO ]; then
-      isnlo=1
-    fi
-    
     #################################
     #Add PDF info and copy run card #
     #################################
     script_dir="${PRODHOME}/Utilities/scripts"
     if [ ! -d "$script_dir" ]; then
-      if ! [ -x "$(command -v git)" ]; then
-        script_dir=${PRODHOME%genproductions*}/genproductions/Utilities/scripts
-      else
-        script_dir=$(git rev-parse --show-toplevel)/Utilities/scripts
-      fi
+      script_dir=$(git rev-parse --show-toplevel)/Utilities/scripts
     fi
     
-    prepare_run_card $name $CARDSDIR $is5FlavorScheme $script_dir $isnlo
+    prepare_run_card $name $CARDSDIR $is5FlavorScheme $script_dir
     
     #copy provided custom fks params or cuts
     if [ -e $CARDSDIR/${name}_cuts.f ]; then
@@ -478,12 +420,14 @@ make_gridpack () {
       echo "copying custom reweight file"
       cp $CARDSDIR/${name}_reweight_card.dat ./Cards/reweight_card.dat
     fi
-   
-    if [ -e $CARDSDIR/${name}_param_card.dat ]; then
-      echo "copying custom params file"
-      cp $CARDSDIR/${name}_param_card.dat ./Cards/param_card.dat
+    
+    
+    #automatically detect NLO mode or LO mode from output directory
+    isnlo=0
+    if [ -e ./MCatNLO ]; then
+      isnlo=1
     fi
-     
+    
     if [ "$isnlo" -gt "0" ]; then
     #NLO mode  
       #######################
@@ -499,17 +443,16 @@ make_gridpack () {
       echo "reweight=OFF" >> makegrid.dat
       echo "done" >> makegrid.dat
       if [ -e $CARDSDIR/${name}_customizecards.dat ]; then
-              cat $CARDSDIR/${name}_customizecards.dat | sed '/^$/d;/^#.*$/d' >> makegrid.dat
+              cat $CARDSDIR/${name}_customizecards.dat >> makegrid.dat
               echo "" >> makegrid.dat
       fi
       echo "done" >> makegrid.dat
-
+    
       cat makegrid.dat | ./bin/generate_events -n pilotrun
       # Run this step separately in debug mode since it gives so many problems
       if [ -e $CARDSDIR/${name}_reweight_card.dat ]; then
           echo "preparing reweighting step"
-          prepare_reweight $isnlo $WORKDIR $scram_arch $CARDSDIR/${name}_reweight_card.dat
-	  extract_width $isnlo $WORKDIR $CARDSDIR ${name}
+          prepare_reweight $isnlo $WORKDIR $scram_arch $CARDSDIR/${name}_reweight_card.dat 
       fi
       
       echo "finished pilot run"
@@ -553,11 +496,12 @@ make_gridpack () {
       echo "done" > makegrid.dat
       echo "set gridpack True" >> makegrid.dat
       if [ -e $CARDSDIR/${name}_customizecards.dat ]; then
-              cat $CARDSDIR/${name}_customizecards.dat | sed '/^$/d;/^#.*$/d' >> makegrid.dat
+              cat $CARDSDIR/${name}_customizecards.dat >> makegrid.dat
               echo "" >> makegrid.dat
       fi
       echo "done" >> makegrid.dat
-    
+
+      bash ${CARDSDIR}/copy_files_script.sh ${CARDSDIR} ${WORKDIR}
     #   set +e
       cat makegrid.dat | ./bin/generate_events pilotrun
       echo "finished pilot run"
@@ -582,21 +526,21 @@ make_gridpack () {
       tar -xzf $WORKDIR/pilotrun_gridpack.tar.gz
       echo "cleaning temporary gridpack"
       rm $WORKDIR/pilotrun_gridpack.tar.gz
-
+      
       # precompile reweighting if necessary
       if [ -e $CARDSDIR/${name}_reweight_card.dat ]; then
           echo "preparing reweighting step"
-          prepare_reweight $isnlo $WORKDIR $scram_arch $CARDSDIR/${name}_reweight_card.dat
-	  extract_width $isnlo $WORKDIR $CARDSDIR ${name}
+          prepare_reweight $isnlo $WORKDIR $scram_arch $CARDSDIR/${name}_reweight_card.dat 
       fi
-      
+    
       #prepare madspin grids if necessary
       if [ -e $CARDSDIR/${name}_madspin_card.dat ]; then
         echo "import $WORKDIR/unweighted_events.lhe.gz" > madspinrun.dat
         cat $CARDSDIR/${name}_madspin_card.dat >> madspinrun.dat
-        $WORKDIR/$MGBASEDIRORIG/MadSpin/madspin madspinrun.dat 
+        cat madspinrun.dat | $WORKDIR/$MGBASEDIRORIG/MadSpin/madspin
         rm madspinrun.dat
         rm -rf tmp*
+        cp $CARDSDIR/${name}_madspin_card.dat $WORKDIR/process/madspin_card.dat
       fi
     
       echo "preparing final gridpack"
@@ -635,6 +579,7 @@ make_gridpack () {
     #
     #Plan to decay events from external tarball?
     # 
+    
     if [ -e $CARDSDIR/${name}_externaltarball.dat ]; then
         echo "Locating the external tarball"
         cp $CARDSDIR/${name}_externaltarball.dat .
@@ -648,11 +593,6 @@ make_gridpack () {
         cd ..
         rm $tarname
     fi
-
-    # copy merge.pl from Utilities to allow merging LO events
-    cd $WORKDIR/gridpack
-    cp $PRODHOME/Utilities/merge.pl . 
-
 }
 
 #exit on first error
@@ -671,35 +611,25 @@ queue=${3}
 # processing options
 jobstep=${4}
 
-# sync default cmssw with the current OS 
-export SYSTEM_RELEASE=`cat /etc/redhat-release`
-
-# set scram_arch 
-if [ -n "$5" ]; then
+if [ -n "$5" ]
+  then
     scram_arch=${5}
-else
-    if [[ $SYSTEM_RELEASE == *"release 6"* ]]; then 
-        scram_arch=slc6_amd64_gcc700 
-    elif [[ $SYSTEM_RELEASE == *"release 7"* ]]; then 
-        scram_arch=slc7_amd64_gcc700 
-    else 
-        echo "No default scram_arch for current OS!"
-        if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi        
-    fi
+  else
+    scram_arch=slc6_amd64_gcc630 #slc6_amd64_gcc481
 fi
 
-#set cmssw 
-if [ -n "$6" ]; then
+# Require OS and scram_arch to be consistent
+export SYSTEM_RELEASE=`cat /etc/redhat-release`
+if { [[ $SYSTEM_RELEASE == *"release 6"* ]] && [[ $scram_arch == *"slc7"* ]]; } || { [[ $SYSTEM_RELEASE == *"release 7"* ]] && [[ $scram_arch == *"slc6"* ]]; }; then
+  echo "Mismatch between architecture (${scram_arch}) and OS (${SYSTEM_RELEASE})"
+  if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
+fi
+
+if [ -n "$6" ]
+  then
     cmssw_version=${6}
-else
-    if [[ $SYSTEM_RELEASE == *"release 6"* ]]; then 
-        cmssw_version=CMSSW_10_2_24_patch1 
-    elif [[ $SYSTEM_RELEASE == *"release 7"* ]]; then 
-        cmssw_version=CMSSW_10_6_19 
-    else 
-        echo "No default CMSSW for current OS!"
-        if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi        
-    fi
+  else
+    cmssw_version=CMSSW_9_3_8 #CMSSW_7_1_30
 fi
  
 # jobstep can be 'ALL','CODEGEN', 'INTEGRATE', 'MADSPIN'
@@ -709,17 +639,11 @@ if [ -z "$PRODHOME" ]; then
 fi 
 
 # Folder structure is different on CMSConnect
-helpers_dir=${PRODHOME%genproductions*}/genproductions/Utilities
-helpers_file=${helpers_dir}/gridpack_helpers.sh
-if [ ! -f "$helpers_file" ]; then
-  if [ -f "${PRODHOME}/Utilities/gridpack_helpers.sh" ]; then
-    helpers_dir=${PRODHOME}/Utilities
-  else
+helpers_dir=${PRODHOME}/Utilities
+if [ ! -d "$helpers_dir" ]; then
     helpers_dir=$(git rev-parse --show-toplevel)/bin/MadGraph5_aMCatNLO/Utilities
-  fi
-  helpers_file=${helpers_dir}/gridpack_helpers.sh
 fi
-source ${helpers_file}
+source ${helpers_dir}/gridpack_helpers.sh 
 
 
 if [ ! -z ${CMSSW_BASE} ]; then
@@ -730,10 +654,6 @@ fi
 
 #catch unset variables
 set -u
-
-if [ -z ${carddir} ]; then
-    echo "Card directory not provided"
-fi
 
 if [ -z ${name} ]; then
   echo "Process/card name not provided"
@@ -764,15 +684,6 @@ fi
 
 #For correct running you should place at least the run and proc card in a folder under the name "cards" in the same folder where you are going to run the script
 RUNHOME=`pwd`
-
-if [[ `uname -a` == *"lxplus"* ]]; then
-  if [[ $RUNHOME == *"/eos/home-"* ]]; then
-      echo "Running in /eos/home-X/~ which is not really stable. Use /eos/user/X/ instead."
-      exit 1;
-      #Preventing the use of /eos/home-X/ solely based on experience! Might not be a REAL problem.
-  fi
-fi
-
 LOGFILE=${RUNHOME}/${name}.log
 LOGFILE_NAME=${LOGFILE/.log/}
 
@@ -793,7 +704,7 @@ if [ "${name}" != "interactive" ]; then
     set -o pipefail
     # Do not exit main shell if make_gridpack fails. We want to return rather than exit if we are sourcing this script.
     set +e
-    make_gridpack |& tee $LOGFILE
+    make_gridpack | tee $LOGFILE
     pipe_status=$PIPESTATUS
     # tee above will create a subshell, so exit calls inside function will just affect that subshell instance and return the exitcode in this shell.
     # This breaks cases when the calls inside make_gridpack try to exit the main shell with some error, hence not having the gridpack directory.
