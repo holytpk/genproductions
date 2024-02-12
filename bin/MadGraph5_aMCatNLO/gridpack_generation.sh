@@ -263,7 +263,8 @@ make_gridpack () {
             echo "Loading extra model $model"
             #wget --no-check-certificate https://cms-project-generators.web.cern.ch/cms-project-generators/$model	
             #wget --no-check-certificate https://chatterj.web.cern.ch/chatterj/models/$model	
-            wget --no-check-certificate https://schoef.web.cern.ch/schoef/models/$model	
+            #wget --no-check-certificate https://schoef.web.cern.ch/schoef/models/$model	
+	    wget --no-check-certificate https://mshooshtari.web.cern.ch/models/$model
             cd models
             if [[ $model == *".zip"* ]]; then
               unzip ../$model
