@@ -1,4 +1,4 @@
-import model SMEFTsim_topU3l_MwScheme_UFO-massless_4t_2t2b
+import model SMEFTsim_topU3l_MwScheme_UFO-massless_4t_2t2b_cQQ1
 #import model SMEFTsim_topU3l_MwScheme_UFO
 define p = g u c d s u~ c~ d~ s~
 define j = g u c d s u~ c~ d~ s~
