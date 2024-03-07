@@ -1,0 +1,20 @@
+import model SMEFTsim_topU3l_MwScheme_UFO-massless_4t_2t2b_cQQ1
+#import model SMEFTsim_topU3l_MwScheme_UFO
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+define l+ = e+ mu+ ta+ 
+define l- = e- mu- ta-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+
+define lp = l+ l-
+define vp = vl vl~
+
+define p = p b b~
+#define j = j b b~
+generate p p > t t~ b b~ NPprop=0 SMHLOOP=0 NP<=1 NP^2==1 @0 
+add process p p > t t~ b b~ j NPprop=0 SMHLOOP=0 NP<=1 NP^2==1 @0 
+#generate p p > t t~ b b~, (t > l+ vl b NPprop=0 SMHLOOP=0 NP=0), (t~ > l- vl~ b~ NPprop=0 SMHLOOP=0 NP=0)  @0  SMHLOOP=0 NPprop=0 NP=1
+#add process p p > t t~ b b~ j SMHLOOP=0 NPprop=0 NP=1 @0
+#add process p p > t t~ j j SMHLOOP=0 NPprop=0 NP=1 @0
+output TTbb01j_cQQ1_lin -nojpeg
