@@ -54,8 +54,8 @@ $DEFAULT_PDF_MEMBERS = reweight_PDF     ! if pdlabel=lhapdf, this is the lhapdf 
 #*********************************************************************
 # Renormalization and factorization scales                           *
 #*********************************************************************
- T        = fixed_ren_scale  ! if .true. use fixed ren scale
- T        = fixed_fac_scale  ! if .true. use fixed fac scale
+ F        = fixed_ren_scale  ! if .true. use fixed ren scale
+ F        = fixed_fac_scale  ! if .true. use fixed fac scale
  91.1880  = scale            ! fixed ren scale
  91.1880  = dsqrt_q2fact1    ! fixed fact scale for pdf1
  91.1880  = dsqrt_q2fact2    ! fixed fact scale for pdf2
