@@ -45,7 +45,7 @@ def recurse( c_list ):
 
 def getWeightName( reweight ):
     name = "_".join( [ ("%s_%8.6f"%( reweight[2*i], reweight[2*i+1] )).rstrip('0') for i in range(len(reweight)/2) ] ) 
-    return name.replace('.','p').replace('-','m')
+    return name.replace('.','.0').replace('-','m')
 
 def make_reweight_card( filename, reweights, referencepoint, order_dict ):
     import datetime
@@ -60,7 +60,8 @@ def make_reweight_card( filename, reweights, referencepoint, order_dict ):
         out_file.write( "launch --rwgt_name=dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.\n\n" )
         for reweight in reweights:
             name = getWeightName( reweight )
-            out_file.write( "launch --rwgt_name=%s\n"%name )
+            name_with_iterations = "EFTrwgt" + str(reweights.index(reweight)) + "_" + name
+            out_file.write( "launch --rwgt_name=%s\n"%name_with_iterations)
             for i in range(len(reweight)/2):
                 out_file.write("set %s %8.6f\n"%( reweight[2*i], reweight[2*i+1]))
             for pdgId in args.auto_width_particles:

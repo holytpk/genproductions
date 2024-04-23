@@ -23,7 +23,7 @@ cd $WORKDIR
 # Folder structure is different on CMSConnect
 helpers_dir=${PRODHOME}/Utilities
 if [ ! -d "$helpers_dir" ]; then
-    helpers_dir=$(git rev-parse --show-toplevel)/bin/MadGraph5_aMCatNLO/Utilities
+    helpers_dir=$(git rev-parse --show-toplevel)/Utilities
 fi
 source ${helpers_dir}/gridpack_helpers.sh
 
@@ -68,6 +68,9 @@ echo "display diagrams ./" >> ${name}_proc_card.dat
 
 ${MGBASEDIRORIG}/bin/mg5_aMC ${name}_proc_card.dat
 
+# remove all the zero coefficients
+sed -e "s/NP\w*=0, //g" -e "s/, SMHLOOP=0//" -e "s/NP=1, //" -i *.eps
+
 PDFOUT="../${name}_diagrams"
 mkdir -p $PDFOUT
 for epsfile in *.eps 
@@ -75,5 +78,5 @@ do
     ps2pdf $epsfile $PDFOUT/${epsfile%.*}.pdf
 done
 
-cd $PRODHOME
+cd $PRODHOME/
 rm -rf $WORKDIR
