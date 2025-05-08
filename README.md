@@ -56,7 +56,7 @@ chmod 755 gridpack_generation.sh
 For example:
 
 ```bash
-./gridpack_generation.sh TT01j2lCARef addons/model/SMEFTsim_topU3l_MwScheme_UFO_ctGpatched
+./gridpack_generation.sh TT01j2lCARef addons/model/SMEFTsim_topU3l_MwScheme_UFO_ctGpatched/TT01j2lCARef
 ```
 
 This command assumes you have the corresponding cards in:
