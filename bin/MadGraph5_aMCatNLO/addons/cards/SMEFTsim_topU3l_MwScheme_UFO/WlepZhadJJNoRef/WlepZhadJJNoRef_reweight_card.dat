@@ -1,0 +1,457 @@
+# reweight card file created with https://github.com/schoef/gridpacks on 2023-05-29 02:22:51
+# Command line arguments: ../../../../make_reweight_card.py --couplings 2 cHj1 1 cHj3 1 cHQ1 1 cHQ3 1 cW 1 cWtil 1 cHW 1 cHWtil 1 --filename WlepZhadJJNoRef_reweight_card.dat --overwrite
+# Polynomial order: 2
+change rwgt_dir rwgt
+
+launch --rwgt_name=dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_1p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 1.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_1p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 1.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_1p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 1.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_1p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 1.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_1p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 1.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_1p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 1.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_1p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 1.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_1p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 1.000000
+
+launch --rwgt_name=cHj1_2p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 2.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_1p_cHj3_1p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 1.000000
+set cHj3 1.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_1p_cHj3_0p_cHQ1_1p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 1.000000
+set cHj3 0.000000
+set cHQ1 1.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_1p_cHj3_0p_cHQ1_0p_cHQ3_1p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 1.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 1.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_1p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_1p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 1.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 1.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_1p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_1p_cHW_0p_cHWtil_0p
+set cHj1 1.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 1.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_1p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_1p_cHWtil_0p
+set cHj1 1.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 1.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_1p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_1p
+set cHj1 1.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 1.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_2p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 2.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_1p_cHQ1_1p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 1.000000
+set cHQ1 1.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_1p_cHQ1_0p_cHQ3_1p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 1.000000
+set cHQ1 0.000000
+set cHQ3 1.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_1p_cHQ1_0p_cHQ3_0p_cW_1p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 1.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 1.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_1p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_1p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 1.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 1.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_1p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_1p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 1.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 1.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_1p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_1p
+set cHj1 0.000000
+set cHj3 1.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 1.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_2p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 2.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_1p_cHQ3_1p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 1.000000
+set cHQ3 1.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_1p_cHQ3_0p_cW_1p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 1.000000
+set cHQ3 0.000000
+set cW 1.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_1p_cHQ3_0p_cW_0p_cWtil_1p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 1.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 1.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_1p_cHQ3_0p_cW_0p_cWtil_0p_cHW_1p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 1.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 1.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_1p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_1p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 1.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 1.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_2p_cW_0p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 2.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_1p_cW_1p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 1.000000
+set cW 1.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_1p_cW_0p_cWtil_1p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 1.000000
+set cW 0.000000
+set cWtil 1.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_1p_cW_0p_cWtil_0p_cHW_1p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 1.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 1.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_1p_cW_0p_cWtil_0p_cHW_0p_cHWtil_1p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 1.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 1.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_2p_cWtil_0p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 2.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_1p_cWtil_1p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 1.000000
+set cWtil 1.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_1p_cWtil_0p_cHW_1p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 1.000000
+set cWtil 0.000000
+set cHW 1.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_1p_cWtil_0p_cHW_0p_cHWtil_1p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 1.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 1.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_2p_cHW_0p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 2.000000
+set cHW 0.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_1p_cHW_1p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 1.000000
+set cHW 1.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_1p_cHW_0p_cHWtil_1p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 1.000000
+set cHW 0.000000
+set cHWtil 1.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_2p_cHWtil_0p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 2.000000
+set cHWtil 0.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_1p_cHWtil_1p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 1.000000
+set cHWtil 1.000000
+
+launch --rwgt_name=cHj1_0p_cHj3_0p_cHQ1_0p_cHQ3_0p_cW_0p_cWtil_0p_cHW_0p_cHWtil_2p
+set cHj1 0.000000
+set cHj3 0.000000
+set cHQ1 0.000000
+set cHQ3 0.000000
+set cW 0.000000
+set cWtil 0.000000
+set cHW 0.000000
+set cHWtil 2.000000
+

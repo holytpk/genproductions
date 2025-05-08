@@ -1,0 +1,18 @@
+import model SMEFTsim_topU3l_MwScheme_UFO-massless_VH
+
+define p = g u c d s b u~ c~ d~ s~ b~
+define j = g u c d s b u~ c~ d~ s~ b~
+define l+ = e+ mu+ ta+
+define l- = e- mu- ta-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+define uc = u c
+define uc~ = u~ c~
+define ds = d s
+define ds~ = d~ s~
+
+generate    p p > t t~ > w+ w- b b~ a SMHLOOP=0 NPprop=0 NP=1, w- > l- vl~ ALL<=99, w+ > l+ vl ALL<=99
+add process p p > t t~ > w+ w- b b~ a SMHLOOP=0 NPprop=0 NP=1, w- > j   j  ALL<=99, w+ > l+ vl ALL<=99
+add process p p > t t~ > w+ w- b b~ a SMHLOOP=0 NPprop=0 NP=1, w- > l- vl~ ALL<=99, w+ > j  j  ALL<=99
+
+output ttG_noFullyHad

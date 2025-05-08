@@ -1,0 +1,5549 @@
+%!PS-Adobe-2.0
+%%BoundingBox: -20 -20 450  450 
+%%DocumentFonts: Helvetica
+%%Pages:  9 
+%!MadGraph
+%
+% Feynman Diagrams drawn by MadGraph5_aMC@NLO
+%
+% Using FEYNMAN DRAW
+% A program by David J. Summers to draw
+% Feynman diagrams. (c) 1992
+% Version 2.7 (c) 1993
+%
+% Comments and questions to 
+%  D.J.Summers@uk.ac.durham
+%
+
+/Fnopoints 10 def 
+/Fr 2.5 def 
+/pi 3.14159265359 def
+
+/Frmod {dup 360 div floor 360 mul sub} def
+/Fsign {0 ge {1} {-1} ifelse} def
+
+/Fbasis
+{/Fby exch def /Fbx exch def /Fdist Fbx Fbx
+mul Fby Fby mul add sqrt def /Fxl Fbx Fdist
+div Fr mul def /Fyl Fby Fdist div Fr mul def
+/Fxt Fby Fdist div Fr mul def /Fyt Fbx neg
+Fdist div Fr mul def } def
+
+/Fstraight 
+{/Fshape exch def /Ftype exch def /Fy2 exch
+def /Fx2 exch def /Fy1 exch def /Fx1 exch def
+Fx2 Fx1 sub Fy2 Fy1 sub Fbasis /Fttype 1
+Ftype 2 mod 2 mul abs sub def Ftype 0 ge
+{/Fddist Fdist Fr div 2 div def /Fn Fddist round
+def Ftype 1 gt {/Fn Fn Fddist Fn sub Fsign
+add def} if} {/Fn Fdist Fr div 2 div round 2
+mul def} ifelse Fx1 Fy1 moveto 0 1 Fnopoints
+Fn mul {/Fi exch def Fshape lineto } for
+stroke } def
+
+/Floop
+{/Fshape exch def /Fe exch def /Ftype exch
+def /Fy2 exch def /Fx2 exch def /Fy1 exch def
+/Fx1 exch def /Flam 1 Fe Fe mul sub 2 div Fe
+div def /Fxc Fx1 Fx2 Flam Fy2 Fy1 sub mul add
+add 2 div def /Fyc Fy1 Fy2 Flam Fx1 Fx2 sub
+mul add add 2 div def /Frr Fx1 Fxc sub dup
+mul Fy1 Fyc sub dup mul add sqrt def /Fth1
+Fy1 Fyc sub Fx1 Fxc sub atan def /Fth2 Fy2
+Fyc sub Fx2 Fxc sub atan def Fe 0 lt Fth2
+Fth1 lt and {/Fth1 Fth1 360 sub def} if Fe 0
+gt Fth2 Fth1 gt and {/Fth2 Fth2 360 sub def}
+if /Fdth Fth2 Fth1 sub Fsign def /Fttype 1
+Ftype 2 mod abs 2 mul sub def Ftype 0 ge
+{/Fddist Fth2 Fth1 sub abs 180 div pi mul Frr
+mul Fr div def /Fn Fddist round def Ftype 1
+gt {/Fn Fn Fddist Fn sub Fsign add def} if}
+{/Fn Fth2 Fth1 sub abs 180 div pi mul Frr mul
+Fr div 2 div round 2 mul def} ifelse Fx1 Fy1
+moveto 0 1 Fnopoints Fn mul {/Fi exch def
+/Fth Fth1 Fth2 Fth1 sub Fi mul Fnopoints div
+Fn div add Frmod def Fth sin neg Fdth mul Fth
+cos Fdth mul Fbasis Fshape lineto } for
+stroke } def
+
+/Farrow
+{ moveto Fxt Fxl sub Fyt Fyl sub
+rlineto Fxl 2 mul Fxt sub Fyl 2 mul Fyt sub
+rlineto Fxl 2 mul Fxt add neg Fyl 2 mul Fyt
+add neg rlineto fill } def
+
+/Fphoton
+{{ Fx1 Fx2 Fx1 sub Fi mul Fnopoints div Fn
+div Fxt Fi 360 mul Fnopoints div Frmod sin
+mul Fttype mul 2 div add add Fy1 Fy2 Fy1 sub
+Fi mul Fnopoints div Fn div Fyt Fi 360 mul
+Fnopoints div Frmod sin mul Fttype mul 2 div
+add add } Fstraight } def
+
+/Fphotonr
+{{ Fx1 Fx2 Fx1 sub Fi mul Fnopoints div Fn
+div Fxt Fi 180 mul Fnopoints div Frmod sin
+mul Fttype mul 1 div add add Fy1 Fy2 Fy1 sub
+Fi mul Fnopoints div Fn div Fyt Fi 180 mul
+Fnopoints div Frmod sin mul Fttype mul 1 div
+add add } Fstraight } def
+
+/Fphotond
+{{ Fx1 Fx2 Fx1 sub Fi mul Fnopoints div Fn
+div Fxt Fi 360 mul Fnopoints div Frmod sin
+mul Fttype mul 2 div add add Fy1 Fy2 Fy1 sub
+Fi mul Fnopoints div Fn div Fyt Fi 360 mul
+Fnopoints div Frmod sin mul Fttype mul 2 div
+add add } Fstraight Fx1
+Fx2 add 2 div Fy1 Fy2 add 2 div Farrow} def
+
+/Fphotonl
+{exch dup 3 1 roll 0 ge {{ Fxc Fth cos Frr
+mul Fxt Fi 180 mul Fnopoints div Frmod sin
+mul Fttype mul 2 div add add Fyc Fth sin Frr
+mul Fyt Fi 180 mul Fnopoints div Frmod sin
+mul Fttype mul 2 div add add }} {{ Fxc Fth
+cos Frr mul Fxt 1 Fi 180 mul Fnopoints div
+Frmod cos sub mul Fttype mul 2 div add add
+Fyc Fth sin Frr mul Fyt 1 Fi 180 mul
+Fnopoints div Frmod cos sub mul Fttype mul 2
+div add add }} ifelse Floop } def
+
+/Fgluon
+{2 sub { Fx1 Fx2 Fx1 sub Fi mul Fnopoints div
+Fn div Fxt 1 Fi 180 mul Fnopoints div cos sub
+mul Fttype mul Fxl Fi 180 mul Fnopoints div
+sin mul add add add Fy1 Fy2 Fy1 sub Fi mul
+Fnopoints div Fn div Fyt 1 Fi 180 mul
+Fnopoints div cos sub mul Fttype mul Fyl Fi
+180 mul Fnopoints div sin mul add add add }
+Fstraight } def
+
+/Fgluonr
+{2 sub { Fx1 Fx2 Fx1 sub Fi mul Fnopoints div
+Fn div Fxt 0 Fi 120 mul Fnopoints div cos sub
+mul Fttype mul Fxl Fi 120 mul Fnopoints div
+sin mul add add add Fy1 Fy2 Fy1 sub Fi mul
+Fnopoints div Fn div Fyt 0 Fi 120 mul
+Fnopoints div cos sub mul Fttype mul Fyl Fi
+120 mul Fnopoints div sin mul add add add }
+Fstraight } def
+
+
+/Fgluonl
+{exch 2 sub exch { Fxc Fth cos Frr mul Fxt 1
+Fi 180 mul Fnopoints div cos sub mul Fttype
+mul Fxl Fi 180 mul Fnopoints div sin mul add
+add add Fyc Fth sin Frr mul Fyt 1 Fi 180 mul
+Fnopoints div cos sub mul Fttype mul Fyl Fi
+180 mul Fnopoints div sin mul add add add }
+Floop} def
+
+/Ffermion
+{/Fy2 exch def /Fx2 exch def /Fy1 exch def
+/Fx1 exch def newpath Fx2 Fx1 sub Fy2 Fy1 sub
+Fbasis Fx1 Fy1 moveto Fx2 Fy2 lineto stroke Fx1
+Fx2 add 2 div Fy1 Fy2 add 2 div Farrow } def
+
+/Fscalar
+{newpath moveto lineto stroke} def
+
+/Ffermionl
+{/Fe exch def /Fy2 exch def /Fx2 exch def
+/Fy1 exch def /Fx1 exch def newpath /Flam 1 Fe
+Fe mul sub 2 div Fe div def /Fxc Fx1 Fx2 Flam Fy2
+Fy1 sub mul add add 2 div def /Fyc Fy1 Fy2
+Flam Fx1 Fx2 sub mul add add 2 div def /Frr
+Fx1 Fxc sub dup mul Fy1 Fyc sub dup mul add
+sqrt def /Fth1 Fy1 Fyc sub Fx1 Fxc sub atan
+def /Fth2 Fy2 Fyc sub Fx2 Fxc sub atan def Fe
+0 lt Fth2 Fth1 lt and {/Fth1 Fth1 360 sub
+def} if Fe 0 gt Fth2 Fth1 gt and {/Fth2 Fth2
+360 sub def} if /Fthc Fth1 Fth2 add 2 div def
+Fxc Fyc Frr Fth1 Fth2 Fe 0 gt {arcn} {arc}
+ifelse stroke Fthc sin Fe 0 lt {neg} if Fthc
+cos Fe 0 gt {neg} if Fbasis Fxc Fthc cos Frr
+mul add Fyc Fthc sin Frr mul add Farrow } def
+
+/Fscalarl
+{/Fe exch def /Fy2 exch def /Fx2 exch def
+/Fy1 exch def /Fx1 exch def newpath /Flam 1 Fe
+Fe mul sub 2 div Fe div def /Fxc Fx1 Fx2 Flam Fy2
+Fy1 sub mul add add 2 div def /Fyc Fy1 Fy2
+Flam Fx1 Fx2 sub mul add add 2 div def /Frr
+Fx1 Fxc sub dup mul Fy1 Fyc sub dup mul add
+sqrt def /Fth1 Fy1 Fyc sub Fx1 Fxc sub atan
+def /Fth2 Fy2 Fyc sub Fx2 Fxc sub atan def Fe
+0 lt Fth2 Fth1 lt and {/Fth1 Fth1 360 sub
+def} if Fe 0 gt Fth2 Fth1 gt and {/Fth2 Fth2
+360 sub def} if /Fthc Fth1 Fth2 add 2 div def
+Fxc Fyc Frr Fth1 Fth2 Fe 0 gt {arcn} {arc}
+ifelse stroke } def
+
+/Fblob 
+{/Fshade exch def newpath Fr mul 0 360 arc gsave
+1 Fshade sub setgray fill grestore stroke} def
+
+/Fhiggs
+{/Fy2 exch def /Fx2 exch def /Fy1 exch def
+/Fx1 exch def gsave Fx1 Fx2 sub dup mul
+Fy1 Fy2 sub dup mul add sqrt dup Fr div
+2 div round 2 mul 1 add div /dashln exch def
+[dashln dashln] 0 setdash Fx1 Fy1 moveto
+Fx2 Fy2 lineto stroke grestore} def
+
+
+/Fhiggsd
+{/Fy2 exch def /Fx2 exch def /Fy1 exch def
+/Fx1 exch def gsave Fx1 Fx2 sub dup mul
+Fy1 Fy2 sub dup mul add sqrt dup Fr div
+2 div round 2 mul 1 add div /dashln exch def
+[dashln dashln] 0 setdash Fx1 Fy1 moveto
+Fx2 Fy2 lineto stroke grestore Fx1 Fx2 add 2 div
+Fy1 Fy2 add 2 div Farrow} def
+
+/Fhiggsl
+{/Fe exch def /Fy2 exch def /Fx2 exch def
+/Fy1 exch def /Fx1 exch def /Flam gsave 1 Fe
+Fe mul sub 2 div Fe div def /Fxc Fx1 Fx2 Flam
+Fy2 Fy1 sub mul add add 2 div def /Fyc Fy1
+Fy2 Flam Fx1 Fx2 sub mul add add 2 div def
+/Frr Fx1 Fxc sub dup mul Fy1 Fyc sub dup mul
+add sqrt def /Fth1 Fy1 Fyc sub Fx1 Fxc sub
+atan def /Fth2 Fy2 Fyc sub Fx2 Fxc sub atan
+def Fe 0 lt Fth2 Fth1 lt and {/Fth1 Fth1 360
+sub def} if Fe 0 gt Fth2 Fth1 gt and {/Fth2
+Fth2 360 sub def} if /Fthc Fth1 Fth2 add 2
+div def Fxc Fyc Frr Fth1 Fth2 Fe 0 gt {arcn}
+{arc} ifelse Fth2 Fth1 sub abs 180 div pi mul
+Frr mul dup Fr div 2 div round 2 mul 1 add
+div /dashln exch def [dashln dashln] 0
+setdash stroke grestore} def
+
+/Fghost
+{/Fy2 exch def /Fx2 exch def /Fy1 exch def
+/Fx1 exch def Fx2 Fx1 sub Fy2 Fy1 sub Fbasis
+/Fn Fx1 Fx2 sub dup mul Fy1 Fy2 sub dup mul
+add sqrt Fr div round def 0 1 Fn {/Fi exch
+def Fx2 Fx1 sub Fi Fn div mul Fx1 add Fy2 Fy1
+sub Fi Fn div mul Fy1 add Fr 10 div 0 360 arc
+fill} for Fx1 Fx2 add 2 div Fy1 Fy2 add 2 div
+Farrow } def
+
+/Fghostl
+{/Fe exch def /Fy2 exch def /Fx2 exch def
+/Fy1 exch def /Fx1 exch def /Flam 1 Fe Fe mul
+sub 2 div Fe div def /Fxc Fx1 Fx2 Flam Fy2
+Fy1 sub mul add add 2 div def /Fyc Fy1 Fy2
+Flam Fx1 Fx2 sub mul add add 2 div def /Frr
+Fx1 Fxc sub dup mul Fy1 Fyc sub dup mul add
+sqrt def /Fth1 Fy1 Fyc sub Fx1 Fxc sub atan
+def /Fth2 Fy2 Fyc sub Fx2 Fxc sub atan def Fe
+0 lt Fth2 Fth1 lt and {/Fth1 Fth1 360 sub
+def} if Fe 0 gt Fth2 Fth1 gt and {/Fth2 Fth2
+360 sub def} if /Fthc Fth1 Fth2 add 2 div def
+/Fn Fth2 Fth1 sub abs 180 div pi mul Frr mul
+Fr div round def 0 1 Fn {/Fi exch def Fth2
+Fth1 sub Fi Fn div mul Fth1 add dup cos Frr
+mul Fxc add exch sin Frr mul Fyc add Fr 10
+div 0 360 arc fill} for Fthc sin Fe 0 lt
+{neg} if Fthc cos Fe 0 gt {neg} if Fbasis Fxc
+Fthc cos Frr mul add Fyc Fthc sin Frr mul add
+Farrow } def
+
+/Fproton
+{/Fy2 exch def /Fx2 exch def /Fy1 exch def
+/Fx1 exch def Fx2 Fx1 sub Fy2 Fy1 sub Fbasis
+Fx1 Fxt 2 div add Fy1 Fyt 2 div add moveto
+Fx2 Fxt 2 div add Fy2 Fyt 2 div add lineto
+Fx1 Fxt 2 div sub Fy1 Fyt 2 div sub moveto
+Fx2 Fxt 2 div sub Fy2 Fyt 2 div sub lineto
+Fx1 Fx2 add 2 div Fxt Fxl sub add Fy1 Fy2 add
+2 div Fyt Fyl sub add moveto Fx1 Fx2 add Fxl
+add 2 div Fy1 Fy2 add Fyl add 2 div lineto
+Fx1 Fx2 add 2 div Fxt Fxl add sub Fy1 Fy2 add
+2 div Fyt Fyl add sub lineto stroke} def
+
+/Fmax {2 copy lt {exch} if pop} def
+/Fstart {gsave currentpoint
+translate 0 0 moveto 0 rm Fr 4 mul
+scalefont setfont} def
+/Fsubspt {gsave currentpoint Fcharheight 5 div
+sub translate 0.6 0.6 scale 0 0 moveto 0} def
+/Fsupspt {gsave currentpoint Fcharheight 0.6 mul
+add translate 0.6 0.6 scale 0 0 moveto 0} def
+/Feend {currentpoint pop Fmax 0.6 mul
+grestore currentpoint pop add Fmax} def
+/Fendd {pop grestore} def
+/Fshow {exch 0 moveto show currentpoint pop} def
+/Fcharheight
+{gsave (X) true charpath flattenpath pathbbox
+3 1 roll pop sub exch pop grestore} def
+
+/Foverline
+{exch 0 moveto gsave dup true charpath
+flattenpath pathbbox Fcharheight 10 div dup
+2 div setlinewidth add dup 4
+1 roll newpath moveto pop lineto stroke
+grestore show currentpoint pop} def
+
+/Funderline 
+{exch 0 moveto gsave dup true charpath
+flattenpath pathbbox pop exch Fcharheight
+10 div dup 2 div setlinewidth
+sub dup 3 1 roll newpath moveto lineto stroke
+grestore show currentpoint pop} def
+
+/rm /Times-Roman findfont def
+/it /Times-Italic findfont def
+/sy /Symbol findfont def
+
+/wedge 
+/{ /ystop exch def /xstop exch def /ystart exch def
+/xstart exch def /delx xstop xstart sub def /dely 
+ystop ystart sub def /dist delx dup mul dely dup 
+mul add sqrt def /halfdist dist 2 div def
+/angle dely delx atan def xstart ystart moveto 
+angle rotate 0 halfdist rlineto dist halfdist
+neg rlineto dist neg halfdist neg rlineto 
+0 halfdist rlineto }def
+
+/ch_photon
+{/ystop exch def /xstop exch def /ystart exch def
+/xstart exch def /xmid xstart xstop add 2 div def
+/ymid ystart ystop add 2 div def
+/dx xstop xstart sub def /dy ystop ystart sub def
+/length dx dup mul dy dup mul add sqrt def
+/xunit dx length div def /yunit dy length div def
+/x1 xmid xunit -4.8 mul add def
+/y1 ymid yunit -4.8 mul add def
+/x2 xmid xunit 4.8 mul add def
+/y2 ymid yunit 4.8 mul add def
+/y2 ymid yunit 4.8 mul add def
+xstart ystart x1 y1 1 Fphoton 
+x2 y2 xstop ystop 1 Fphoton
+/x1 xmid xunit -5.2 mul add def 
+/y1 ymid yunit -5.2 mul add def
+/x2 xmid xunit 5.2 mul add def 
+/y2 ymid yunit 5.2 mul add def
+gsave x1 y1 x2 y2 wedge fill grestore} def
+
+/ch_higgs 
+{ /ystop exch def /xstop exch def /ystart exch def
+/xstart exch def 
+/xmid xstart xstop add 2 div def
+/ymid ystart ystop add 2 div def
+/dx xstop xstart sub def /dy ystop ystart sub def
+/length dx dup mul dy dup mul add sqrt def
+/xunit dx length div def /yunit dy length div def
+/x1 xmid xunit -4.8 mul add def 
+/y1 ymid yunit -4.8 mul add def
+/x2 xmid xunit 4.8 mul add def 
+/y2 ymid yunit 4.8 mul add def
+xstart ystart x1 y1 Fhiggs 
+x2 y2 xstop ystop Fhiggs
+/x1 xmid xunit -5.2 mul add def
+/y1 ymid yunit -5.2 mul add def
+/x2 xmid xunit 5.2 mul add def
+/y2 ymid yunit 5.2 mul add def
+gsave x1 y1 x2 y2 wedge fill grestore} def
+% End of the header
+
+%%Page:       1       1
+%%PageBoundingBox:-20 -20 600 800
+%%PageFonts: Helvetica
+
+/Helvetica findfont 9 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 1/9) show
+ 260         50  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+ 75 560 115.0 597.5 Ffermion 
+ 89.0  581.75 moveto 
+(u)   show
+ 67.0  560 moveto 
+(1)   show
+ 115.0 597.5 172.268798682 584.077625309 0 Fgluon 
+ 145.634399341  593.788812654 moveto 
+(g)   show
+ 180.268798682  582.202625309 moveto 
+(9)   show
+ 115.0 597.5 115.0 672.5 Ffermion 
+ 118.0  633.5 moveto 
+(u)   show
+ 275.0 610.0 235.0 635.0 Ffermion 
+ 257.0  625.5 moveto 
+(vm~)   show
+ 283.0  605.0 moveto 
+(7)   show
+ 235.0 635.0 275.0 635.0 Ffermion 
+ 253.0  638.75 moveto 
+(mu-)   show
+ 283.0  635.0 moveto 
+(6)   show
+ 235.0 635.0 195.0 635.0 0 Fphoton 
+ 213.0  638.75 moveto 
+(w-)   show
+ 241.093276776 606.191702015 195.0 635.0 Ffermion 
+ 220.046638388  623.595851008 moveto 
+(b~)   show
+ 249.093276776  601.191702015 moveto 
+(8)   show
+ 195.0 635.0 155.0 672.5 Ffermion 
+ 177.0  656.75 moveto 
+(t~)   show
+ 275.0 685.0 235.0 695.0 Ffermion 
+ 257.0  693.0 moveto 
+(mu+)   show
+ 283.0  683.0 moveto 
+(3)   show
+ 235.0 695.0 275.0 710 Ffermion 
+ 243.0  708.5 moveto 
+(vm)   show
+ 283.0  713.0 moveto 
+(4)   show
+ 195.0 685.0 235.0 695.0 0 Fphoton 
+ 203.0  696.0 moveto 
+(w+)   show
+ 195.0 685.0 250.384615385 667.692307692 Ffermion 
+ 224.692307692  679.346153846 moveto 
+(b)   show
+ 258.384615385  665.192307692 moveto 
+(5)   show
+ 155.0 672.5 195.0 685.0 Ffermion 
+ 169.0  681.75 moveto 
+(t)   show
+ 115.0 672.5 155.0 672.5 0 Fphoton 
+ 133.0  676.25 moveto 
+(a)   show
+ 115.0 672.5 75 710 Ffermion 
+ 97.0  694.25 moveto 
+(u~)   show
+ 67.0  710 moveto 
+(2)   show
+ 115.0  534.5 moveto 
+( diagram 1 )   show
+ 195.0  534.5 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 350 560 390.0 597.5 Ffermion 
+ 364.0  581.75 moveto 
+(u)   show
+ 342.0  560 moveto 
+(1)   show
+ 390.0 597.5 447.268798682 584.077625309 0 Fgluon 
+ 420.634399341  593.788812654 moveto 
+(g)   show
+ 455.268798682  582.202625309 moveto 
+(9)   show
+ 390.0 597.5 390.0 672.5 Ffermion 
+ 393.0  633.5 moveto 
+(u)   show
+ 550.0 610.0 510.0 635.0 Ffermion 
+ 532.0  625.5 moveto 
+(vm~)   show
+ 558.0  605.0 moveto 
+(7)   show
+ 510.0 635.0 550.0 635.0 Ffermion 
+ 528.0  638.75 moveto 
+(mu-)   show
+ 558.0  635.0 moveto 
+(6)   show
+ 510.0 635.0 470.0 635.0 0 Fphoton 
+ 488.0  638.75 moveto 
+(w-)   show
+ 516.093276776 606.191702015 470.0 635.0 Ffermion 
+ 495.046638388  623.595851008 moveto 
+(b~)   show
+ 524.093276776  601.191702015 moveto 
+(8)   show
+ 470.0 635.0 430.0 672.5 Ffermion 
+ 452.0  656.75 moveto 
+(t~)   show
+ 550.0 685.0 510.0 695.0 Ffermion 
+ 532.0  693.0 moveto 
+(mu+)   show
+ 558.0  683.0 moveto 
+(3)   show
+ 510.0 695.0 550.0 710 Ffermion 
+ 518.0  708.5 moveto 
+(vm)   show
+ 558.0  713.0 moveto 
+(4)   show
+ 470.0 685.0 510.0 695.0 0 Fphoton 
+ 478.0  696.0 moveto 
+(w+)   show
+ 470.0 685.0 525.384615385 667.692307692 Ffermion 
+ 499.692307692  679.346153846 moveto 
+(b)   show
+ 533.384615385  665.192307692 moveto 
+(5)   show
+ 430.0 672.5 470.0 685.0 Ffermion 
+ 444.0  681.75 moveto 
+(t)   show
+ 390.0 672.5 430.0 672.5 0 Fphoton 
+ 408.0  676.25 moveto 
+(z)   show
+ 390.0 672.5 350 710 Ffermion 
+ 372.0  694.25 moveto 
+(u~)   show
+ 342.0  710 moveto 
+(2)   show
+ 390.0  534.5 moveto 
+( diagram 2 )   show
+ 470.0  534.5 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 155.0 452.5 1.5 1.0 Fblob 
+ 75 340 115.0 377.5 Ffermion 
+ 89.0  361.75 moveto 
+(u)   show
+ 67.0  340 moveto 
+(1)   show
+ 115.0 377.5 172.268798682 364.077625309 0 Fgluon 
+ 145.634399341  373.788812654 moveto 
+(g)   show
+ 180.268798682  362.202625309 moveto 
+(9)   show
+ 115.0 377.5 115.0 452.5 Ffermion 
+ 118.0  413.5 moveto 
+(u)   show
+ 275.0 390.0 235.0 415.0 Ffermion 
+ 257.0  405.5 moveto 
+(vm~)   show
+ 283.0  385.0 moveto 
+(7)   show
+ 235.0 415.0 275.0 415.0 Ffermion 
+ 253.0  418.75 moveto 
+(mu-)   show
+ 283.0  415.0 moveto 
+(6)   show
+ 235.0 415.0 195.0 415.0 0 Fphoton 
+ 213.0  418.75 moveto 
+(w-)   show
+ 241.093276776 386.191702015 195.0 415.0 Ffermion 
+ 220.046638388  403.595851008 moveto 
+(b~)   show
+ 249.093276776  381.191702015 moveto 
+(8)   show
+ 195.0 415.0 155.0 452.5 Ffermion 
+ 177.0  436.75 moveto 
+(t~)   show
+ 275.0 465.0 235.0 475.0 Ffermion 
+ 257.0  473.0 moveto 
+(mu+)   show
+ 283.0  463.0 moveto 
+(3)   show
+ 235.0 475.0 275.0 490 Ffermion 
+ 243.0  488.5 moveto 
+(vm)   show
+ 283.0  493.0 moveto 
+(4)   show
+ 195.0 465.0 235.0 475.0 0 Fphoton 
+ 203.0  476.0 moveto 
+(w+)   show
+ 195.0 465.0 250.384615385 447.692307692 Ffermion 
+ 224.692307692  459.346153846 moveto 
+(b)   show
+ 258.384615385  445.192307692 moveto 
+(5)   show
+ 155.0 452.5 195.0 465.0 Ffermion 
+ 169.0  461.75 moveto 
+(t)   show
+ 115.0 452.5 155.0 452.5 0 Fgluon 
+ 133.0  456.25 moveto 
+(g)   show
+ 115.0 452.5 75 490 Ffermion 
+ 97.0  474.25 moveto 
+(u~)   show
+ 67.0  490 moveto 
+(2)   show
+ 115.0  314.5 moveto 
+( diagram 3 )   show
+ 195.0  314.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 350 340 390.0 377.5 Ffermion 
+ 364.0  361.75 moveto 
+(u)   show
+ 342.0  340 moveto 
+(1)   show
+ 390.0 377.5 447.268798682 364.077625309 0 Fgluon 
+ 420.634399341  373.788812654 moveto 
+(g)   show
+ 455.268798682  362.202625309 moveto 
+(9)   show
+ 390.0 377.5 390.0 452.5 Ffermion 
+ 393.0  413.5 moveto 
+(u)   show
+ 550.0 390.0 510.0 415.0 Ffermion 
+ 532.0  405.5 moveto 
+(vm~)   show
+ 558.0  385.0 moveto 
+(7)   show
+ 510.0 415.0 550.0 415.0 Ffermion 
+ 528.0  418.75 moveto 
+(mu-)   show
+ 558.0  415.0 moveto 
+(6)   show
+ 510.0 415.0 470.0 415.0 0 Fphoton 
+ 488.0  418.75 moveto 
+(w-)   show
+ 516.093276776 386.191702015 470.0 415.0 Ffermion 
+ 495.046638388  403.595851008 moveto 
+(b~)   show
+ 524.093276776  381.191702015 moveto 
+(8)   show
+ 470.0 415.0 430.0 452.5 Ffermion 
+ 452.0  436.75 moveto 
+(t~)   show
+ 550.0 465.0 510.0 475.0 Ffermion 
+ 532.0  473.0 moveto 
+(mu+)   show
+ 558.0  463.0 moveto 
+(3)   show
+ 510.0 475.0 550.0 490 Ffermion 
+ 518.0  488.5 moveto 
+(vm)   show
+ 558.0  493.0 moveto 
+(4)   show
+ 470.0 465.0 510.0 475.0 0 Fphoton 
+ 478.0  476.0 moveto 
+(w+)   show
+ 470.0 465.0 525.384615385 447.692307692 Ffermion 
+ 499.692307692  459.346153846 moveto 
+(b)   show
+ 533.384615385  445.192307692 moveto 
+(5)   show
+ 430.0 452.5 470.0 465.0 Ffermion 
+ 444.0  461.75 moveto 
+(t)   show
+ 390.0 452.5 430.0 452.5 0 Fgluon 
+ 408.0  456.25 moveto 
+(g)   show
+ 390.0 452.5 350 490 Ffermion 
+ 372.0  474.25 moveto 
+(u~)   show
+ 342.0  490 moveto 
+(2)   show
+ 390.0  314.5 moveto 
+( diagram 4 )   show
+ 470.0  314.5 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=4, SMHLOOP=0)   show
+ 155.0 232.5 1.5 1.0 Fblob 
+ 75 120 115.0 157.5 Ffermion 
+ 89.0  141.75 moveto 
+(u)   show
+ 67.0  120 moveto 
+(1)   show
+ 115.0 157.5 172.268798682 144.077625309 0 Fgluon 
+ 145.634399341  153.788812654 moveto 
+(g)   show
+ 180.268798682  142.202625309 moveto 
+(9)   show
+ 115.0 157.5 115.0 232.5 Ffermion 
+ 118.0  193.5 moveto 
+(u)   show
+ 275.0 170.0 235.0 195.0 Ffermion 
+ 257.0  185.5 moveto 
+(vm~)   show
+ 283.0  165.0 moveto 
+(7)   show
+ 235.0 195.0 275.0 195.0 Ffermion 
+ 253.0  198.75 moveto 
+(mu-)   show
+ 283.0  195.0 moveto 
+(6)   show
+ 235.0 195.0 195.0 195.0 0 Fphoton 
+ 213.0  198.75 moveto 
+(w-)   show
+ 241.093276776 166.191702015 195.0 195.0 Ffermion 
+ 220.046638388  183.595851008 moveto 
+(b~)   show
+ 249.093276776  161.191702015 moveto 
+(8)   show
+ 195.0 195.0 155.0 232.5 Ffermion 
+ 177.0  216.75 moveto 
+(t~)   show
+ 275.0 245.0 235.0 255.0 Ffermion 
+ 257.0  253.0 moveto 
+(mu+)   show
+ 283.0  243.0 moveto 
+(3)   show
+ 235.0 255.0 275.0 270 Ffermion 
+ 243.0  268.5 moveto 
+(vm)   show
+ 283.0  273.0 moveto 
+(4)   show
+ 195.0 245.0 235.0 255.0 0 Fphoton 
+ 203.0  256.0 moveto 
+(w+)   show
+ 195.0 245.0 250.384615385 227.692307692 Ffermion 
+ 224.692307692  239.346153846 moveto 
+(b)   show
+ 258.384615385  225.192307692 moveto 
+(5)   show
+ 155.0 232.5 195.0 245.0 Ffermion 
+ 169.0  241.75 moveto 
+(t)   show
+ 115.0 232.5 155.0 232.5 0 Fgluon 
+ 133.0  236.25 moveto 
+(g)   show
+ 115.0 232.5 75 270 Ffermion 
+ 97.0  254.25 moveto 
+(u~)   show
+ 67.0  270 moveto 
+(2)   show
+ 115.0  94.5 moveto 
+( diagram 5 )   show
+ 195.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 400.0 232.5 1.5 1.0 Fblob 
+ 550.0 170.0 500.0 195.0 Ffermion 
+ 527.0  185.5 moveto 
+(vm~)   show
+ 558.0  166.0 moveto 
+(7)   show
+ 500.0 195.0 550.0 195.0 Ffermion 
+ 523.0  198.75 moveto 
+(mu-)   show
+ 558.0  195.0 moveto 
+(6)   show
+ 500.0 195.0 450.0 195.0 0 Fphoton 
+ 473.0  198.75 moveto 
+(w-)   show
+ 512.403772075 163.798113962 450.0 195.0 Ffermion 
+ 483.201886038  182.399056981 moveto 
+(b~)   show
+ 520.403772075  159.798113962 moveto 
+(8)   show
+ 450.0 195.0 400.0 232.5 Ffermion 
+ 427.0  216.75 moveto 
+(t~)   show
+ 550.0 245.0 500.0 255.0 Ffermion 
+ 527.0  253.0 moveto 
+(mu+)   show
+ 558.0  243.4 moveto 
+(3)   show
+ 500.0 255.0 550.0 270 Ffermion 
+ 513.0  268.5 moveto 
+(vm)   show
+ 558.0  272.4 moveto 
+(4)   show
+ 450.0 245.0 500.0 255.0 0 Fphoton 
+ 463.0  256.0 moveto 
+(w+)   show
+ 450.0 245.0 521.151247354 227.212188162 Ffermion 
+ 487.575623677  239.106094081 moveto 
+(b)   show
+ 529.151247354  225.212188162 moveto 
+(5)   show
+ 400.0 232.5 450.0 245.0 Ffermion 
+ 419.0  241.75 moveto 
+(t)   show
+ 350 120 400.0 157.5 Ffermion 
+ 369.0  141.75 moveto 
+(u)   show
+ 342.0  120 moveto 
+(1)   show
+ 400.0 157.5 471.151247354 139.712188162 0 Fgluon 
+ 437.575623677  151.606094081 moveto 
+(g)   show
+ 479.151247354  137.712188162 moveto 
+(9)   show
+ 400.0 157.5 400.0 232.5 Ffermion 
+ 403.0  193.5 moveto 
+(u)   show
+ 400.0 232.5 350 270 Ffermion 
+ 377.0  254.25 moveto 
+(u~)   show
+ 342.0  270 moveto 
+(2)   show
+ 390.0  94.5 moveto 
+( diagram 6 )   show
+ 470.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=1, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+showpage
+%%Page: 2 2 
+%%PageBoundingBox:-20 -20 600 800
+%%PageFonts: Helvetica
+/Helvetica findfont 9 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 2/9) show
+ 260         40  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+ 125.0 672.5 1.5 1.0 Fblob 
+ 275.0 610.0 225.0 635.0 Ffermion 
+ 252.0  625.5 moveto 
+(vm~)   show
+ 283.0  606.0 moveto 
+(7)   show
+ 225.0 635.0 275.0 635.0 Ffermion 
+ 248.0  638.75 moveto 
+(mu-)   show
+ 283.0  635.0 moveto 
+(6)   show
+ 225.0 635.0 175.0 635.0 0 Fphoton 
+ 198.0  638.75 moveto 
+(w-)   show
+ 237.403772075 603.798113962 175.0 635.0 Ffermion 
+ 208.201886038  622.399056981 moveto 
+(b~)   show
+ 245.403772075  599.798113962 moveto 
+(8)   show
+ 175.0 635.0 125.0 672.5 Ffermion 
+ 152.0  656.75 moveto 
+(t~)   show
+ 275.0 685.0 225.0 695.0 Ffermion 
+ 252.0  693.0 moveto 
+(mu+)   show
+ 283.0  683.4 moveto 
+(3)   show
+ 225.0 695.0 275.0 710 Ffermion 
+ 238.0  708.5 moveto 
+(vm)   show
+ 283.0  712.4 moveto 
+(4)   show
+ 175.0 685.0 225.0 695.0 0 Fphoton 
+ 188.0  696.0 moveto 
+(w+)   show
+ 175.0 685.0 246.151247354 667.212188162 Ffermion 
+ 212.575623677  679.106094081 moveto 
+(b)   show
+ 254.151247354  665.212188162 moveto 
+(5)   show
+ 125.0 672.5 175.0 685.0 Ffermion 
+ 144.0  681.75 moveto 
+(t)   show
+ 75 560 125.0 597.5 Ffermion 
+ 94.0  581.75 moveto 
+(u)   show
+ 67.0  560 moveto 
+(1)   show
+ 125.0 597.5 196.151247354 579.712188162 0 Fgluon 
+ 162.575623677  591.606094081 moveto 
+(g)   show
+ 204.151247354  577.712188162 moveto 
+(9)   show
+ 125.0 597.5 125.0 672.5 Ffermion 
+ 128.0  633.5 moveto 
+(u)   show
+ 125.0 672.5 75 710 Ffermion 
+ 102.0  694.25 moveto 
+(u~)   show
+ 67.0  710 moveto 
+(2)   show
+ 115.0  534.5 moveto 
+( diagram 7 )   show
+ 195.0  534.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=1, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 400.0 672.5 1.5 1.0 Fblob 
+ 550.0 610.0 500.0 635.0 Ffermion 
+ 527.0  625.5 moveto 
+(vm~)   show
+ 558.0  606.0 moveto 
+(7)   show
+ 500.0 635.0 550.0 635.0 Ffermion 
+ 523.0  638.75 moveto 
+(mu-)   show
+ 558.0  635.0 moveto 
+(6)   show
+ 500.0 635.0 450.0 635.0 0 Fphoton 
+ 473.0  638.75 moveto 
+(w-)   show
+ 512.403772075 603.798113962 450.0 635.0 Ffermion 
+ 483.201886038  622.399056981 moveto 
+(b~)   show
+ 520.403772075  599.798113962 moveto 
+(8)   show
+ 450.0 635.0 400.0 672.5 Ffermion 
+ 427.0  656.75 moveto 
+(t~)   show
+ 550.0 685.0 500.0 695.0 Ffermion 
+ 527.0  693.0 moveto 
+(mu+)   show
+ 558.0  683.4 moveto 
+(3)   show
+ 500.0 695.0 550.0 710 Ffermion 
+ 513.0  708.5 moveto 
+(vm)   show
+ 558.0  712.4 moveto 
+(4)   show
+ 450.0 685.0 500.0 695.0 0 Fphoton 
+ 463.0  696.0 moveto 
+(w+)   show
+ 450.0 685.0 521.151247354 667.212188162 Ffermion 
+ 487.575623677  679.106094081 moveto 
+(b)   show
+ 529.151247354  665.212188162 moveto 
+(5)   show
+ 400.0 672.5 450.0 685.0 Ffermion 
+ 419.0  681.75 moveto 
+(t)   show
+ 350 560 400.0 597.5 Ffermion 
+ 369.0  581.75 moveto 
+(u)   show
+ 342.0  560 moveto 
+(1)   show
+ 400.0 597.5 471.151247354 579.712188162 0 Fgluon 
+ 437.575623677  591.606094081 moveto 
+(g)   show
+ 479.151247354  577.712188162 moveto 
+(9)   show
+ 400.0 597.5 400.0 672.5 Ffermion 
+ 403.0  633.5 moveto 
+(u)   show
+ 400.0 672.5 350 710 Ffermion 
+ 377.0  694.25 moveto 
+(u~)   show
+ 342.0  710 moveto 
+(2)   show
+ 390.0  534.5 moveto 
+( diagram 8 )   show
+ 470.0  534.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=1, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 125.0 452.5 1.5 1.0 Fblob 
+ 275.0 390.0 225.0 415.0 Ffermion 
+ 252.0  405.5 moveto 
+(vm~)   show
+ 283.0  386.0 moveto 
+(7)   show
+ 225.0 415.0 275.0 415.0 Ffermion 
+ 248.0  418.75 moveto 
+(mu-)   show
+ 283.0  415.0 moveto 
+(6)   show
+ 225.0 415.0 175.0 415.0 0 Fphoton 
+ 198.0  418.75 moveto 
+(w-)   show
+ 237.403772075 383.798113962 175.0 415.0 Ffermion 
+ 208.201886038  402.399056981 moveto 
+(b~)   show
+ 245.403772075  379.798113962 moveto 
+(8)   show
+ 175.0 415.0 125.0 452.5 Ffermion 
+ 152.0  436.75 moveto 
+(t~)   show
+ 275.0 465.0 225.0 475.0 Ffermion 
+ 252.0  473.0 moveto 
+(mu+)   show
+ 283.0  463.4 moveto 
+(3)   show
+ 225.0 475.0 275.0 490 Ffermion 
+ 238.0  488.5 moveto 
+(vm)   show
+ 283.0  492.4 moveto 
+(4)   show
+ 175.0 465.0 225.0 475.0 0 Fphoton 
+ 188.0  476.0 moveto 
+(w+)   show
+ 175.0 465.0 246.151247354 447.212188162 Ffermion 
+ 212.575623677  459.106094081 moveto 
+(b)   show
+ 254.151247354  445.212188162 moveto 
+(5)   show
+ 125.0 452.5 175.0 465.0 Ffermion 
+ 144.0  461.75 moveto 
+(t)   show
+ 75 340 125.0 377.5 Ffermion 
+ 94.0  361.75 moveto 
+(u)   show
+ 67.0  340 moveto 
+(1)   show
+ 125.0 377.5 196.151247354 359.712188162 0 Fgluon 
+ 162.575623677  371.606094081 moveto 
+(g)   show
+ 204.151247354  357.712188162 moveto 
+(9)   show
+ 125.0 377.5 125.0 452.5 Ffermion 
+ 128.0  413.5 moveto 
+(u)   show
+ 125.0 452.5 75 490 Ffermion 
+ 102.0  474.25 moveto 
+(u~)   show
+ 67.0  490 moveto 
+(2)   show
+ 115.0  314.5 moveto 
+( diagram 9 )   show
+ 195.0  314.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=1, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 400.0 452.5 1.5 1.0 Fblob 
+ 550.0 390.0 500.0 415.0 Ffermion 
+ 527.0  405.5 moveto 
+(vm~)   show
+ 558.0  386.0 moveto 
+(7)   show
+ 500.0 415.0 550.0 415.0 Ffermion 
+ 523.0  418.75 moveto 
+(mu-)   show
+ 558.0  415.0 moveto 
+(6)   show
+ 500.0 415.0 450.0 415.0 0 Fphoton 
+ 473.0  418.75 moveto 
+(w-)   show
+ 512.403772075 383.798113962 450.0 415.0 Ffermion 
+ 483.201886038  402.399056981 moveto 
+(b~)   show
+ 520.403772075  379.798113962 moveto 
+(8)   show
+ 450.0 415.0 400.0 452.5 Ffermion 
+ 427.0  436.75 moveto 
+(t~)   show
+ 550.0 465.0 500.0 475.0 Ffermion 
+ 527.0  473.0 moveto 
+(mu+)   show
+ 558.0  463.4 moveto 
+(3)   show
+ 500.0 475.0 550.0 490 Ffermion 
+ 513.0  488.5 moveto 
+(vm)   show
+ 558.0  492.4 moveto 
+(4)   show
+ 450.0 465.0 500.0 475.0 0 Fphoton 
+ 463.0  476.0 moveto 
+(w+)   show
+ 450.0 465.0 521.151247354 447.212188162 Ffermion 
+ 487.575623677  459.106094081 moveto 
+(b)   show
+ 529.151247354  445.212188162 moveto 
+(5)   show
+ 400.0 452.5 450.0 465.0 Ffermion 
+ 419.0  461.75 moveto 
+(t)   show
+ 350 340 400.0 377.5 Ffermion 
+ 369.0  361.75 moveto 
+(u)   show
+ 342.0  340 moveto 
+(1)   show
+ 400.0 377.5 471.151247354 359.712188162 0 Fgluon 
+ 437.575623677  371.606094081 moveto 
+(g)   show
+ 479.151247354  357.712188162 moveto 
+(9)   show
+ 400.0 377.5 400.0 452.5 Ffermion 
+ 403.0  413.5 moveto 
+(u)   show
+ 400.0 452.5 350 490 Ffermion 
+ 377.0  474.25 moveto 
+(u~)   show
+ 342.0  490 moveto 
+(2)   show
+ 390.0  314.5 moveto 
+( diagram 10 )   show
+ 470.0  314.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=1, QCD=1, QED=6, SMHLOOP=0)   show
+ 125.0 232.5 1.5 1.0 Fblob 
+ 275.0 170.0 225.0 195.0 Ffermion 
+ 252.0  185.5 moveto 
+(vm~)   show
+ 283.0  166.0 moveto 
+(7)   show
+ 225.0 195.0 275.0 195.0 Ffermion 
+ 248.0  198.75 moveto 
+(mu-)   show
+ 283.0  195.0 moveto 
+(6)   show
+ 225.0 195.0 175.0 195.0 0 Fphoton 
+ 198.0  198.75 moveto 
+(w-)   show
+ 237.403772075 163.798113962 175.0 195.0 Ffermion 
+ 208.201886038  182.399056981 moveto 
+(b~)   show
+ 245.403772075  159.798113962 moveto 
+(8)   show
+ 175.0 195.0 125.0 232.5 Ffermion 
+ 152.0  216.75 moveto 
+(t~)   show
+ 275.0 245.0 225.0 255.0 Ffermion 
+ 252.0  253.0 moveto 
+(mu+)   show
+ 283.0  243.4 moveto 
+(3)   show
+ 225.0 255.0 275.0 270 Ffermion 
+ 238.0  268.5 moveto 
+(vm)   show
+ 283.0  272.4 moveto 
+(4)   show
+ 175.0 245.0 225.0 255.0 0 Fphoton 
+ 188.0  256.0 moveto 
+(w+)   show
+ 175.0 245.0 246.151247354 227.212188162 Ffermion 
+ 212.575623677  239.106094081 moveto 
+(b)   show
+ 254.151247354  225.212188162 moveto 
+(5)   show
+ 125.0 232.5 175.0 245.0 Ffermion 
+ 144.0  241.75 moveto 
+(t)   show
+ 75 120 125.0 157.5 Ffermion 
+ 94.0  141.75 moveto 
+(u)   show
+ 67.0  120 moveto 
+(1)   show
+ 125.0 157.5 196.151247354 139.712188162 0 Fgluon 
+ 162.575623677  151.606094081 moveto 
+(g)   show
+ 204.151247354  137.712188162 moveto 
+(9)   show
+ 125.0 157.5 125.0 232.5 Ffermion 
+ 128.0  193.5 moveto 
+(u)   show
+ 125.0 232.5 75 270 Ffermion 
+ 102.0  254.25 moveto 
+(u~)   show
+ 67.0  270 moveto 
+(2)   show
+ 115.0  94.5 moveto 
+( diagram 11 )   show
+ 195.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=1, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 400.0 232.5 1.5 1.0 Fblob 
+ 550.0 170.0 500.0 195.0 Ffermion 
+ 527.0  185.5 moveto 
+(vm~)   show
+ 558.0  166.0 moveto 
+(7)   show
+ 500.0 195.0 550.0 195.0 Ffermion 
+ 523.0  198.75 moveto 
+(mu-)   show
+ 558.0  195.0 moveto 
+(6)   show
+ 500.0 195.0 450.0 195.0 0 Fphoton 
+ 473.0  198.75 moveto 
+(w-)   show
+ 512.403772075 163.798113962 450.0 195.0 Ffermion 
+ 483.201886038  182.399056981 moveto 
+(b~)   show
+ 520.403772075  159.798113962 moveto 
+(8)   show
+ 450.0 195.0 400.0 232.5 Ffermion 
+ 427.0  216.75 moveto 
+(t~)   show
+ 550.0 245.0 500.0 255.0 Ffermion 
+ 527.0  253.0 moveto 
+(mu+)   show
+ 558.0  243.4 moveto 
+(3)   show
+ 500.0 255.0 550.0 270 Ffermion 
+ 513.0  268.5 moveto 
+(vm)   show
+ 558.0  272.4 moveto 
+(4)   show
+ 450.0 245.0 500.0 255.0 0 Fphoton 
+ 463.0  256.0 moveto 
+(w+)   show
+ 450.0 245.0 521.151247354 227.212188162 Ffermion 
+ 487.575623677  239.106094081 moveto 
+(b)   show
+ 529.151247354  225.212188162 moveto 
+(5)   show
+ 400.0 232.5 450.0 245.0 Ffermion 
+ 419.0  241.75 moveto 
+(t)   show
+ 350 120 400.0 157.5 Ffermion 
+ 369.0  141.75 moveto 
+(u)   show
+ 342.0  120 moveto 
+(1)   show
+ 400.0 157.5 471.151247354 139.712188162 0 Fgluon 
+ 437.575623677  151.606094081 moveto 
+(g)   show
+ 479.151247354  137.712188162 moveto 
+(9)   show
+ 400.0 157.5 400.0 232.5 Ffermion 
+ 403.0  193.5 moveto 
+(u)   show
+ 400.0 232.5 350 270 Ffermion 
+ 377.0  254.25 moveto 
+(u~)   show
+ 342.0  270 moveto 
+(2)   show
+ 390.0  94.5 moveto 
+( diagram 12 )   show
+ 470.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=1, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+showpage
+%%Page: 3 3 
+%%PageBoundingBox:-20 -20 600 800
+%%PageFonts: Helvetica
+/Helvetica findfont 9 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 3/9) show
+ 260         40  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+ 125.0 672.5 1.5 1.0 Fblob 
+ 275.0 610.0 225.0 635.0 Ffermion 
+ 252.0  625.5 moveto 
+(vm~)   show
+ 283.0  606.0 moveto 
+(7)   show
+ 225.0 635.0 275.0 635.0 Ffermion 
+ 248.0  638.75 moveto 
+(mu-)   show
+ 283.0  635.0 moveto 
+(6)   show
+ 225.0 635.0 175.0 635.0 0 Fphoton 
+ 198.0  638.75 moveto 
+(w-)   show
+ 237.403772075 603.798113962 175.0 635.0 Ffermion 
+ 208.201886038  622.399056981 moveto 
+(b~)   show
+ 245.403772075  599.798113962 moveto 
+(8)   show
+ 175.0 635.0 125.0 672.5 Ffermion 
+ 152.0  656.75 moveto 
+(t~)   show
+ 275.0 685.0 225.0 695.0 Ffermion 
+ 252.0  693.0 moveto 
+(mu+)   show
+ 283.0  683.4 moveto 
+(3)   show
+ 225.0 695.0 275.0 710 Ffermion 
+ 238.0  708.5 moveto 
+(vm)   show
+ 283.0  712.4 moveto 
+(4)   show
+ 175.0 685.0 225.0 695.0 0 Fphoton 
+ 188.0  696.0 moveto 
+(w+)   show
+ 175.0 685.0 246.151247354 667.212188162 Ffermion 
+ 212.575623677  679.106094081 moveto 
+(b)   show
+ 254.151247354  665.212188162 moveto 
+(5)   show
+ 125.0 672.5 175.0 685.0 Ffermion 
+ 144.0  681.75 moveto 
+(t)   show
+ 75 560 125.0 597.5 Ffermion 
+ 94.0  581.75 moveto 
+(u)   show
+ 67.0  560 moveto 
+(1)   show
+ 125.0 597.5 196.151247354 579.712188162 0 Fgluon 
+ 162.575623677  591.606094081 moveto 
+(g)   show
+ 204.151247354  577.712188162 moveto 
+(9)   show
+ 125.0 597.5 125.0 672.5 Ffermion 
+ 128.0  633.5 moveto 
+(u)   show
+ 125.0 672.5 75 710 Ffermion 
+ 102.0  694.25 moveto 
+(u~)   show
+ 67.0  710 moveto 
+(2)   show
+ 115.0  534.5 moveto 
+( diagram 13 )   show
+ 195.0  534.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=1, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 400.0 672.5 1.5 1.0 Fblob 
+ 550.0 610.0 500.0 635.0 Ffermion 
+ 527.0  625.5 moveto 
+(vm~)   show
+ 558.0  606.0 moveto 
+(7)   show
+ 500.0 635.0 550.0 635.0 Ffermion 
+ 523.0  638.75 moveto 
+(mu-)   show
+ 558.0  635.0 moveto 
+(6)   show
+ 500.0 635.0 450.0 635.0 0 Fphoton 
+ 473.0  638.75 moveto 
+(w-)   show
+ 512.403772075 603.798113962 450.0 635.0 Ffermion 
+ 483.201886038  622.399056981 moveto 
+(b~)   show
+ 520.403772075  599.798113962 moveto 
+(8)   show
+ 450.0 635.0 400.0 672.5 Ffermion 
+ 427.0  656.75 moveto 
+(t~)   show
+ 550.0 685.0 500.0 695.0 Ffermion 
+ 527.0  693.0 moveto 
+(mu+)   show
+ 558.0  683.4 moveto 
+(3)   show
+ 500.0 695.0 550.0 710 Ffermion 
+ 513.0  708.5 moveto 
+(vm)   show
+ 558.0  712.4 moveto 
+(4)   show
+ 450.0 685.0 500.0 695.0 0 Fphoton 
+ 463.0  696.0 moveto 
+(w+)   show
+ 450.0 685.0 521.151247354 667.212188162 Ffermion 
+ 487.575623677  679.106094081 moveto 
+(b)   show
+ 529.151247354  665.212188162 moveto 
+(5)   show
+ 400.0 672.5 450.0 685.0 Ffermion 
+ 419.0  681.75 moveto 
+(t)   show
+ 350 560 400.0 597.5 Ffermion 
+ 369.0  581.75 moveto 
+(u)   show
+ 342.0  560 moveto 
+(1)   show
+ 400.0 597.5 471.151247354 579.712188162 0 Fgluon 
+ 437.575623677  591.606094081 moveto 
+(g)   show
+ 479.151247354  577.712188162 moveto 
+(9)   show
+ 400.0 597.5 400.0 672.5 Ffermion 
+ 403.0  633.5 moveto 
+(u)   show
+ 400.0 672.5 350 710 Ffermion 
+ 377.0  694.25 moveto 
+(u~)   show
+ 342.0  710 moveto 
+(2)   show
+ 390.0  534.5 moveto 
+( diagram 14 )   show
+ 470.0  534.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=1, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 125.0 452.5 1.5 1.0 Fblob 
+ 275.0 390.0 225.0 415.0 Ffermion 
+ 252.0  405.5 moveto 
+(vm~)   show
+ 283.0  386.0 moveto 
+(7)   show
+ 225.0 415.0 275.0 415.0 Ffermion 
+ 248.0  418.75 moveto 
+(mu-)   show
+ 283.0  415.0 moveto 
+(6)   show
+ 225.0 415.0 175.0 415.0 0 Fphoton 
+ 198.0  418.75 moveto 
+(w-)   show
+ 237.403772075 383.798113962 175.0 415.0 Ffermion 
+ 208.201886038  402.399056981 moveto 
+(b~)   show
+ 245.403772075  379.798113962 moveto 
+(8)   show
+ 175.0 415.0 125.0 452.5 Ffermion 
+ 152.0  436.75 moveto 
+(t~)   show
+ 275.0 465.0 225.0 475.0 Ffermion 
+ 252.0  473.0 moveto 
+(mu+)   show
+ 283.0  463.4 moveto 
+(3)   show
+ 225.0 475.0 275.0 490 Ffermion 
+ 238.0  488.5 moveto 
+(vm)   show
+ 283.0  492.4 moveto 
+(4)   show
+ 175.0 465.0 225.0 475.0 0 Fphoton 
+ 188.0  476.0 moveto 
+(w+)   show
+ 175.0 465.0 246.151247354 447.212188162 Ffermion 
+ 212.575623677  459.106094081 moveto 
+(b)   show
+ 254.151247354  445.212188162 moveto 
+(5)   show
+ 125.0 452.5 175.0 465.0 Ffermion 
+ 144.0  461.75 moveto 
+(t)   show
+ 75 340 125.0 377.5 Ffermion 
+ 94.0  361.75 moveto 
+(u)   show
+ 67.0  340 moveto 
+(1)   show
+ 125.0 377.5 196.151247354 359.712188162 0 Fgluon 
+ 162.575623677  371.606094081 moveto 
+(g)   show
+ 204.151247354  357.712188162 moveto 
+(9)   show
+ 125.0 377.5 125.0 452.5 Ffermion 
+ 128.0  413.5 moveto 
+(u)   show
+ 125.0 452.5 75 490 Ffermion 
+ 102.0  474.25 moveto 
+(u~)   show
+ 67.0  490 moveto 
+(2)   show
+ 115.0  314.5 moveto 
+( diagram 15 )   show
+ 195.0  314.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=1, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 450.0 452.5 1.5 1.0 Fblob 
+ 525.733248534 376.37503975 483.333333333 396.25 Ffermion 
+ 506.533290933  389.312519875 moveto 
+(vm~)   show
+ 533.733248534  372.62503975 moveto 
+(7)   show
+ 483.333333333 396.25 532.947227169 391.598697453 Ffermion 
+ 510.140280251  396.924348726 moveto 
+(mu-)   show
+ 540.947227169  390.848697453 moveto 
+(6)   show
+ 483.333333333 396.25 450.0 377.5 0 Fphoton 
+ 454.666666667  392.875 moveto 
+(w-)   show
+ 494.72135955 360.729490169 450.0 377.5 Ffermion 
+ 474.360679775  372.114745084 moveto 
+(b~)   show
+ 502.72135955  357.729490169 moveto 
+(8)   show
+ 450.0 377.5 416.666666667 415.0 Ffermion 
+ 435.333333333  399.25 moveto 
+(t~)   show
+ 550.0 440.0 516.666666667 452.5 Ffermion 
+ 535.333333333  449.25 moveto 
+(mu+)   show
+ 558.0  437.0 moveto 
+(3)   show
+ 516.666666667 452.5 550.0 465.0 Ffermion 
+ 521.333333333  464.75 moveto 
+(vm)   show
+ 558.0  468.0 moveto 
+(4)   show
+ 483.333333333 433.75 516.666666667 452.5 0 Fphoton 
+ 488.0  449.125 moveto 
+(w+)   show
+ 483.333333333 433.75 530.149792212 420.58287094 Ffermion 
+ 508.741562773  430.16643547 moveto 
+(b)   show
+ 538.149792212  418.33287094 moveto 
+(5)   show
+ 450.0 452.5 483.333333333 433.75 Ffermion 
+ 468.666666667  446.125 moveto 
+(t)   show
+ 450.0 452.5 494.72135955 469.270509831 0 Fgluon 
+ 466.360679775  463.885254916 moveto 
+(g)   show
+ 502.72135955  472.270509831 moveto 
+(9)   show
+ 416.666666667 415.0 450.0 452.5 Ffermion 
+ 427.333333333  436.75 moveto 
+(t)   show
+ 350 340 383.333333333 415.0 Ffermion 
+ 360.666666667  380.5 moveto 
+(u)   show
+ 342.0  340 moveto 
+(1)   show
+ 383.333333333 415.0 350 490 Ffermion 
+ 368.666666667  455.5 moveto 
+(u~)   show
+ 342.0  490 moveto 
+(2)   show
+ 416.666666667 415.0 383.333333333 415.0 0 Fphoton 
+ 398.0  418.75 moveto 
+(a)   show
+ 390.0  314.5 moveto 
+( diagram 16 )   show
+ 470.0  314.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=7, SMHLOOP=0)   show
+ 175.0 232.5 1.5 1.0 Fblob 
+ 250.733248534 156.37503975 208.333333333 176.25 Ffermion 
+ 231.533290933  169.312519875 moveto 
+(vm~)   show
+ 258.733248534  152.62503975 moveto 
+(7)   show
+ 208.333333333 176.25 257.947227169 171.598697453 Ffermion 
+ 235.140280251  176.924348726 moveto 
+(mu-)   show
+ 265.947227169  170.848697453 moveto 
+(6)   show
+ 208.333333333 176.25 175.0 157.5 0 Fphoton 
+ 179.666666667  172.875 moveto 
+(w-)   show
+ 219.72135955 140.729490169 175.0 157.5 Ffermion 
+ 199.360679775  152.114745084 moveto 
+(b~)   show
+ 227.72135955  137.729490169 moveto 
+(8)   show
+ 175.0 157.5 141.666666667 195.0 Ffermion 
+ 160.333333333  179.25 moveto 
+(t~)   show
+ 275.0 220.0 241.666666667 232.5 Ffermion 
+ 260.333333333  229.25 moveto 
+(mu+)   show
+ 283.0  217.0 moveto 
+(3)   show
+ 241.666666667 232.5 275.0 245.0 Ffermion 
+ 246.333333333  244.75 moveto 
+(vm)   show
+ 283.0  248.0 moveto 
+(4)   show
+ 208.333333333 213.75 241.666666667 232.5 0 Fphoton 
+ 213.0  229.125 moveto 
+(w+)   show
+ 208.333333333 213.75 255.149792212 200.58287094 Ffermion 
+ 233.741562773  210.16643547 moveto 
+(b)   show
+ 263.149792212  198.33287094 moveto 
+(5)   show
+ 175.0 232.5 208.333333333 213.75 Ffermion 
+ 193.666666667  226.125 moveto 
+(t)   show
+ 175.0 232.5 219.72135955 249.270509831 0 Fgluon 
+ 191.360679775  243.885254916 moveto 
+(g)   show
+ 227.72135955  252.270509831 moveto 
+(9)   show
+ 141.666666667 195.0 175.0 232.5 Ffermion 
+ 152.333333333  216.75 moveto 
+(t)   show
+ 75 120 108.333333333 195.0 Ffermion 
+ 85.6666666667  160.5 moveto 
+(u)   show
+ 67.0  120 moveto 
+(1)   show
+ 108.333333333 195.0 75 270 Ffermion 
+ 93.6666666667  235.5 moveto 
+(u~)   show
+ 67.0  270 moveto 
+(2)   show
+ 141.666666667 195.0 108.333333333 195.0 0 Fphoton 
+ 123.0  198.75 moveto 
+(z)   show
+ 115.0  94.5 moveto 
+( diagram 17 )   show
+ 195.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=7, SMHLOOP=0)   show
+ 450.0 232.5 1.5 1.0 Fblob 
+ 525.733248534 156.37503975 483.333333333 176.25 Ffermion 
+ 506.533290933  169.312519875 moveto 
+(vm~)   show
+ 533.733248534  152.62503975 moveto 
+(7)   show
+ 483.333333333 176.25 532.947227169 171.598697453 Ffermion 
+ 510.140280251  176.924348726 moveto 
+(mu-)   show
+ 540.947227169  170.848697453 moveto 
+(6)   show
+ 483.333333333 176.25 450.0 157.5 0 Fphoton 
+ 454.666666667  172.875 moveto 
+(w-)   show
+ 494.72135955 140.729490169 450.0 157.5 Ffermion 
+ 474.360679775  152.114745084 moveto 
+(b~)   show
+ 502.72135955  137.729490169 moveto 
+(8)   show
+ 450.0 157.5 416.666666667 195.0 Ffermion 
+ 435.333333333  179.25 moveto 
+(t~)   show
+ 550.0 220.0 516.666666667 232.5 Ffermion 
+ 535.333333333  229.25 moveto 
+(mu+)   show
+ 558.0  217.0 moveto 
+(3)   show
+ 516.666666667 232.5 550.0 245.0 Ffermion 
+ 521.333333333  244.75 moveto 
+(vm)   show
+ 558.0  248.0 moveto 
+(4)   show
+ 483.333333333 213.75 516.666666667 232.5 0 Fphoton 
+ 488.0  229.125 moveto 
+(w+)   show
+ 483.333333333 213.75 530.149792212 200.58287094 Ffermion 
+ 508.741562773  210.16643547 moveto 
+(b)   show
+ 538.149792212  198.33287094 moveto 
+(5)   show
+ 450.0 232.5 483.333333333 213.75 Ffermion 
+ 468.666666667  226.125 moveto 
+(t)   show
+ 450.0 232.5 494.72135955 249.270509831 0 Fgluon 
+ 466.360679775  243.885254916 moveto 
+(g)   show
+ 502.72135955  252.270509831 moveto 
+(9)   show
+ 416.666666667 195.0 450.0 232.5 Ffermion 
+ 427.333333333  216.75 moveto 
+(t)   show
+ 350 120 383.333333333 195.0 Ffermion 
+ 360.666666667  160.5 moveto 
+(u)   show
+ 342.0  120 moveto 
+(1)   show
+ 383.333333333 195.0 350 270 Ffermion 
+ 368.666666667  235.5 moveto 
+(u~)   show
+ 342.0  270 moveto 
+(2)   show
+ 383.333333333 195.0 416.666666667 195.0 0 Fgluon 
+ 398.0  198.75 moveto 
+(g)   show
+ 390.0  94.5 moveto 
+( diagram 18 )   show
+ 470.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+showpage
+%%Page: 4 4 
+%%PageBoundingBox:-20 -20 600 800
+%%PageFonts: Helvetica
+/Helvetica findfont 9 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 4/9) show
+ 260         40  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+ 250.733248534 596.37503975 208.333333333 616.25 Ffermion 
+ 231.533290933  609.312519875 moveto 
+(vm~)   show
+ 258.733248534  592.62503975 moveto 
+(7)   show
+ 208.333333333 616.25 257.947227169 611.598697453 Ffermion 
+ 235.140280251  616.924348726 moveto 
+(mu-)   show
+ 265.947227169  610.848697453 moveto 
+(6)   show
+ 208.333333333 616.25 175.0 597.5 0 Fphoton 
+ 179.666666667  612.875 moveto 
+(w-)   show
+ 219.72135955 580.729490169 175.0 597.5 Ffermion 
+ 199.360679775  592.114745084 moveto 
+(b~)   show
+ 227.72135955  577.729490169 moveto 
+(8)   show
+ 175.0 597.5 141.666666667 635.0 Ffermion 
+ 160.333333333  619.25 moveto 
+(t~)   show
+ 275.0 660.0 241.666666667 672.5 Ffermion 
+ 260.333333333  669.25 moveto 
+(mu+)   show
+ 283.0  657.0 moveto 
+(3)   show
+ 241.666666667 672.5 275.0 685.0 Ffermion 
+ 246.333333333  684.75 moveto 
+(vm)   show
+ 283.0  688.0 moveto 
+(4)   show
+ 208.333333333 653.75 241.666666667 672.5 0 Fphoton 
+ 213.0  669.125 moveto 
+(w+)   show
+ 208.333333333 653.75 255.149792212 640.58287094 Ffermion 
+ 233.741562773  650.16643547 moveto 
+(b)   show
+ 263.149792212  638.33287094 moveto 
+(5)   show
+ 175.0 672.5 208.333333333 653.75 Ffermion 
+ 193.666666667  666.125 moveto 
+(t)   show
+ 175.0 672.5 219.72135955 689.270509831 0 Fgluon 
+ 191.360679775  683.885254916 moveto 
+(g)   show
+ 227.72135955  692.270509831 moveto 
+(9)   show
+ 141.666666667 635.0 175.0 672.5 Ffermion 
+ 152.333333333  656.75 moveto 
+(t)   show
+ 75 560 108.333333333 635.0 Ffermion 
+ 85.6666666667  600.5 moveto 
+(u)   show
+ 67.0  560 moveto 
+(1)   show
+ 108.333333333 635.0 75 710 Ffermion 
+ 93.6666666667  675.5 moveto 
+(u~)   show
+ 67.0  710 moveto 
+(2)   show
+ 141.666666667 635.0 108.333333333 635.0 0 Fphoton 
+ 123.0  638.75 moveto 
+(a)   show
+ 115.0  534.5 moveto 
+( diagram 19 )   show
+ 195.0  534.5 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 525.733248534 596.37503975 483.333333333 616.25 Ffermion 
+ 506.533290933  609.312519875 moveto 
+(vm~)   show
+ 533.733248534  592.62503975 moveto 
+(7)   show
+ 483.333333333 616.25 532.947227169 611.598697453 Ffermion 
+ 510.140280251  616.924348726 moveto 
+(mu-)   show
+ 540.947227169  610.848697453 moveto 
+(6)   show
+ 483.333333333 616.25 450.0 597.5 0 Fphoton 
+ 454.666666667  612.875 moveto 
+(w-)   show
+ 494.72135955 580.729490169 450.0 597.5 Ffermion 
+ 474.360679775  592.114745084 moveto 
+(b~)   show
+ 502.72135955  577.729490169 moveto 
+(8)   show
+ 450.0 597.5 416.666666667 635.0 Ffermion 
+ 435.333333333  619.25 moveto 
+(t~)   show
+ 550.0 660.0 516.666666667 672.5 Ffermion 
+ 535.333333333  669.25 moveto 
+(mu+)   show
+ 558.0  657.0 moveto 
+(3)   show
+ 516.666666667 672.5 550.0 685.0 Ffermion 
+ 521.333333333  684.75 moveto 
+(vm)   show
+ 558.0  688.0 moveto 
+(4)   show
+ 483.333333333 653.75 516.666666667 672.5 0 Fphoton 
+ 488.0  669.125 moveto 
+(w+)   show
+ 483.333333333 653.75 530.149792212 640.58287094 Ffermion 
+ 508.741562773  650.16643547 moveto 
+(b)   show
+ 538.149792212  638.33287094 moveto 
+(5)   show
+ 450.0 672.5 483.333333333 653.75 Ffermion 
+ 468.666666667  666.125 moveto 
+(t)   show
+ 450.0 672.5 494.72135955 689.270509831 0 Fgluon 
+ 466.360679775  683.885254916 moveto 
+(g)   show
+ 502.72135955  692.270509831 moveto 
+(9)   show
+ 416.666666667 635.0 450.0 672.5 Ffermion 
+ 427.333333333  656.75 moveto 
+(t)   show
+ 350 560 383.333333333 635.0 Ffermion 
+ 360.666666667  600.5 moveto 
+(u)   show
+ 342.0  560 moveto 
+(1)   show
+ 383.333333333 635.0 350 710 Ffermion 
+ 368.666666667  675.5 moveto 
+(u~)   show
+ 342.0  710 moveto 
+(2)   show
+ 416.666666667 635.0 383.333333333 635.0 0 Fphoton 
+ 398.0  638.75 moveto 
+(z)   show
+ 390.0  534.5 moveto 
+( diagram 20 )   show
+ 470.0  534.5 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 141.666666667 415.0 1.5 1.0 Fblob 
+ 250.733248534 376.37503975 208.333333333 396.25 Ffermion 
+ 231.533290933  389.312519875 moveto 
+(vm~)   show
+ 258.733248534  372.62503975 moveto 
+(7)   show
+ 208.333333333 396.25 257.947227169 391.598697453 Ffermion 
+ 235.140280251  396.924348726 moveto 
+(mu-)   show
+ 265.947227169  390.848697453 moveto 
+(6)   show
+ 208.333333333 396.25 175.0 377.5 0 Fphoton 
+ 179.666666667  392.875 moveto 
+(w-)   show
+ 219.72135955 360.729490169 175.0 377.5 Ffermion 
+ 199.360679775  372.114745084 moveto 
+(b~)   show
+ 227.72135955  357.729490169 moveto 
+(8)   show
+ 175.0 377.5 141.666666667 415.0 Ffermion 
+ 160.333333333  399.25 moveto 
+(t~)   show
+ 275.0 440.0 241.666666667 452.5 Ffermion 
+ 260.333333333  449.25 moveto 
+(mu+)   show
+ 283.0  437.0 moveto 
+(3)   show
+ 241.666666667 452.5 275.0 465.0 Ffermion 
+ 246.333333333  464.75 moveto 
+(vm)   show
+ 283.0  468.0 moveto 
+(4)   show
+ 208.333333333 433.75 241.666666667 452.5 0 Fphoton 
+ 213.0  449.125 moveto 
+(w+)   show
+ 208.333333333 433.75 255.149792212 420.58287094 Ffermion 
+ 233.741562773  430.16643547 moveto 
+(b)   show
+ 263.149792212  418.33287094 moveto 
+(5)   show
+ 175.0 452.5 208.333333333 433.75 Ffermion 
+ 193.666666667  446.125 moveto 
+(t)   show
+ 175.0 452.5 219.72135955 469.270509831 0 Fgluon 
+ 191.360679775  463.885254916 moveto 
+(g)   show
+ 227.72135955  472.270509831 moveto 
+(9)   show
+ 141.666666667 415.0 175.0 452.5 Ffermion 
+ 152.333333333  436.75 moveto 
+(t)   show
+ 75 340 108.333333333 415.0 Ffermion 
+ 85.6666666667  380.5 moveto 
+(u)   show
+ 67.0  340 moveto 
+(1)   show
+ 108.333333333 415.0 75 490 Ffermion 
+ 93.6666666667  455.5 moveto 
+(u~)   show
+ 67.0  490 moveto 
+(2)   show
+ 108.333333333 415.0 141.666666667 415.0 0 Fgluon 
+ 123.0  418.75 moveto 
+(g)   show
+ 115.0  314.5 moveto 
+( diagram 21 )   show
+ 195.0  314.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 525.733248534 376.37503975 483.333333333 396.25 Ffermion 
+ 506.533290933  389.312519875 moveto 
+(vm~)   show
+ 533.733248534  372.62503975 moveto 
+(7)   show
+ 483.333333333 396.25 532.947227169 391.598697453 Ffermion 
+ 510.140280251  396.924348726 moveto 
+(mu-)   show
+ 540.947227169  390.848697453 moveto 
+(6)   show
+ 483.333333333 396.25 450.0 377.5 0 Fphoton 
+ 454.666666667  392.875 moveto 
+(w-)   show
+ 494.72135955 360.729490169 450.0 377.5 Ffermion 
+ 474.360679775  372.114745084 moveto 
+(b~)   show
+ 502.72135955  357.729490169 moveto 
+(8)   show
+ 450.0 377.5 416.666666667 415.0 Ffermion 
+ 435.333333333  399.25 moveto 
+(t~)   show
+ 550.0 440.0 516.666666667 452.5 Ffermion 
+ 535.333333333  449.25 moveto 
+(mu+)   show
+ 558.0  437.0 moveto 
+(3)   show
+ 516.666666667 452.5 550.0 465.0 Ffermion 
+ 521.333333333  464.75 moveto 
+(vm)   show
+ 558.0  468.0 moveto 
+(4)   show
+ 483.333333333 433.75 516.666666667 452.5 0 Fphoton 
+ 488.0  449.125 moveto 
+(w+)   show
+ 483.333333333 433.75 530.149792212 420.58287094 Ffermion 
+ 508.741562773  430.16643547 moveto 
+(b)   show
+ 538.149792212  418.33287094 moveto 
+(5)   show
+ 450.0 452.5 483.333333333 433.75 Ffermion 
+ 468.666666667  446.125 moveto 
+(t)   show
+ 450.0 452.5 494.72135955 469.270509831 0 Fgluon 
+ 466.360679775  463.885254916 moveto 
+(g)   show
+ 502.72135955  472.270509831 moveto 
+(9)   show
+ 416.666666667 415.0 450.0 452.5 Ffermion 
+ 427.333333333  436.75 moveto 
+(t)   show
+ 350 340 383.333333333 415.0 Ffermion 
+ 360.666666667  380.5 moveto 
+(u)   show
+ 342.0  340 moveto 
+(1)   show
+ 383.333333333 415.0 350 490 Ffermion 
+ 368.666666667  455.5 moveto 
+(u~)   show
+ 342.0  490 moveto 
+(2)   show
+ 383.333333333 415.0 416.666666667 415.0 0 Fgluon 
+ 398.0  418.75 moveto 
+(g)   show
+ 390.0  314.5 moveto 
+( diagram 22 )   show
+ 470.0  314.5 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=4, SMHLOOP=0)   show
+ 141.666666667 195.0 1.5 1.0 Fblob 
+ 250.733248534 156.37503975 208.333333333 176.25 Ffermion 
+ 231.533290933  169.312519875 moveto 
+(vm~)   show
+ 258.733248534  152.62503975 moveto 
+(7)   show
+ 208.333333333 176.25 257.947227169 171.598697453 Ffermion 
+ 235.140280251  176.924348726 moveto 
+(mu-)   show
+ 265.947227169  170.848697453 moveto 
+(6)   show
+ 208.333333333 176.25 175.0 157.5 0 Fphoton 
+ 179.666666667  172.875 moveto 
+(w-)   show
+ 219.72135955 140.729490169 175.0 157.5 Ffermion 
+ 199.360679775  152.114745084 moveto 
+(b~)   show
+ 227.72135955  137.729490169 moveto 
+(8)   show
+ 175.0 157.5 141.666666667 195.0 Ffermion 
+ 160.333333333  179.25 moveto 
+(t~)   show
+ 275.0 220.0 241.666666667 232.5 Ffermion 
+ 260.333333333  229.25 moveto 
+(mu+)   show
+ 283.0  217.0 moveto 
+(3)   show
+ 241.666666667 232.5 275.0 245.0 Ffermion 
+ 246.333333333  244.75 moveto 
+(vm)   show
+ 283.0  248.0 moveto 
+(4)   show
+ 208.333333333 213.75 241.666666667 232.5 0 Fphoton 
+ 213.0  229.125 moveto 
+(w+)   show
+ 208.333333333 213.75 255.149792212 200.58287094 Ffermion 
+ 233.741562773  210.16643547 moveto 
+(b)   show
+ 263.149792212  198.33287094 moveto 
+(5)   show
+ 175.0 232.5 208.333333333 213.75 Ffermion 
+ 193.666666667  226.125 moveto 
+(t)   show
+ 175.0 232.5 219.72135955 249.270509831 0 Fgluon 
+ 191.360679775  243.885254916 moveto 
+(g)   show
+ 227.72135955  252.270509831 moveto 
+(9)   show
+ 141.666666667 195.0 175.0 232.5 Ffermion 
+ 152.333333333  216.75 moveto 
+(t)   show
+ 75 120 108.333333333 195.0 Ffermion 
+ 85.6666666667  160.5 moveto 
+(u)   show
+ 67.0  120 moveto 
+(1)   show
+ 108.333333333 195.0 75 270 Ffermion 
+ 93.6666666667  235.5 moveto 
+(u~)   show
+ 67.0  270 moveto 
+(2)   show
+ 108.333333333 195.0 141.666666667 195.0 0 Fgluon 
+ 123.0  198.75 moveto 
+(g)   show
+ 115.0  94.5 moveto 
+( diagram 23 )   show
+ 195.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 450.0 232.5 1.5 1.0 Fblob 
+ 525.733248534 156.37503975 483.333333333 176.25 Ffermion 
+ 506.533290933  169.312519875 moveto 
+(vm~)   show
+ 533.733248534  152.62503975 moveto 
+(7)   show
+ 483.333333333 176.25 532.947227169 171.598697453 Ffermion 
+ 510.140280251  176.924348726 moveto 
+(mu-)   show
+ 540.947227169  170.848697453 moveto 
+(6)   show
+ 483.333333333 176.25 450.0 157.5 0 Fphoton 
+ 454.666666667  172.875 moveto 
+(w-)   show
+ 494.72135955 140.729490169 450.0 157.5 Ffermion 
+ 474.360679775  152.114745084 moveto 
+(b~)   show
+ 502.72135955  137.729490169 moveto 
+(8)   show
+ 450.0 157.5 416.666666667 195.0 Ffermion 
+ 435.333333333  179.25 moveto 
+(t~)   show
+ 550.0 220.0 516.666666667 232.5 Ffermion 
+ 535.333333333  229.25 moveto 
+(mu+)   show
+ 558.0  217.0 moveto 
+(3)   show
+ 516.666666667 232.5 550.0 245.0 Ffermion 
+ 521.333333333  244.75 moveto 
+(vm)   show
+ 558.0  248.0 moveto 
+(4)   show
+ 483.333333333 213.75 516.666666667 232.5 0 Fphoton 
+ 488.0  229.125 moveto 
+(w+)   show
+ 483.333333333 213.75 530.149792212 200.58287094 Ffermion 
+ 508.741562773  210.16643547 moveto 
+(b)   show
+ 538.149792212  198.33287094 moveto 
+(5)   show
+ 450.0 232.5 483.333333333 213.75 Ffermion 
+ 468.666666667  226.125 moveto 
+(t)   show
+ 450.0 232.5 494.72135955 249.270509831 0 Fgluon 
+ 466.360679775  243.885254916 moveto 
+(g)   show
+ 502.72135955  252.270509831 moveto 
+(9)   show
+ 416.666666667 195.0 450.0 232.5 Ffermion 
+ 427.333333333  216.75 moveto 
+(t)   show
+ 350 120 383.333333333 195.0 Ffermion 
+ 360.666666667  160.5 moveto 
+(u)   show
+ 342.0  120 moveto 
+(1)   show
+ 383.333333333 195.0 350 270 Ffermion 
+ 368.666666667  235.5 moveto 
+(u~)   show
+ 342.0  270 moveto 
+(2)   show
+ 416.666666667 195.0 383.333333333 195.0 0 Fphoton 
+ 398.0  198.75 moveto 
+(a)   show
+ 390.0  94.5 moveto 
+( diagram 24 )   show
+ 470.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=7, SMHLOOP=0)   show
+showpage
+%%Page: 5 5 
+%%PageBoundingBox:-20 -20 600 800
+%%PageFonts: Helvetica
+/Helvetica findfont 9 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 5/9) show
+ 260         40  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+ 175.0 672.5 1.5 1.0 Fblob 
+ 250.733248534 596.37503975 208.333333333 616.25 Ffermion 
+ 231.533290933  609.312519875 moveto 
+(vm~)   show
+ 258.733248534  592.62503975 moveto 
+(7)   show
+ 208.333333333 616.25 257.947227169 611.598697453 Ffermion 
+ 235.140280251  616.924348726 moveto 
+(mu-)   show
+ 265.947227169  610.848697453 moveto 
+(6)   show
+ 208.333333333 616.25 175.0 597.5 0 Fphoton 
+ 179.666666667  612.875 moveto 
+(w-)   show
+ 219.72135955 580.729490169 175.0 597.5 Ffermion 
+ 199.360679775  592.114745084 moveto 
+(b~)   show
+ 227.72135955  577.729490169 moveto 
+(8)   show
+ 175.0 597.5 141.666666667 635.0 Ffermion 
+ 160.333333333  619.25 moveto 
+(t~)   show
+ 275.0 660.0 241.666666667 672.5 Ffermion 
+ 260.333333333  669.25 moveto 
+(mu+)   show
+ 283.0  657.0 moveto 
+(3)   show
+ 241.666666667 672.5 275.0 685.0 Ffermion 
+ 246.333333333  684.75 moveto 
+(vm)   show
+ 283.0  688.0 moveto 
+(4)   show
+ 208.333333333 653.75 241.666666667 672.5 0 Fphoton 
+ 213.0  669.125 moveto 
+(w+)   show
+ 208.333333333 653.75 255.149792212 640.58287094 Ffermion 
+ 233.741562773  650.16643547 moveto 
+(b)   show
+ 263.149792212  638.33287094 moveto 
+(5)   show
+ 175.0 672.5 208.333333333 653.75 Ffermion 
+ 193.666666667  666.125 moveto 
+(t)   show
+ 175.0 672.5 219.72135955 689.270509831 0 Fgluon 
+ 191.360679775  683.885254916 moveto 
+(g)   show
+ 227.72135955  692.270509831 moveto 
+(9)   show
+ 141.666666667 635.0 175.0 672.5 Ffermion 
+ 152.333333333  656.75 moveto 
+(t)   show
+ 75 560 108.333333333 635.0 Ffermion 
+ 85.6666666667  600.5 moveto 
+(u)   show
+ 67.0  560 moveto 
+(1)   show
+ 108.333333333 635.0 75 710 Ffermion 
+ 93.6666666667  675.5 moveto 
+(u~)   show
+ 67.0  710 moveto 
+(2)   show
+ 141.666666667 635.0 108.333333333 635.0 0 Fphoton 
+ 123.0  638.75 moveto 
+(z)   show
+ 115.0  534.5 moveto 
+( diagram 25 )   show
+ 195.0  534.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=7, SMHLOOP=0)   show
+ 450.0 672.5 1.5 1.0 Fblob 
+ 525.733248534 596.37503975 483.333333333 616.25 Ffermion 
+ 506.533290933  609.312519875 moveto 
+(vm~)   show
+ 533.733248534  592.62503975 moveto 
+(7)   show
+ 483.333333333 616.25 532.947227169 611.598697453 Ffermion 
+ 510.140280251  616.924348726 moveto 
+(mu-)   show
+ 540.947227169  610.848697453 moveto 
+(6)   show
+ 483.333333333 616.25 450.0 597.5 0 Fphoton 
+ 454.666666667  612.875 moveto 
+(w-)   show
+ 494.72135955 580.729490169 450.0 597.5 Ffermion 
+ 474.360679775  592.114745084 moveto 
+(b~)   show
+ 502.72135955  577.729490169 moveto 
+(8)   show
+ 450.0 597.5 416.666666667 635.0 Ffermion 
+ 435.333333333  619.25 moveto 
+(t~)   show
+ 550.0 660.0 516.666666667 672.5 Ffermion 
+ 535.333333333  669.25 moveto 
+(mu+)   show
+ 558.0  657.0 moveto 
+(3)   show
+ 516.666666667 672.5 550.0 685.0 Ffermion 
+ 521.333333333  684.75 moveto 
+(vm)   show
+ 558.0  688.0 moveto 
+(4)   show
+ 483.333333333 653.75 516.666666667 672.5 0 Fphoton 
+ 488.0  669.125 moveto 
+(w+)   show
+ 483.333333333 653.75 530.149792212 640.58287094 Ffermion 
+ 508.741562773  650.16643547 moveto 
+(b)   show
+ 538.149792212  638.33287094 moveto 
+(5)   show
+ 450.0 672.5 483.333333333 653.75 Ffermion 
+ 468.666666667  666.125 moveto 
+(t)   show
+ 450.0 672.5 494.72135955 689.270509831 0 Fgluon 
+ 466.360679775  683.885254916 moveto 
+(g)   show
+ 502.72135955  692.270509831 moveto 
+(9)   show
+ 416.666666667 635.0 450.0 672.5 Ffermion 
+ 427.333333333  656.75 moveto 
+(t)   show
+ 350 560 383.333333333 635.0 Ffermion 
+ 360.666666667  600.5 moveto 
+(u)   show
+ 342.0  560 moveto 
+(1)   show
+ 383.333333333 635.0 350 710 Ffermion 
+ 368.666666667  675.5 moveto 
+(u~)   show
+ 342.0  710 moveto 
+(2)   show
+ 383.333333333 635.0 416.666666667 635.0 0 Fgluon 
+ 398.0  638.75 moveto 
+(g)   show
+ 390.0  534.5 moveto 
+( diagram 26 )   show
+ 470.0  534.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 115.0 415.0 1.5 1.0 Fblob 
+ 248.21484505 375.462951152 195.0 396.25 Ffermion 
+ 223.607422525  388.856475576 moveto 
+(vm~)   show
+ 256.21484505  372.337951152 moveto 
+(7)   show
+ 195.0 396.25 254.677104533 391.587726208 Ffermion 
+ 226.838552267  396.918863104 moveto 
+(mu-)   show
+ 262.677104533  390.962726208 moveto 
+(6)   show
+ 195.0 396.25 155.0 377.5 0 Fphoton 
+ 163.0  392.875 moveto 
+(w-)   show
+ 210.384615385 360.192307692 155.0 377.5 Ffermion 
+ 184.692307692  371.846153846 moveto 
+(b~)   show
+ 218.384615385  357.692307692 moveto 
+(8)   show
+ 155.0 377.5 115.0 415.0 Ffermion 
+ 137.0  399.25 moveto 
+(t~)   show
+ 275.0 440.0 235.0 452.5 Ffermion 
+ 257.0  449.25 moveto 
+(mu+)   show
+ 283.0  437.5 moveto 
+(3)   show
+ 235.0 452.5 275.0 465.0 Ffermion 
+ 243.0  464.75 moveto 
+(vm)   show
+ 283.0  467.5 moveto 
+(4)   show
+ 195.0 433.75 235.0 452.5 0 Fphoton 
+ 203.0  449.125 moveto 
+(w+)   show
+ 195.0 433.75 252.268798682 420.327625309 Ffermion 
+ 225.634399341  430.038812654 moveto 
+(b)   show
+ 260.268798682  418.452625309 moveto 
+(5)   show
+ 155.0 452.5 195.0 433.75 Ffermion 
+ 177.0  446.125 moveto 
+(t)   show
+ 155.0 452.5 210.384615385 469.807692308 0 Fgluon 
+ 176.692307692  464.153846154 moveto 
+(g)   show
+ 218.384615385  472.307692308 moveto 
+(9)   show
+ 115.0 415.0 155.0 452.5 Ffermion 
+ 129.0  436.75 moveto 
+(t)   show
+ 75 340 115.0 415.0 Ffermion 
+ 89.0  380.5 moveto 
+(u)   show
+ 67.0  340 moveto 
+(1)   show
+ 115.0 415.0 75 490 Ffermion 
+ 97.0  455.5 moveto 
+(u~)   show
+ 67.0  490 moveto 
+(2)   show
+ 115.0  314.5 moveto 
+( diagram 27 )   show
+ 195.0  314.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=1, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 390.0 415.0 1.5 1.0 Fblob 
+ 523.21484505 375.462951152 470.0 396.25 Ffermion 
+ 498.607422525  388.856475576 moveto 
+(vm~)   show
+ 531.21484505  372.337951152 moveto 
+(7)   show
+ 470.0 396.25 529.677104533 391.587726208 Ffermion 
+ 501.838552267  396.918863104 moveto 
+(mu-)   show
+ 537.677104533  390.962726208 moveto 
+(6)   show
+ 470.0 396.25 430.0 377.5 0 Fphoton 
+ 438.0  392.875 moveto 
+(w-)   show
+ 485.384615385 360.192307692 430.0 377.5 Ffermion 
+ 459.692307692  371.846153846 moveto 
+(b~)   show
+ 493.384615385  357.692307692 moveto 
+(8)   show
+ 430.0 377.5 390.0 415.0 Ffermion 
+ 412.0  399.25 moveto 
+(t~)   show
+ 550.0 440.0 510.0 452.5 Ffermion 
+ 532.0  449.25 moveto 
+(mu+)   show
+ 558.0  437.5 moveto 
+(3)   show
+ 510.0 452.5 550.0 465.0 Ffermion 
+ 518.0  464.75 moveto 
+(vm)   show
+ 558.0  467.5 moveto 
+(4)   show
+ 470.0 433.75 510.0 452.5 0 Fphoton 
+ 478.0  449.125 moveto 
+(w+)   show
+ 470.0 433.75 527.268798682 420.327625309 Ffermion 
+ 500.634399341  430.038812654 moveto 
+(b)   show
+ 535.268798682  418.452625309 moveto 
+(5)   show
+ 430.0 452.5 470.0 433.75 Ffermion 
+ 452.0  446.125 moveto 
+(t)   show
+ 430.0 452.5 485.384615385 469.807692308 0 Fgluon 
+ 451.692307692  464.153846154 moveto 
+(g)   show
+ 493.384615385  472.307692308 moveto 
+(9)   show
+ 390.0 415.0 430.0 452.5 Ffermion 
+ 404.0  436.75 moveto 
+(t)   show
+ 350 340 390.0 415.0 Ffermion 
+ 364.0  380.5 moveto 
+(u)   show
+ 342.0  340 moveto 
+(1)   show
+ 390.0 415.0 350 490 Ffermion 
+ 372.0  455.5 moveto 
+(u~)   show
+ 342.0  490 moveto 
+(2)   show
+ 390.0  314.5 moveto 
+( diagram 28 )   show
+ 470.0  314.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=1, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 115.0 195.0 1.5 1.0 Fblob 
+ 248.21484505 155.462951152 195.0 176.25 Ffermion 
+ 223.607422525  168.856475576 moveto 
+(vm~)   show
+ 256.21484505  152.337951152 moveto 
+(7)   show
+ 195.0 176.25 254.677104533 171.587726208 Ffermion 
+ 226.838552267  176.918863104 moveto 
+(mu-)   show
+ 262.677104533  170.962726208 moveto 
+(6)   show
+ 195.0 176.25 155.0 157.5 0 Fphoton 
+ 163.0  172.875 moveto 
+(w-)   show
+ 210.384615385 140.192307692 155.0 157.5 Ffermion 
+ 184.692307692  151.846153846 moveto 
+(b~)   show
+ 218.384615385  137.692307692 moveto 
+(8)   show
+ 155.0 157.5 115.0 195.0 Ffermion 
+ 137.0  179.25 moveto 
+(t~)   show
+ 275.0 220.0 235.0 232.5 Ffermion 
+ 257.0  229.25 moveto 
+(mu+)   show
+ 283.0  217.5 moveto 
+(3)   show
+ 235.0 232.5 275.0 245.0 Ffermion 
+ 243.0  244.75 moveto 
+(vm)   show
+ 283.0  247.5 moveto 
+(4)   show
+ 195.0 213.75 235.0 232.5 0 Fphoton 
+ 203.0  229.125 moveto 
+(w+)   show
+ 195.0 213.75 252.268798682 200.327625309 Ffermion 
+ 225.634399341  210.038812654 moveto 
+(b)   show
+ 260.268798682  198.452625309 moveto 
+(5)   show
+ 155.0 232.5 195.0 213.75 Ffermion 
+ 177.0  226.125 moveto 
+(t)   show
+ 155.0 232.5 210.384615385 249.807692308 0 Fgluon 
+ 176.692307692  244.153846154 moveto 
+(g)   show
+ 218.384615385  252.307692308 moveto 
+(9)   show
+ 115.0 195.0 155.0 232.5 Ffermion 
+ 129.0  216.75 moveto 
+(t)   show
+ 75 120 115.0 195.0 Ffermion 
+ 89.0  160.5 moveto 
+(u)   show
+ 67.0  120 moveto 
+(1)   show
+ 115.0 195.0 75 270 Ffermion 
+ 97.0  235.5 moveto 
+(u~)   show
+ 67.0  270 moveto 
+(2)   show
+ 115.0  94.5 moveto 
+( diagram 29 )   show
+ 195.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=1, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 390.0 195.0 1.5 1.0 Fblob 
+ 523.21484505 155.462951152 470.0 176.25 Ffermion 
+ 498.607422525  168.856475576 moveto 
+(vm~)   show
+ 531.21484505  152.337951152 moveto 
+(7)   show
+ 470.0 176.25 529.677104533 171.587726208 Ffermion 
+ 501.838552267  176.918863104 moveto 
+(mu-)   show
+ 537.677104533  170.962726208 moveto 
+(6)   show
+ 470.0 176.25 430.0 157.5 0 Fphoton 
+ 438.0  172.875 moveto 
+(w-)   show
+ 485.384615385 140.192307692 430.0 157.5 Ffermion 
+ 459.692307692  151.846153846 moveto 
+(b~)   show
+ 493.384615385  137.692307692 moveto 
+(8)   show
+ 430.0 157.5 390.0 195.0 Ffermion 
+ 412.0  179.25 moveto 
+(t~)   show
+ 550.0 220.0 510.0 232.5 Ffermion 
+ 532.0  229.25 moveto 
+(mu+)   show
+ 558.0  217.5 moveto 
+(3)   show
+ 510.0 232.5 550.0 245.0 Ffermion 
+ 518.0  244.75 moveto 
+(vm)   show
+ 558.0  247.5 moveto 
+(4)   show
+ 470.0 213.75 510.0 232.5 0 Fphoton 
+ 478.0  229.125 moveto 
+(w+)   show
+ 470.0 213.75 527.268798682 200.327625309 Ffermion 
+ 500.634399341  210.038812654 moveto 
+(b)   show
+ 535.268798682  198.452625309 moveto 
+(5)   show
+ 430.0 232.5 470.0 213.75 Ffermion 
+ 452.0  226.125 moveto 
+(t)   show
+ 430.0 232.5 485.384615385 249.807692308 0 Fgluon 
+ 451.692307692  244.153846154 moveto 
+(g)   show
+ 493.384615385  252.307692308 moveto 
+(9)   show
+ 390.0 195.0 430.0 232.5 Ffermion 
+ 404.0  216.75 moveto 
+(t)   show
+ 350 120 390.0 195.0 Ffermion 
+ 364.0  160.5 moveto 
+(u)   show
+ 342.0  120 moveto 
+(1)   show
+ 390.0 195.0 350 270 Ffermion 
+ 372.0  235.5 moveto 
+(u~)   show
+ 342.0  270 moveto 
+(2)   show
+ 390.0  94.5 moveto 
+( diagram 30 )   show
+ 470.0  94.5 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=1, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+showpage
+%%Page: 6 6 
+%%PageBoundingBox:-20 -20 600 800
+%%PageFonts: Helvetica
+/Helvetica findfont 6 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 6/9) show
+ 260         40  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+ 70.0 670.0 0.9 1.0 Fblob 
+ 169.911133788 643.641967435 130.0 657.5 Ffermion 
+ 151.455566894  652.570983717 moveto 
+(vm~)   show
+ 175.911133788  641.558634102 moveto 
+(7)   show
+ 130.0 657.5 174.7578284 654.391817472 Ffermion 
+ 153.8789142  657.945908736 moveto 
+(mu-)   show
+ 180.7578284  653.975150806 moveto 
+(6)   show
+ 130.0 657.5 100.0 645.0 0 Fphoton 
+ 106.0  655.25 moveto 
+(w-)   show
+ 141.538461538 633.461538462 100.0 645.0 Ffermion 
+ 122.269230769  641.230769231 moveto 
+(b~)   show
+ 147.538461538  631.794871795 moveto 
+(8)   show
+ 100.0 645.0 70.0 670.0 Ffermion 
+ 86.5  659.5 moveto 
+(t~)   show
+ 190.0 686.666666667 160.0 695.0 Ffermion 
+ 176.5  692.833333333 moveto 
+(mu+)   show
+ 196.0  685.0 moveto 
+(3)   show
+ 160.0 695.0 190.0 703.333333333 Ffermion 
+ 166.0  703.166666667 moveto 
+(vm)   show
+ 196.0  705.0 moveto 
+(4)   show
+ 130.0 682.5 160.0 695.0 0 Fphoton 
+ 136.0  692.75 moveto 
+(w+)   show
+ 130.0 682.5 172.951599012 673.551750206 Ffermion 
+ 152.975799506  680.025875103 moveto 
+(b)   show
+ 178.951599012  672.301750206 moveto 
+(5)   show
+ 100.0 695.0 130.0 682.5 Ffermion 
+ 116.5  690.75 moveto 
+(t)   show
+ 100.0 695.0 141.538461538 706.538461538 0 Fgluon 
+ 116.269230769  702.769230769 moveto 
+(g)   show
+ 147.538461538  708.205128205 moveto 
+(9)   show
+ 70.0 670.0 100.0 695.0 Ffermion 
+ 80.5  684.5 moveto 
+(t)   show
+ 40 620 70.0 670.0 Ffermion 
+ 50.5  647.0 moveto 
+(u)   show
+ 34.0  620 moveto 
+(1)   show
+ 70.0 670.0 40 720 Ffermion 
+ 56.5  697.0 moveto 
+(u~)   show
+ 34.0  720 moveto 
+(2)   show
+ 70.0  603.0 moveto 
+( diagram 31 )   show
+ 130.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=1, QCD=1, QED=6, SMHLOOP=0)   show
+ 262.0 670.0 0.9 1.0 Fblob 
+ 361.911133788 643.641967435 322.0 657.5 Ffermion 
+ 343.455566894  652.570983717 moveto 
+(vm~)   show
+ 367.911133788  641.558634102 moveto 
+(7)   show
+ 322.0 657.5 366.7578284 654.391817472 Ffermion 
+ 345.8789142  657.945908736 moveto 
+(mu-)   show
+ 372.7578284  653.975150806 moveto 
+(6)   show
+ 322.0 657.5 292.0 645.0 0 Fphoton 
+ 298.0  655.25 moveto 
+(w-)   show
+ 333.538461538 633.461538462 292.0 645.0 Ffermion 
+ 314.269230769  641.230769231 moveto 
+(b~)   show
+ 339.538461538  631.794871795 moveto 
+(8)   show
+ 292.0 645.0 262.0 670.0 Ffermion 
+ 278.5  659.5 moveto 
+(t~)   show
+ 382.0 686.666666667 352.0 695.0 Ffermion 
+ 368.5  692.833333333 moveto 
+(mu+)   show
+ 388.0  685.0 moveto 
+(3)   show
+ 352.0 695.0 382.0 703.333333333 Ffermion 
+ 358.0  703.166666667 moveto 
+(vm)   show
+ 388.0  705.0 moveto 
+(4)   show
+ 322.0 682.5 352.0 695.0 0 Fphoton 
+ 328.0  692.75 moveto 
+(w+)   show
+ 322.0 682.5 364.951599012 673.551750206 Ffermion 
+ 344.975799506  680.025875103 moveto 
+(b)   show
+ 370.951599012  672.301750206 moveto 
+(5)   show
+ 292.0 695.0 322.0 682.5 Ffermion 
+ 308.5  690.75 moveto 
+(t)   show
+ 292.0 695.0 333.538461538 706.538461538 0 Fgluon 
+ 308.269230769  702.769230769 moveto 
+(g)   show
+ 339.538461538  708.205128205 moveto 
+(9)   show
+ 262.0 670.0 292.0 695.0 Ffermion 
+ 272.5  684.5 moveto 
+(t)   show
+ 232 620 262.0 670.0 Ffermion 
+ 242.5  647.0 moveto 
+(u)   show
+ 226.0  620 moveto 
+(1)   show
+ 262.0 670.0 232 720 Ffermion 
+ 248.5  697.0 moveto 
+(u~)   show
+ 226.0  720 moveto 
+(2)   show
+ 262.0  603.0 moveto 
+( diagram 32 )   show
+ 322.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=1, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 454.0 670.0 0.9 1.0 Fblob 
+ 553.911133788 643.641967435 514.0 657.5 Ffermion 
+ 535.455566894  652.570983717 moveto 
+(vm~)   show
+ 559.911133788  641.558634102 moveto 
+(7)   show
+ 514.0 657.5 558.7578284 654.391817472 Ffermion 
+ 537.8789142  657.945908736 moveto 
+(mu-)   show
+ 564.7578284  653.975150806 moveto 
+(6)   show
+ 514.0 657.5 484.0 645.0 0 Fphoton 
+ 490.0  655.25 moveto 
+(w-)   show
+ 525.538461538 633.461538462 484.0 645.0 Ffermion 
+ 506.269230769  641.230769231 moveto 
+(b~)   show
+ 531.538461538  631.794871795 moveto 
+(8)   show
+ 484.0 645.0 454.0 670.0 Ffermion 
+ 470.5  659.5 moveto 
+(t~)   show
+ 574.0 686.666666667 544.0 695.0 Ffermion 
+ 560.5  692.833333333 moveto 
+(mu+)   show
+ 580.0  685.0 moveto 
+(3)   show
+ 544.0 695.0 574.0 703.333333333 Ffermion 
+ 550.0  703.166666667 moveto 
+(vm)   show
+ 580.0  705.0 moveto 
+(4)   show
+ 514.0 682.5 544.0 695.0 0 Fphoton 
+ 520.0  692.75 moveto 
+(w+)   show
+ 514.0 682.5 556.951599012 673.551750206 Ffermion 
+ 536.975799506  680.025875103 moveto 
+(b)   show
+ 562.951599012  672.301750206 moveto 
+(5)   show
+ 484.0 695.0 514.0 682.5 Ffermion 
+ 500.5  690.75 moveto 
+(t)   show
+ 484.0 695.0 525.538461538 706.538461538 0 Fgluon 
+ 500.269230769  702.769230769 moveto 
+(g)   show
+ 531.538461538  708.205128205 moveto 
+(9)   show
+ 454.0 670.0 484.0 695.0 Ffermion 
+ 464.5  684.5 moveto 
+(t)   show
+ 424 620 454.0 670.0 Ffermion 
+ 434.5  647.0 moveto 
+(u)   show
+ 418.0  620 moveto 
+(1)   show
+ 454.0 670.0 424 720 Ffermion 
+ 440.5  697.0 moveto 
+(u~)   show
+ 418.0  720 moveto 
+(2)   show
+ 454.0  603.0 moveto 
+( diagram 33 )   show
+ 514.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=1, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 70.0 540.0 0.9 1.0 Fblob 
+ 169.911133788 513.641967435 130.0 527.5 Ffermion 
+ 151.455566894  522.570983717 moveto 
+(vm~)   show
+ 175.911133788  511.558634102 moveto 
+(7)   show
+ 130.0 527.5 174.7578284 524.391817472 Ffermion 
+ 153.8789142  527.945908736 moveto 
+(mu-)   show
+ 180.7578284  523.975150806 moveto 
+(6)   show
+ 130.0 527.5 100.0 515.0 0 Fphoton 
+ 106.0  525.25 moveto 
+(w-)   show
+ 141.538461538 503.461538462 100.0 515.0 Ffermion 
+ 122.269230769  511.230769231 moveto 
+(b~)   show
+ 147.538461538  501.794871795 moveto 
+(8)   show
+ 100.0 515.0 70.0 540.0 Ffermion 
+ 86.5  529.5 moveto 
+(t~)   show
+ 190.0 556.666666667 160.0 565.0 Ffermion 
+ 176.5  562.833333333 moveto 
+(mu+)   show
+ 196.0  555.0 moveto 
+(3)   show
+ 160.0 565.0 190.0 573.333333333 Ffermion 
+ 166.0  573.166666667 moveto 
+(vm)   show
+ 196.0  575.0 moveto 
+(4)   show
+ 130.0 552.5 160.0 565.0 0 Fphoton 
+ 136.0  562.75 moveto 
+(w+)   show
+ 130.0 552.5 172.951599012 543.551750206 Ffermion 
+ 152.975799506  550.025875103 moveto 
+(b)   show
+ 178.951599012  542.301750206 moveto 
+(5)   show
+ 100.0 565.0 130.0 552.5 Ffermion 
+ 116.5  560.75 moveto 
+(t)   show
+ 100.0 565.0 141.538461538 576.538461538 0 Fgluon 
+ 116.269230769  572.769230769 moveto 
+(g)   show
+ 147.538461538  578.205128205 moveto 
+(9)   show
+ 70.0 540.0 100.0 565.0 Ffermion 
+ 80.5  554.5 moveto 
+(t)   show
+ 40 490 70.0 540.0 Ffermion 
+ 50.5  517.0 moveto 
+(u)   show
+ 34.0  490 moveto 
+(1)   show
+ 70.0 540.0 40 590 Ffermion 
+ 56.5  567.0 moveto 
+(u~)   show
+ 34.0  590 moveto 
+(2)   show
+ 70.0  473.0 moveto 
+( diagram 34 )   show
+ 130.0  473.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=1, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 262.0 540.0 0.9 1.0 Fblob 
+ 361.911133788 513.641967435 322.0 527.5 Ffermion 
+ 343.455566894  522.570983717 moveto 
+(vm~)   show
+ 367.911133788  511.558634102 moveto 
+(7)   show
+ 322.0 527.5 366.7578284 524.391817472 Ffermion 
+ 345.8789142  527.945908736 moveto 
+(mu-)   show
+ 372.7578284  523.975150806 moveto 
+(6)   show
+ 322.0 527.5 292.0 515.0 0 Fphoton 
+ 298.0  525.25 moveto 
+(w-)   show
+ 333.538461538 503.461538462 292.0 515.0 Ffermion 
+ 314.269230769  511.230769231 moveto 
+(b~)   show
+ 339.538461538  501.794871795 moveto 
+(8)   show
+ 292.0 515.0 262.0 540.0 Ffermion 
+ 278.5  529.5 moveto 
+(t~)   show
+ 382.0 556.666666667 352.0 565.0 Ffermion 
+ 368.5  562.833333333 moveto 
+(mu+)   show
+ 388.0  555.0 moveto 
+(3)   show
+ 352.0 565.0 382.0 573.333333333 Ffermion 
+ 358.0  573.166666667 moveto 
+(vm)   show
+ 388.0  575.0 moveto 
+(4)   show
+ 322.0 552.5 352.0 565.0 0 Fphoton 
+ 328.0  562.75 moveto 
+(w+)   show
+ 322.0 552.5 364.951599012 543.551750206 Ffermion 
+ 344.975799506  550.025875103 moveto 
+(b)   show
+ 370.951599012  542.301750206 moveto 
+(5)   show
+ 292.0 565.0 322.0 552.5 Ffermion 
+ 308.5  560.75 moveto 
+(t)   show
+ 292.0 565.0 333.538461538 576.538461538 0 Fgluon 
+ 308.269230769  572.769230769 moveto 
+(g)   show
+ 339.538461538  578.205128205 moveto 
+(9)   show
+ 262.0 540.0 292.0 565.0 Ffermion 
+ 272.5  554.5 moveto 
+(t)   show
+ 232 490 262.0 540.0 Ffermion 
+ 242.5  517.0 moveto 
+(u)   show
+ 226.0  490 moveto 
+(1)   show
+ 262.0 540.0 232 590 Ffermion 
+ 248.5  567.0 moveto 
+(u~)   show
+ 226.0  590 moveto 
+(2)   show
+ 262.0  473.0 moveto 
+( diagram 35 )   show
+ 322.0  473.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=1, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 454.0 540.0 0.9 1.0 Fblob 
+ 553.911133788 513.641967435 514.0 527.5 Ffermion 
+ 535.455566894  522.570983717 moveto 
+(vm~)   show
+ 559.911133788  511.558634102 moveto 
+(7)   show
+ 514.0 527.5 558.7578284 524.391817472 Ffermion 
+ 537.8789142  527.945908736 moveto 
+(mu-)   show
+ 564.7578284  523.975150806 moveto 
+(6)   show
+ 514.0 527.5 484.0 515.0 0 Fphoton 
+ 490.0  525.25 moveto 
+(w-)   show
+ 525.538461538 503.461538462 484.0 515.0 Ffermion 
+ 506.269230769  511.230769231 moveto 
+(b~)   show
+ 531.538461538  501.794871795 moveto 
+(8)   show
+ 484.0 515.0 454.0 540.0 Ffermion 
+ 470.5  529.5 moveto 
+(t~)   show
+ 574.0 556.666666667 544.0 565.0 Ffermion 
+ 560.5  562.833333333 moveto 
+(mu+)   show
+ 580.0  555.0 moveto 
+(3)   show
+ 544.0 565.0 574.0 573.333333333 Ffermion 
+ 550.0  573.166666667 moveto 
+(vm)   show
+ 580.0  575.0 moveto 
+(4)   show
+ 514.0 552.5 544.0 565.0 0 Fphoton 
+ 520.0  562.75 moveto 
+(w+)   show
+ 514.0 552.5 556.951599012 543.551750206 Ffermion 
+ 536.975799506  550.025875103 moveto 
+(b)   show
+ 562.951599012  542.301750206 moveto 
+(5)   show
+ 484.0 565.0 514.0 552.5 Ffermion 
+ 500.5  560.75 moveto 
+(t)   show
+ 484.0 565.0 525.538461538 576.538461538 0 Fgluon 
+ 500.269230769  572.769230769 moveto 
+(g)   show
+ 531.538461538  578.205128205 moveto 
+(9)   show
+ 454.0 540.0 484.0 565.0 Ffermion 
+ 464.5  554.5 moveto 
+(t)   show
+ 424 490 454.0 540.0 Ffermion 
+ 434.5  517.0 moveto 
+(u)   show
+ 418.0  490 moveto 
+(1)   show
+ 454.0 540.0 424 590 Ffermion 
+ 440.5  567.0 moveto 
+(u~)   show
+ 418.0  590 moveto 
+(2)   show
+ 454.0  473.0 moveto 
+( diagram 36 )   show
+ 514.0  473.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=1, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 115.0 385.0 0.9 1.0 Fblob 
+ 190.0 376.666666667 165.0 385.0 Ffermion 
+ 179.0  382.833333333 moveto 
+(vm~)   show
+ 196.0  374.666666667 moveto 
+(7)   show
+ 165.0 385.0 190.0 393.333333333 Ffermion 
+ 164.0  395.166666667 moveto 
+(mu-)   show
+ 196.0  395.333333333 moveto 
+(6)   show
+ 165.0 385.0 140.0 372.5 0 Fphoton 
+ 143.5  382.75 moveto 
+(w-)   show
+ 175.112344159 363.72191396 140.0 372.5 Ffermion 
+ 159.056172079  370.11095698 moveto 
+(b~)   show
+ 181.112344159  362.22191396 moveto 
+(8)   show
+ 140.0 372.5 115.0 385.0 Ffermion 
+ 129.0  380.75 moveto 
+(t~)   show
+ 115.0 385.0 148.541019662 396.180339887 0 Fgluon 
+ 127.270509831  392.590169944 moveto 
+(g)   show
+ 154.541019662  398.180339887 moveto 
+(9)   show
+ 115.0 385.0 90.0 410.0 Ffermion 
+ 104.0  399.5 moveto 
+(t~)   show
+ 177.210420377 444.399131635 140.0 447.5 Ffermion 
+ 160.105210188  447.949565818 moveto 
+(mu+)   show
+ 183.210420377  443.899131635 moveto 
+(3)   show
+ 140.0 447.5 175.112344159 456.27808604 Ffermion 
+ 148.556172079  455.88904302 moveto 
+(vm)   show
+ 181.112344159  457.77808604 moveto 
+(4)   show
+ 115.0 435.0 140.0 447.5 0 Fphoton 
+ 118.5  445.25 moveto 
+(w+)   show
+ 115.0 435.0 151.989772144 430.890025317 Ffermion 
+ 134.994886072  434.945012659 moveto 
+(b)   show
+ 157.989772144  430.223358651 moveto 
+(5)   show
+ 90.0 410.0 115.0 435.0 Ffermion 
+ 98.0  424.5 moveto 
+(t)   show
+ 40 360 65.0 410.0 Ffermion 
+ 48.0  387.0 moveto 
+(u)   show
+ 34.0  360 moveto 
+(1)   show
+ 65.0 410.0 40 460 Ffermion 
+ 54.0  437.0 moveto 
+(u~)   show
+ 34.0  460 moveto 
+(2)   show
+ 90.0 410.0 65.0 410.0 0 Fphoton 
+ 76.0  412.5 moveto 
+(a)   show
+ 70.0  343.0 moveto 
+( diagram 37 )   show
+ 130.0  343.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=7, SMHLOOP=0)   show
+ 307.0 385.0 0.9 1.0 Fblob 
+ 382.0 376.666666667 357.0 385.0 Ffermion 
+ 371.0  382.833333333 moveto 
+(vm~)   show
+ 388.0  374.666666667 moveto 
+(7)   show
+ 357.0 385.0 382.0 393.333333333 Ffermion 
+ 356.0  395.166666667 moveto 
+(mu-)   show
+ 388.0  395.333333333 moveto 
+(6)   show
+ 357.0 385.0 332.0 372.5 0 Fphoton 
+ 335.5  382.75 moveto 
+(w-)   show
+ 367.112344159 363.72191396 332.0 372.5 Ffermion 
+ 351.056172079  370.11095698 moveto 
+(b~)   show
+ 373.112344159  362.22191396 moveto 
+(8)   show
+ 332.0 372.5 307.0 385.0 Ffermion 
+ 321.0  380.75 moveto 
+(t~)   show
+ 307.0 385.0 340.541019662 396.180339887 0 Fgluon 
+ 319.270509831  392.590169944 moveto 
+(g)   show
+ 346.541019662  398.180339887 moveto 
+(9)   show
+ 307.0 385.0 282.0 410.0 Ffermion 
+ 296.0  399.5 moveto 
+(t~)   show
+ 369.210420377 444.399131635 332.0 447.5 Ffermion 
+ 352.105210188  447.949565818 moveto 
+(mu+)   show
+ 375.210420377  443.899131635 moveto 
+(3)   show
+ 332.0 447.5 367.112344159 456.27808604 Ffermion 
+ 340.556172079  455.88904302 moveto 
+(vm)   show
+ 373.112344159  457.77808604 moveto 
+(4)   show
+ 307.0 435.0 332.0 447.5 0 Fphoton 
+ 310.5  445.25 moveto 
+(w+)   show
+ 307.0 435.0 343.989772144 430.890025317 Ffermion 
+ 326.994886072  434.945012659 moveto 
+(b)   show
+ 349.989772144  430.223358651 moveto 
+(5)   show
+ 282.0 410.0 307.0 435.0 Ffermion 
+ 290.0  424.5 moveto 
+(t)   show
+ 232 360 257.0 410.0 Ffermion 
+ 240.0  387.0 moveto 
+(u)   show
+ 226.0  360 moveto 
+(1)   show
+ 257.0 410.0 232 460 Ffermion 
+ 246.0  437.0 moveto 
+(u~)   show
+ 226.0  460 moveto 
+(2)   show
+ 282.0 410.0 257.0 410.0 0 Fphoton 
+ 268.0  412.5 moveto 
+(z)   show
+ 262.0  343.0 moveto 
+( diagram 38 )   show
+ 322.0  343.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=7, SMHLOOP=0)   show
+ 499.0 385.0 0.9 1.0 Fblob 
+ 574.0 376.666666667 549.0 385.0 Ffermion 
+ 563.0  382.833333333 moveto 
+(vm~)   show
+ 580.0  374.666666667 moveto 
+(7)   show
+ 549.0 385.0 574.0 393.333333333 Ffermion 
+ 548.0  395.166666667 moveto 
+(mu-)   show
+ 580.0  395.333333333 moveto 
+(6)   show
+ 549.0 385.0 524.0 372.5 0 Fphoton 
+ 527.5  382.75 moveto 
+(w-)   show
+ 559.112344159 363.72191396 524.0 372.5 Ffermion 
+ 543.056172079  370.11095698 moveto 
+(b~)   show
+ 565.112344159  362.22191396 moveto 
+(8)   show
+ 524.0 372.5 499.0 385.0 Ffermion 
+ 513.0  380.75 moveto 
+(t~)   show
+ 499.0 385.0 532.541019662 396.180339887 0 Fgluon 
+ 511.270509831  392.590169944 moveto 
+(g)   show
+ 538.541019662  398.180339887 moveto 
+(9)   show
+ 499.0 385.0 474.0 410.0 Ffermion 
+ 488.0  399.5 moveto 
+(t~)   show
+ 561.210420377 444.399131635 524.0 447.5 Ffermion 
+ 544.105210188  447.949565818 moveto 
+(mu+)   show
+ 567.210420377  443.899131635 moveto 
+(3)   show
+ 524.0 447.5 559.112344159 456.27808604 Ffermion 
+ 532.556172079  455.88904302 moveto 
+(vm)   show
+ 565.112344159  457.77808604 moveto 
+(4)   show
+ 499.0 435.0 524.0 447.5 0 Fphoton 
+ 502.5  445.25 moveto 
+(w+)   show
+ 499.0 435.0 535.989772144 430.890025317 Ffermion 
+ 518.994886072  434.945012659 moveto 
+(b)   show
+ 541.989772144  430.223358651 moveto 
+(5)   show
+ 474.0 410.0 499.0 435.0 Ffermion 
+ 482.0  424.5 moveto 
+(t)   show
+ 424 360 449.0 410.0 Ffermion 
+ 432.0  387.0 moveto 
+(u)   show
+ 418.0  360 moveto 
+(1)   show
+ 449.0 410.0 424 460 Ffermion 
+ 438.0  437.0 moveto 
+(u~)   show
+ 418.0  460 moveto 
+(2)   show
+ 449.0 410.0 474.0 410.0 0 Fgluon 
+ 460.0  412.5 moveto 
+(g)   show
+ 454.0  343.0 moveto 
+( diagram 39 )   show
+ 514.0  343.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 190.0 246.666666667 165.0 255.0 Ffermion 
+ 179.0  252.833333333 moveto 
+(vm~)   show
+ 196.0  244.666666667 moveto 
+(7)   show
+ 165.0 255.0 190.0 263.333333333 Ffermion 
+ 164.0  265.166666667 moveto 
+(mu-)   show
+ 196.0  265.333333333 moveto 
+(6)   show
+ 165.0 255.0 140.0 242.5 0 Fphoton 
+ 143.5  252.75 moveto 
+(w-)   show
+ 175.112344159 233.72191396 140.0 242.5 Ffermion 
+ 159.056172079  240.11095698 moveto 
+(b~)   show
+ 181.112344159  232.22191396 moveto 
+(8)   show
+ 140.0 242.5 115.0 255.0 Ffermion 
+ 129.0  250.75 moveto 
+(t~)   show
+ 115.0 255.0 148.541019662 266.180339887 0 Fgluon 
+ 127.270509831  262.590169944 moveto 
+(g)   show
+ 154.541019662  268.180339887 moveto 
+(9)   show
+ 115.0 255.0 90.0 280.0 Ffermion 
+ 104.0  269.5 moveto 
+(t~)   show
+ 177.210420377 314.399131635 140.0 317.5 Ffermion 
+ 160.105210188  317.949565818 moveto 
+(mu+)   show
+ 183.210420377  313.899131635 moveto 
+(3)   show
+ 140.0 317.5 175.112344159 326.27808604 Ffermion 
+ 148.556172079  325.88904302 moveto 
+(vm)   show
+ 181.112344159  327.77808604 moveto 
+(4)   show
+ 115.0 305.0 140.0 317.5 0 Fphoton 
+ 118.5  315.25 moveto 
+(w+)   show
+ 115.0 305.0 151.989772144 300.890025317 Ffermion 
+ 134.994886072  304.945012659 moveto 
+(b)   show
+ 157.989772144  300.223358651 moveto 
+(5)   show
+ 90.0 280.0 115.0 305.0 Ffermion 
+ 98.0  294.5 moveto 
+(t)   show
+ 40 230 65.0 280.0 Ffermion 
+ 48.0  257.0 moveto 
+(u)   show
+ 34.0  230 moveto 
+(1)   show
+ 65.0 280.0 40 330 Ffermion 
+ 54.0  307.0 moveto 
+(u~)   show
+ 34.0  330 moveto 
+(2)   show
+ 90.0 280.0 65.0 280.0 0 Fphoton 
+ 76.0  282.5 moveto 
+(a)   show
+ 70.0  213.0 moveto 
+( diagram 40 )   show
+ 130.0  213.0 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 382.0 246.666666667 357.0 255.0 Ffermion 
+ 371.0  252.833333333 moveto 
+(vm~)   show
+ 388.0  244.666666667 moveto 
+(7)   show
+ 357.0 255.0 382.0 263.333333333 Ffermion 
+ 356.0  265.166666667 moveto 
+(mu-)   show
+ 388.0  265.333333333 moveto 
+(6)   show
+ 357.0 255.0 332.0 242.5 0 Fphoton 
+ 335.5  252.75 moveto 
+(w-)   show
+ 367.112344159 233.72191396 332.0 242.5 Ffermion 
+ 351.056172079  240.11095698 moveto 
+(b~)   show
+ 373.112344159  232.22191396 moveto 
+(8)   show
+ 332.0 242.5 307.0 255.0 Ffermion 
+ 321.0  250.75 moveto 
+(t~)   show
+ 307.0 255.0 340.541019662 266.180339887 0 Fgluon 
+ 319.270509831  262.590169944 moveto 
+(g)   show
+ 346.541019662  268.180339887 moveto 
+(9)   show
+ 307.0 255.0 282.0 280.0 Ffermion 
+ 296.0  269.5 moveto 
+(t~)   show
+ 369.210420377 314.399131635 332.0 317.5 Ffermion 
+ 352.105210188  317.949565818 moveto 
+(mu+)   show
+ 375.210420377  313.899131635 moveto 
+(3)   show
+ 332.0 317.5 367.112344159 326.27808604 Ffermion 
+ 340.556172079  325.88904302 moveto 
+(vm)   show
+ 373.112344159  327.77808604 moveto 
+(4)   show
+ 307.0 305.0 332.0 317.5 0 Fphoton 
+ 310.5  315.25 moveto 
+(w+)   show
+ 307.0 305.0 343.989772144 300.890025317 Ffermion 
+ 326.994886072  304.945012659 moveto 
+(b)   show
+ 349.989772144  300.223358651 moveto 
+(5)   show
+ 282.0 280.0 307.0 305.0 Ffermion 
+ 290.0  294.5 moveto 
+(t)   show
+ 232 230 257.0 280.0 Ffermion 
+ 240.0  257.0 moveto 
+(u)   show
+ 226.0  230 moveto 
+(1)   show
+ 257.0 280.0 232 330 Ffermion 
+ 246.0  307.0 moveto 
+(u~)   show
+ 226.0  330 moveto 
+(2)   show
+ 282.0 280.0 257.0 280.0 0 Fphoton 
+ 268.0  282.5 moveto 
+(z)   show
+ 262.0  213.0 moveto 
+( diagram 41 )   show
+ 322.0  213.0 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 474.0 280.0 0.9 1.0 Fblob 
+ 574.0 246.666666667 549.0 255.0 Ffermion 
+ 563.0  252.833333333 moveto 
+(vm~)   show
+ 580.0  244.666666667 moveto 
+(7)   show
+ 549.0 255.0 574.0 263.333333333 Ffermion 
+ 548.0  265.166666667 moveto 
+(mu-)   show
+ 580.0  265.333333333 moveto 
+(6)   show
+ 549.0 255.0 524.0 242.5 0 Fphoton 
+ 527.5  252.75 moveto 
+(w-)   show
+ 559.112344159 233.72191396 524.0 242.5 Ffermion 
+ 543.056172079  240.11095698 moveto 
+(b~)   show
+ 565.112344159  232.22191396 moveto 
+(8)   show
+ 524.0 242.5 499.0 255.0 Ffermion 
+ 513.0  250.75 moveto 
+(t~)   show
+ 499.0 255.0 532.541019662 266.180339887 0 Fgluon 
+ 511.270509831  262.590169944 moveto 
+(g)   show
+ 538.541019662  268.180339887 moveto 
+(9)   show
+ 499.0 255.0 474.0 280.0 Ffermion 
+ 488.0  269.5 moveto 
+(t~)   show
+ 561.210420377 314.399131635 524.0 317.5 Ffermion 
+ 544.105210188  317.949565818 moveto 
+(mu+)   show
+ 567.210420377  313.899131635 moveto 
+(3)   show
+ 524.0 317.5 559.112344159 326.27808604 Ffermion 
+ 532.556172079  325.88904302 moveto 
+(vm)   show
+ 565.112344159  327.77808604 moveto 
+(4)   show
+ 499.0 305.0 524.0 317.5 0 Fphoton 
+ 502.5  315.25 moveto 
+(w+)   show
+ 499.0 305.0 535.989772144 300.890025317 Ffermion 
+ 518.994886072  304.945012659 moveto 
+(b)   show
+ 541.989772144  300.223358651 moveto 
+(5)   show
+ 474.0 280.0 499.0 305.0 Ffermion 
+ 482.0  294.5 moveto 
+(t)   show
+ 424 230 449.0 280.0 Ffermion 
+ 432.0  257.0 moveto 
+(u)   show
+ 418.0  230 moveto 
+(1)   show
+ 449.0 280.0 424 330 Ffermion 
+ 438.0  307.0 moveto 
+(u~)   show
+ 418.0  330 moveto 
+(2)   show
+ 449.0 280.0 474.0 280.0 0 Fgluon 
+ 460.0  282.5 moveto 
+(g)   show
+ 454.0  213.0 moveto 
+( diagram 42 )   show
+ 514.0  213.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 190.0 116.666666667 165.0 125.0 Ffermion 
+ 179.0  122.833333333 moveto 
+(vm~)   show
+ 196.0  114.666666667 moveto 
+(7)   show
+ 165.0 125.0 190.0 133.333333333 Ffermion 
+ 164.0  135.166666667 moveto 
+(mu-)   show
+ 196.0  135.333333333 moveto 
+(6)   show
+ 165.0 125.0 140.0 112.5 0 Fphoton 
+ 143.5  122.75 moveto 
+(w-)   show
+ 175.112344159 103.72191396 140.0 112.5 Ffermion 
+ 159.056172079  110.11095698 moveto 
+(b~)   show
+ 181.112344159  102.22191396 moveto 
+(8)   show
+ 140.0 112.5 115.0 125.0 Ffermion 
+ 129.0  120.75 moveto 
+(t~)   show
+ 115.0 125.0 148.541019662 136.180339887 0 Fgluon 
+ 127.270509831  132.590169944 moveto 
+(g)   show
+ 154.541019662  138.180339887 moveto 
+(9)   show
+ 115.0 125.0 90.0 150.0 Ffermion 
+ 104.0  139.5 moveto 
+(t~)   show
+ 177.210420377 184.399131635 140.0 187.5 Ffermion 
+ 160.105210188  187.949565818 moveto 
+(mu+)   show
+ 183.210420377  183.899131635 moveto 
+(3)   show
+ 140.0 187.5 175.112344159 196.27808604 Ffermion 
+ 148.556172079  195.88904302 moveto 
+(vm)   show
+ 181.112344159  197.77808604 moveto 
+(4)   show
+ 115.0 175.0 140.0 187.5 0 Fphoton 
+ 118.5  185.25 moveto 
+(w+)   show
+ 115.0 175.0 151.989772144 170.890025317 Ffermion 
+ 134.994886072  174.945012659 moveto 
+(b)   show
+ 157.989772144  170.223358651 moveto 
+(5)   show
+ 90.0 150.0 115.0 175.0 Ffermion 
+ 98.0  164.5 moveto 
+(t)   show
+ 40 100 65.0 150.0 Ffermion 
+ 48.0  127.0 moveto 
+(u)   show
+ 34.0  100 moveto 
+(1)   show
+ 65.0 150.0 40 200 Ffermion 
+ 54.0  177.0 moveto 
+(u~)   show
+ 34.0  200 moveto 
+(2)   show
+ 65.0 150.0 90.0 150.0 0 Fgluon 
+ 76.0  152.5 moveto 
+(g)   show
+ 70.0  83.0 moveto 
+( diagram 43 )   show
+ 130.0  83.0 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=4, SMHLOOP=0)   show
+ 282.0 150.0 0.9 1.0 Fblob 
+ 382.0 116.666666667 357.0 125.0 Ffermion 
+ 371.0  122.833333333 moveto 
+(vm~)   show
+ 388.0  114.666666667 moveto 
+(7)   show
+ 357.0 125.0 382.0 133.333333333 Ffermion 
+ 356.0  135.166666667 moveto 
+(mu-)   show
+ 388.0  135.333333333 moveto 
+(6)   show
+ 357.0 125.0 332.0 112.5 0 Fphoton 
+ 335.5  122.75 moveto 
+(w-)   show
+ 367.112344159 103.72191396 332.0 112.5 Ffermion 
+ 351.056172079  110.11095698 moveto 
+(b~)   show
+ 373.112344159  102.22191396 moveto 
+(8)   show
+ 332.0 112.5 307.0 125.0 Ffermion 
+ 321.0  120.75 moveto 
+(t~)   show
+ 307.0 125.0 340.541019662 136.180339887 0 Fgluon 
+ 319.270509831  132.590169944 moveto 
+(g)   show
+ 346.541019662  138.180339887 moveto 
+(9)   show
+ 307.0 125.0 282.0 150.0 Ffermion 
+ 296.0  139.5 moveto 
+(t~)   show
+ 369.210420377 184.399131635 332.0 187.5 Ffermion 
+ 352.105210188  187.949565818 moveto 
+(mu+)   show
+ 375.210420377  183.899131635 moveto 
+(3)   show
+ 332.0 187.5 367.112344159 196.27808604 Ffermion 
+ 340.556172079  195.88904302 moveto 
+(vm)   show
+ 373.112344159  197.77808604 moveto 
+(4)   show
+ 307.0 175.0 332.0 187.5 0 Fphoton 
+ 310.5  185.25 moveto 
+(w+)   show
+ 307.0 175.0 343.989772144 170.890025317 Ffermion 
+ 326.994886072  174.945012659 moveto 
+(b)   show
+ 349.989772144  170.223358651 moveto 
+(5)   show
+ 282.0 150.0 307.0 175.0 Ffermion 
+ 290.0  164.5 moveto 
+(t)   show
+ 232 100 257.0 150.0 Ffermion 
+ 240.0  127.0 moveto 
+(u)   show
+ 226.0  100 moveto 
+(1)   show
+ 257.0 150.0 232 200 Ffermion 
+ 246.0  177.0 moveto 
+(u~)   show
+ 226.0  200 moveto 
+(2)   show
+ 257.0 150.0 282.0 150.0 0 Fgluon 
+ 268.0  152.5 moveto 
+(g)   show
+ 262.0  83.0 moveto 
+( diagram 44 )   show
+ 322.0  83.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 499.0 125.0 0.9 1.0 Fblob 
+ 574.0 116.666666667 549.0 125.0 Ffermion 
+ 563.0  122.833333333 moveto 
+(vm~)   show
+ 580.0  114.666666667 moveto 
+(7)   show
+ 549.0 125.0 574.0 133.333333333 Ffermion 
+ 548.0  135.166666667 moveto 
+(mu-)   show
+ 580.0  135.333333333 moveto 
+(6)   show
+ 549.0 125.0 524.0 112.5 0 Fphoton 
+ 527.5  122.75 moveto 
+(w-)   show
+ 559.112344159 103.72191396 524.0 112.5 Ffermion 
+ 543.056172079  110.11095698 moveto 
+(b~)   show
+ 565.112344159  102.22191396 moveto 
+(8)   show
+ 524.0 112.5 499.0 125.0 Ffermion 
+ 513.0  120.75 moveto 
+(t~)   show
+ 499.0 125.0 532.541019662 136.180339887 0 Fgluon 
+ 511.270509831  132.590169944 moveto 
+(g)   show
+ 538.541019662  138.180339887 moveto 
+(9)   show
+ 499.0 125.0 474.0 150.0 Ffermion 
+ 488.0  139.5 moveto 
+(t~)   show
+ 561.210420377 184.399131635 524.0 187.5 Ffermion 
+ 544.105210188  187.949565818 moveto 
+(mu+)   show
+ 567.210420377  183.899131635 moveto 
+(3)   show
+ 524.0 187.5 559.112344159 196.27808604 Ffermion 
+ 532.556172079  195.88904302 moveto 
+(vm)   show
+ 565.112344159  197.77808604 moveto 
+(4)   show
+ 499.0 175.0 524.0 187.5 0 Fphoton 
+ 502.5  185.25 moveto 
+(w+)   show
+ 499.0 175.0 535.989772144 170.890025317 Ffermion 
+ 518.994886072  174.945012659 moveto 
+(b)   show
+ 541.989772144  170.223358651 moveto 
+(5)   show
+ 474.0 150.0 499.0 175.0 Ffermion 
+ 482.0  164.5 moveto 
+(t)   show
+ 424 100 449.0 150.0 Ffermion 
+ 432.0  127.0 moveto 
+(u)   show
+ 418.0  100 moveto 
+(1)   show
+ 449.0 150.0 424 200 Ffermion 
+ 438.0  177.0 moveto 
+(u~)   show
+ 418.0  200 moveto 
+(2)   show
+ 474.0 150.0 449.0 150.0 0 Fphoton 
+ 460.0  152.5 moveto 
+(a)   show
+ 454.0  83.0 moveto 
+( diagram 45 )   show
+ 514.0  83.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=7, SMHLOOP=0)   show
+showpage
+%%Page: 7 7 
+%%PageBoundingBox:-20 -20 600 800
+%%PageFonts: Helvetica
+/Helvetica findfont 6 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 7/9) show
+ 260         40  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+ 115.0 645.0 0.9 1.0 Fblob 
+ 190.0 636.666666667 165.0 645.0 Ffermion 
+ 179.0  642.833333333 moveto 
+(vm~)   show
+ 196.0  634.666666667 moveto 
+(7)   show
+ 165.0 645.0 190.0 653.333333333 Ffermion 
+ 164.0  655.166666667 moveto 
+(mu-)   show
+ 196.0  655.333333333 moveto 
+(6)   show
+ 165.0 645.0 140.0 632.5 0 Fphoton 
+ 143.5  642.75 moveto 
+(w-)   show
+ 175.112344159 623.72191396 140.0 632.5 Ffermion 
+ 159.056172079  630.11095698 moveto 
+(b~)   show
+ 181.112344159  622.22191396 moveto 
+(8)   show
+ 140.0 632.5 115.0 645.0 Ffermion 
+ 129.0  640.75 moveto 
+(t~)   show
+ 115.0 645.0 148.541019662 656.180339887 0 Fgluon 
+ 127.270509831  652.590169944 moveto 
+(g)   show
+ 154.541019662  658.180339887 moveto 
+(9)   show
+ 115.0 645.0 90.0 670.0 Ffermion 
+ 104.0  659.5 moveto 
+(t~)   show
+ 177.210420377 704.399131635 140.0 707.5 Ffermion 
+ 160.105210188  707.949565818 moveto 
+(mu+)   show
+ 183.210420377  703.899131635 moveto 
+(3)   show
+ 140.0 707.5 175.112344159 716.27808604 Ffermion 
+ 148.556172079  715.88904302 moveto 
+(vm)   show
+ 181.112344159  717.77808604 moveto 
+(4)   show
+ 115.0 695.0 140.0 707.5 0 Fphoton 
+ 118.5  705.25 moveto 
+(w+)   show
+ 115.0 695.0 151.989772144 690.890025317 Ffermion 
+ 134.994886072  694.945012659 moveto 
+(b)   show
+ 157.989772144  690.223358651 moveto 
+(5)   show
+ 90.0 670.0 115.0 695.0 Ffermion 
+ 98.0  684.5 moveto 
+(t)   show
+ 40 620 65.0 670.0 Ffermion 
+ 48.0  647.0 moveto 
+(u)   show
+ 34.0  620 moveto 
+(1)   show
+ 65.0 670.0 40 720 Ffermion 
+ 54.0  697.0 moveto 
+(u~)   show
+ 34.0  720 moveto 
+(2)   show
+ 90.0 670.0 65.0 670.0 0 Fphoton 
+ 76.0  672.5 moveto 
+(z)   show
+ 70.0  603.0 moveto 
+( diagram 46 )   show
+ 130.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=7, SMHLOOP=0)   show
+ 307.0 645.0 0.9 1.0 Fblob 
+ 382.0 636.666666667 357.0 645.0 Ffermion 
+ 371.0  642.833333333 moveto 
+(vm~)   show
+ 388.0  634.666666667 moveto 
+(7)   show
+ 357.0 645.0 382.0 653.333333333 Ffermion 
+ 356.0  655.166666667 moveto 
+(mu-)   show
+ 388.0  655.333333333 moveto 
+(6)   show
+ 357.0 645.0 332.0 632.5 0 Fphoton 
+ 335.5  642.75 moveto 
+(w-)   show
+ 367.112344159 623.72191396 332.0 632.5 Ffermion 
+ 351.056172079  630.11095698 moveto 
+(b~)   show
+ 373.112344159  622.22191396 moveto 
+(8)   show
+ 332.0 632.5 307.0 645.0 Ffermion 
+ 321.0  640.75 moveto 
+(t~)   show
+ 307.0 645.0 340.541019662 656.180339887 0 Fgluon 
+ 319.270509831  652.590169944 moveto 
+(g)   show
+ 346.541019662  658.180339887 moveto 
+(9)   show
+ 307.0 645.0 282.0 670.0 Ffermion 
+ 296.0  659.5 moveto 
+(t~)   show
+ 369.210420377 704.399131635 332.0 707.5 Ffermion 
+ 352.105210188  707.949565818 moveto 
+(mu+)   show
+ 375.210420377  703.899131635 moveto 
+(3)   show
+ 332.0 707.5 367.112344159 716.27808604 Ffermion 
+ 340.556172079  715.88904302 moveto 
+(vm)   show
+ 373.112344159  717.77808604 moveto 
+(4)   show
+ 307.0 695.0 332.0 707.5 0 Fphoton 
+ 310.5  705.25 moveto 
+(w+)   show
+ 307.0 695.0 343.989772144 690.890025317 Ffermion 
+ 326.994886072  694.945012659 moveto 
+(b)   show
+ 349.989772144  690.223358651 moveto 
+(5)   show
+ 282.0 670.0 307.0 695.0 Ffermion 
+ 290.0  684.5 moveto 
+(t)   show
+ 232 620 257.0 670.0 Ffermion 
+ 240.0  647.0 moveto 
+(u)   show
+ 226.0  620 moveto 
+(1)   show
+ 257.0 670.0 232 720 Ffermion 
+ 246.0  697.0 moveto 
+(u~)   show
+ 226.0  720 moveto 
+(2)   show
+ 257.0 670.0 282.0 670.0 0 Fgluon 
+ 268.0  672.5 moveto 
+(g)   show
+ 262.0  603.0 moveto 
+( diagram 47 )   show
+ 322.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 454.0 670.0 0.9 1.0 Fblob 
+ 574.0 636.666666667 544.0 645.0 Ffermion 
+ 560.5  642.833333333 moveto 
+(vm~)   show
+ 580.0  635.0 moveto 
+(7)   show
+ 544.0 645.0 574.0 653.333333333 Ffermion 
+ 545.5  655.166666667 moveto 
+(mu-)   show
+ 580.0  655.0 moveto 
+(6)   show
+ 544.0 645.0 514.0 632.5 0 Fphoton 
+ 520.0  642.75 moveto 
+(w-)   show
+ 556.951599012 623.551750206 514.0 632.5 Ffermion 
+ 536.975799506  630.025875103 moveto 
+(b~)   show
+ 562.951599012  622.301750206 moveto 
+(8)   show
+ 514.0 632.5 484.0 645.0 Ffermion 
+ 500.5  640.75 moveto 
+(t~)   show
+ 484.0 645.0 525.538461538 656.538461538 0 Fgluon 
+ 500.269230769  652.769230769 moveto 
+(g)   show
+ 531.538461538  658.205128205 moveto 
+(9)   show
+ 484.0 645.0 454.0 670.0 Ffermion 
+ 470.5  659.5 moveto 
+(t~)   show
+ 558.7578284 704.391817472 514.0 707.5 Ffermion 
+ 537.8789142  707.945908736 moveto 
+(mu+)   show
+ 564.7578284  703.975150806 moveto 
+(3)   show
+ 514.0 707.5 556.951599012 716.448249794 Ffermion 
+ 526.475799506  715.974124897 moveto 
+(vm)   show
+ 562.951599012  717.698249794 moveto 
+(4)   show
+ 484.0 695.0 514.0 707.5 0 Fphoton 
+ 490.0  705.25 moveto 
+(w+)   show
+ 484.0 695.0 528.572152293 690.872948862 Ffermion 
+ 507.786076146  694.936474431 moveto 
+(b)   show
+ 534.572152293  690.317393306 moveto 
+(5)   show
+ 454.0 670.0 484.0 695.0 Ffermion 
+ 464.5  684.5 moveto 
+(t)   show
+ 424 620 454.0 670.0 Ffermion 
+ 434.5  647.0 moveto 
+(u)   show
+ 418.0  620 moveto 
+(1)   show
+ 454.0 670.0 424 720 Ffermion 
+ 440.5  697.0 moveto 
+(u~)   show
+ 418.0  720 moveto 
+(2)   show
+ 454.0  603.0 moveto 
+( diagram 48 )   show
+ 514.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=1, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 70.0 540.0 0.9 1.0 Fblob 
+ 190.0 506.666666667 160.0 515.0 Ffermion 
+ 176.5  512.833333333 moveto 
+(vm~)   show
+ 196.0  505.0 moveto 
+(7)   show
+ 160.0 515.0 190.0 523.333333333 Ffermion 
+ 161.5  525.166666667 moveto 
+(mu-)   show
+ 196.0  525.0 moveto 
+(6)   show
+ 160.0 515.0 130.0 502.5 0 Fphoton 
+ 136.0  512.75 moveto 
+(w-)   show
+ 172.951599012 493.551750206 130.0 502.5 Ffermion 
+ 152.975799506  500.025875103 moveto 
+(b~)   show
+ 178.951599012  492.301750206 moveto 
+(8)   show
+ 130.0 502.5 100.0 515.0 Ffermion 
+ 116.5  510.75 moveto 
+(t~)   show
+ 100.0 515.0 141.538461538 526.538461538 0 Fgluon 
+ 116.269230769  522.769230769 moveto 
+(g)   show
+ 147.538461538  528.205128205 moveto 
+(9)   show
+ 100.0 515.0 70.0 540.0 Ffermion 
+ 86.5  529.5 moveto 
+(t~)   show
+ 174.7578284 574.391817472 130.0 577.5 Ffermion 
+ 153.8789142  577.945908736 moveto 
+(mu+)   show
+ 180.7578284  573.975150806 moveto 
+(3)   show
+ 130.0 577.5 172.951599012 586.448249794 Ffermion 
+ 142.475799506  585.974124897 moveto 
+(vm)   show
+ 178.951599012  587.698249794 moveto 
+(4)   show
+ 100.0 565.0 130.0 577.5 0 Fphoton 
+ 106.0  575.25 moveto 
+(w+)   show
+ 100.0 565.0 144.572152293 560.872948862 Ffermion 
+ 123.786076146  564.936474431 moveto 
+(b)   show
+ 150.572152293  560.317393306 moveto 
+(5)   show
+ 70.0 540.0 100.0 565.0 Ffermion 
+ 80.5  554.5 moveto 
+(t)   show
+ 40 490 70.0 540.0 Ffermion 
+ 50.5  517.0 moveto 
+(u)   show
+ 34.0  490 moveto 
+(1)   show
+ 70.0 540.0 40 590 Ffermion 
+ 56.5  567.0 moveto 
+(u~)   show
+ 34.0  590 moveto 
+(2)   show
+ 70.0  473.0 moveto 
+( diagram 49 )   show
+ 130.0  473.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=1, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 262.0 540.0 0.9 1.0 Fblob 
+ 382.0 506.666666667 352.0 515.0 Ffermion 
+ 368.5  512.833333333 moveto 
+(vm~)   show
+ 388.0  505.0 moveto 
+(7)   show
+ 352.0 515.0 382.0 523.333333333 Ffermion 
+ 353.5  525.166666667 moveto 
+(mu-)   show
+ 388.0  525.0 moveto 
+(6)   show
+ 352.0 515.0 322.0 502.5 0 Fphoton 
+ 328.0  512.75 moveto 
+(w-)   show
+ 364.951599012 493.551750206 322.0 502.5 Ffermion 
+ 344.975799506  500.025875103 moveto 
+(b~)   show
+ 370.951599012  492.301750206 moveto 
+(8)   show
+ 322.0 502.5 292.0 515.0 Ffermion 
+ 308.5  510.75 moveto 
+(t~)   show
+ 292.0 515.0 333.538461538 526.538461538 0 Fgluon 
+ 308.269230769  522.769230769 moveto 
+(g)   show
+ 339.538461538  528.205128205 moveto 
+(9)   show
+ 292.0 515.0 262.0 540.0 Ffermion 
+ 278.5  529.5 moveto 
+(t~)   show
+ 366.7578284 574.391817472 322.0 577.5 Ffermion 
+ 345.8789142  577.945908736 moveto 
+(mu+)   show
+ 372.7578284  573.975150806 moveto 
+(3)   show
+ 322.0 577.5 364.951599012 586.448249794 Ffermion 
+ 334.475799506  585.974124897 moveto 
+(vm)   show
+ 370.951599012  587.698249794 moveto 
+(4)   show
+ 292.0 565.0 322.0 577.5 0 Fphoton 
+ 298.0  575.25 moveto 
+(w+)   show
+ 292.0 565.0 336.572152293 560.872948862 Ffermion 
+ 315.786076146  564.936474431 moveto 
+(b)   show
+ 342.572152293  560.317393306 moveto 
+(5)   show
+ 262.0 540.0 292.0 565.0 Ffermion 
+ 272.5  554.5 moveto 
+(t)   show
+ 232 490 262.0 540.0 Ffermion 
+ 242.5  517.0 moveto 
+(u)   show
+ 226.0  490 moveto 
+(1)   show
+ 262.0 540.0 232 590 Ffermion 
+ 248.5  567.0 moveto 
+(u~)   show
+ 226.0  590 moveto 
+(2)   show
+ 262.0  473.0 moveto 
+( diagram 50 )   show
+ 322.0  473.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=1, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 454.0 540.0 0.9 1.0 Fblob 
+ 574.0 506.666666667 544.0 515.0 Ffermion 
+ 560.5  512.833333333 moveto 
+(vm~)   show
+ 580.0  505.0 moveto 
+(7)   show
+ 544.0 515.0 574.0 523.333333333 Ffermion 
+ 545.5  525.166666667 moveto 
+(mu-)   show
+ 580.0  525.0 moveto 
+(6)   show
+ 544.0 515.0 514.0 502.5 0 Fphoton 
+ 520.0  512.75 moveto 
+(w-)   show
+ 556.951599012 493.551750206 514.0 502.5 Ffermion 
+ 536.975799506  500.025875103 moveto 
+(b~)   show
+ 562.951599012  492.301750206 moveto 
+(8)   show
+ 514.0 502.5 484.0 515.0 Ffermion 
+ 500.5  510.75 moveto 
+(t~)   show
+ 484.0 515.0 525.538461538 526.538461538 0 Fgluon 
+ 500.269230769  522.769230769 moveto 
+(g)   show
+ 531.538461538  528.205128205 moveto 
+(9)   show
+ 484.0 515.0 454.0 540.0 Ffermion 
+ 470.5  529.5 moveto 
+(t~)   show
+ 558.7578284 574.391817472 514.0 577.5 Ffermion 
+ 537.8789142  577.945908736 moveto 
+(mu+)   show
+ 564.7578284  573.975150806 moveto 
+(3)   show
+ 514.0 577.5 556.951599012 586.448249794 Ffermion 
+ 526.475799506  585.974124897 moveto 
+(vm)   show
+ 562.951599012  587.698249794 moveto 
+(4)   show
+ 484.0 565.0 514.0 577.5 0 Fphoton 
+ 490.0  575.25 moveto 
+(w+)   show
+ 484.0 565.0 528.572152293 560.872948862 Ffermion 
+ 507.786076146  564.936474431 moveto 
+(b)   show
+ 534.572152293  560.317393306 moveto 
+(5)   show
+ 454.0 540.0 484.0 565.0 Ffermion 
+ 464.5  554.5 moveto 
+(t)   show
+ 424 490 454.0 540.0 Ffermion 
+ 434.5  517.0 moveto 
+(u)   show
+ 418.0  490 moveto 
+(1)   show
+ 454.0 540.0 424 590 Ffermion 
+ 440.5  567.0 moveto 
+(u~)   show
+ 418.0  590 moveto 
+(2)   show
+ 454.0  473.0 moveto 
+( diagram 51 )   show
+ 514.0  473.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=1, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 70.0 410.0 0.9 1.0 Fblob 
+ 190.0 376.666666667 160.0 385.0 Ffermion 
+ 176.5  382.833333333 moveto 
+(vm~)   show
+ 196.0  375.0 moveto 
+(7)   show
+ 160.0 385.0 190.0 393.333333333 Ffermion 
+ 161.5  395.166666667 moveto 
+(mu-)   show
+ 196.0  395.0 moveto 
+(6)   show
+ 160.0 385.0 130.0 372.5 0 Fphoton 
+ 136.0  382.75 moveto 
+(w-)   show
+ 172.951599012 363.551750206 130.0 372.5 Ffermion 
+ 152.975799506  370.025875103 moveto 
+(b~)   show
+ 178.951599012  362.301750206 moveto 
+(8)   show
+ 130.0 372.5 100.0 385.0 Ffermion 
+ 116.5  380.75 moveto 
+(t~)   show
+ 100.0 385.0 141.538461538 396.538461538 0 Fgluon 
+ 116.269230769  392.769230769 moveto 
+(g)   show
+ 147.538461538  398.205128205 moveto 
+(9)   show
+ 100.0 385.0 70.0 410.0 Ffermion 
+ 86.5  399.5 moveto 
+(t~)   show
+ 174.7578284 444.391817472 130.0 447.5 Ffermion 
+ 153.8789142  447.945908736 moveto 
+(mu+)   show
+ 180.7578284  443.975150806 moveto 
+(3)   show
+ 130.0 447.5 172.951599012 456.448249794 Ffermion 
+ 142.475799506  455.974124897 moveto 
+(vm)   show
+ 178.951599012  457.698249794 moveto 
+(4)   show
+ 100.0 435.0 130.0 447.5 0 Fphoton 
+ 106.0  445.25 moveto 
+(w+)   show
+ 100.0 435.0 144.572152293 430.872948862 Ffermion 
+ 123.786076146  434.936474431 moveto 
+(b)   show
+ 150.572152293  430.317393306 moveto 
+(5)   show
+ 70.0 410.0 100.0 435.0 Ffermion 
+ 80.5  424.5 moveto 
+(t)   show
+ 40 360 70.0 410.0 Ffermion 
+ 50.5  387.0 moveto 
+(u)   show
+ 34.0  360 moveto 
+(1)   show
+ 70.0 410.0 40 460 Ffermion 
+ 56.5  437.0 moveto 
+(u~)   show
+ 34.0  460 moveto 
+(2)   show
+ 70.0  343.0 moveto 
+( diagram 52 )   show
+ 130.0  343.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=1, QCD=1, QED=6, SMHLOOP=0)   show
+ 262.0 410.0 0.9 1.0 Fblob 
+ 382.0 376.666666667 352.0 385.0 Ffermion 
+ 368.5  382.833333333 moveto 
+(vm~)   show
+ 388.0  375.0 moveto 
+(7)   show
+ 352.0 385.0 382.0 393.333333333 Ffermion 
+ 353.5  395.166666667 moveto 
+(mu-)   show
+ 388.0  395.0 moveto 
+(6)   show
+ 352.0 385.0 322.0 372.5 0 Fphoton 
+ 328.0  382.75 moveto 
+(w-)   show
+ 364.951599012 363.551750206 322.0 372.5 Ffermion 
+ 344.975799506  370.025875103 moveto 
+(b~)   show
+ 370.951599012  362.301750206 moveto 
+(8)   show
+ 322.0 372.5 292.0 385.0 Ffermion 
+ 308.5  380.75 moveto 
+(t~)   show
+ 292.0 385.0 333.538461538 396.538461538 0 Fgluon 
+ 308.269230769  392.769230769 moveto 
+(g)   show
+ 339.538461538  398.205128205 moveto 
+(9)   show
+ 292.0 385.0 262.0 410.0 Ffermion 
+ 278.5  399.5 moveto 
+(t~)   show
+ 366.7578284 444.391817472 322.0 447.5 Ffermion 
+ 345.8789142  447.945908736 moveto 
+(mu+)   show
+ 372.7578284  443.975150806 moveto 
+(3)   show
+ 322.0 447.5 364.951599012 456.448249794 Ffermion 
+ 334.475799506  455.974124897 moveto 
+(vm)   show
+ 370.951599012  457.698249794 moveto 
+(4)   show
+ 292.0 435.0 322.0 447.5 0 Fphoton 
+ 298.0  445.25 moveto 
+(w+)   show
+ 292.0 435.0 336.572152293 430.872948862 Ffermion 
+ 315.786076146  434.936474431 moveto 
+(b)   show
+ 342.572152293  430.317393306 moveto 
+(5)   show
+ 262.0 410.0 292.0 435.0 Ffermion 
+ 272.5  424.5 moveto 
+(t)   show
+ 232 360 262.0 410.0 Ffermion 
+ 242.5  387.0 moveto 
+(u)   show
+ 226.0  360 moveto 
+(1)   show
+ 262.0 410.0 232 460 Ffermion 
+ 248.5  437.0 moveto 
+(u~)   show
+ 226.0  460 moveto 
+(2)   show
+ 262.0  343.0 moveto 
+( diagram 53 )   show
+ 322.0  343.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=1, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 454.0 410.0 0.9 1.0 Fblob 
+ 574.0 376.666666667 544.0 385.0 Ffermion 
+ 560.5  382.833333333 moveto 
+(vm~)   show
+ 580.0  375.0 moveto 
+(7)   show
+ 544.0 385.0 574.0 393.333333333 Ffermion 
+ 545.5  395.166666667 moveto 
+(mu-)   show
+ 580.0  395.0 moveto 
+(6)   show
+ 544.0 385.0 514.0 372.5 0 Fphoton 
+ 520.0  382.75 moveto 
+(w-)   show
+ 556.951599012 363.551750206 514.0 372.5 Ffermion 
+ 536.975799506  370.025875103 moveto 
+(b~)   show
+ 562.951599012  362.301750206 moveto 
+(8)   show
+ 514.0 372.5 484.0 385.0 Ffermion 
+ 500.5  380.75 moveto 
+(t~)   show
+ 484.0 385.0 525.538461538 396.538461538 0 Fgluon 
+ 500.269230769  392.769230769 moveto 
+(g)   show
+ 531.538461538  398.205128205 moveto 
+(9)   show
+ 484.0 385.0 454.0 410.0 Ffermion 
+ 470.5  399.5 moveto 
+(t~)   show
+ 558.7578284 444.391817472 514.0 447.5 Ffermion 
+ 537.8789142  447.945908736 moveto 
+(mu+)   show
+ 564.7578284  443.975150806 moveto 
+(3)   show
+ 514.0 447.5 556.951599012 456.448249794 Ffermion 
+ 526.475799506  455.974124897 moveto 
+(vm)   show
+ 562.951599012  457.698249794 moveto 
+(4)   show
+ 484.0 435.0 514.0 447.5 0 Fphoton 
+ 490.0  445.25 moveto 
+(w+)   show
+ 484.0 435.0 528.572152293 430.872948862 Ffermion 
+ 507.786076146  434.936474431 moveto 
+(b)   show
+ 534.572152293  430.317393306 moveto 
+(5)   show
+ 454.0 410.0 484.0 435.0 Ffermion 
+ 464.5  424.5 moveto 
+(t)   show
+ 424 360 454.0 410.0 Ffermion 
+ 434.5  387.0 moveto 
+(u)   show
+ 418.0  360 moveto 
+(1)   show
+ 454.0 410.0 424 460 Ffermion 
+ 440.5  437.0 moveto 
+(u~)   show
+ 418.0  460 moveto 
+(2)   show
+ 454.0  343.0 moveto 
+( diagram 54 )   show
+ 514.0  343.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=1, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 70.0 280.0 0.9 1.0 Fblob 
+ 190.0 246.666666667 160.0 255.0 Ffermion 
+ 176.5  252.833333333 moveto 
+(vm~)   show
+ 196.0  245.0 moveto 
+(7)   show
+ 160.0 255.0 190.0 263.333333333 Ffermion 
+ 161.5  265.166666667 moveto 
+(mu-)   show
+ 196.0  265.0 moveto 
+(6)   show
+ 160.0 255.0 130.0 242.5 0 Fphoton 
+ 136.0  252.75 moveto 
+(w-)   show
+ 172.951599012 233.551750206 130.0 242.5 Ffermion 
+ 152.975799506  240.025875103 moveto 
+(b~)   show
+ 178.951599012  232.301750206 moveto 
+(8)   show
+ 130.0 242.5 100.0 255.0 Ffermion 
+ 116.5  250.75 moveto 
+(t~)   show
+ 100.0 255.0 141.538461538 266.538461538 0 Fgluon 
+ 116.269230769  262.769230769 moveto 
+(g)   show
+ 147.538461538  268.205128205 moveto 
+(9)   show
+ 100.0 255.0 70.0 280.0 Ffermion 
+ 86.5  269.5 moveto 
+(t~)   show
+ 174.7578284 314.391817472 130.0 317.5 Ffermion 
+ 153.8789142  317.945908736 moveto 
+(mu+)   show
+ 180.7578284  313.975150806 moveto 
+(3)   show
+ 130.0 317.5 172.951599012 326.448249794 Ffermion 
+ 142.475799506  325.974124897 moveto 
+(vm)   show
+ 178.951599012  327.698249794 moveto 
+(4)   show
+ 100.0 305.0 130.0 317.5 0 Fphoton 
+ 106.0  315.25 moveto 
+(w+)   show
+ 100.0 305.0 144.572152293 300.872948862 Ffermion 
+ 123.786076146  304.936474431 moveto 
+(b)   show
+ 150.572152293  300.317393306 moveto 
+(5)   show
+ 70.0 280.0 100.0 305.0 Ffermion 
+ 80.5  294.5 moveto 
+(t)   show
+ 40 230 70.0 280.0 Ffermion 
+ 50.5  257.0 moveto 
+(u)   show
+ 34.0  230 moveto 
+(1)   show
+ 70.0 280.0 40 330 Ffermion 
+ 56.5  307.0 moveto 
+(u~)   show
+ 34.0  330 moveto 
+(2)   show
+ 70.0  213.0 moveto 
+( diagram 55 )   show
+ 130.0  213.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=1, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 262.0 280.0 0.9 1.0 Fblob 
+ 382.0 246.666666667 352.0 255.0 Ffermion 
+ 368.5  252.833333333 moveto 
+(vm~)   show
+ 388.0  245.0 moveto 
+(7)   show
+ 352.0 255.0 382.0 263.333333333 Ffermion 
+ 353.5  265.166666667 moveto 
+(mu-)   show
+ 388.0  265.0 moveto 
+(6)   show
+ 352.0 255.0 322.0 242.5 0 Fphoton 
+ 328.0  252.75 moveto 
+(w-)   show
+ 364.951599012 233.551750206 322.0 242.5 Ffermion 
+ 344.975799506  240.025875103 moveto 
+(b~)   show
+ 370.951599012  232.301750206 moveto 
+(8)   show
+ 322.0 242.5 292.0 255.0 Ffermion 
+ 308.5  250.75 moveto 
+(t~)   show
+ 292.0 255.0 333.538461538 266.538461538 0 Fgluon 
+ 308.269230769  262.769230769 moveto 
+(g)   show
+ 339.538461538  268.205128205 moveto 
+(9)   show
+ 292.0 255.0 262.0 280.0 Ffermion 
+ 278.5  269.5 moveto 
+(t~)   show
+ 366.7578284 314.391817472 322.0 317.5 Ffermion 
+ 345.8789142  317.945908736 moveto 
+(mu+)   show
+ 372.7578284  313.975150806 moveto 
+(3)   show
+ 322.0 317.5 364.951599012 326.448249794 Ffermion 
+ 334.475799506  325.974124897 moveto 
+(vm)   show
+ 370.951599012  327.698249794 moveto 
+(4)   show
+ 292.0 305.0 322.0 317.5 0 Fphoton 
+ 298.0  315.25 moveto 
+(w+)   show
+ 292.0 305.0 336.572152293 300.872948862 Ffermion 
+ 315.786076146  304.936474431 moveto 
+(b)   show
+ 342.572152293  300.317393306 moveto 
+(5)   show
+ 262.0 280.0 292.0 305.0 Ffermion 
+ 272.5  294.5 moveto 
+(t)   show
+ 232 230 262.0 280.0 Ffermion 
+ 242.5  257.0 moveto 
+(u)   show
+ 226.0  230 moveto 
+(1)   show
+ 262.0 280.0 232 330 Ffermion 
+ 248.5  307.0 moveto 
+(u~)   show
+ 226.0  330 moveto 
+(2)   show
+ 262.0  213.0 moveto 
+( diagram 56 )   show
+ 322.0  213.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=1, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 454.0 280.0 0.9 1.0 Fblob 
+ 574.0 246.666666667 544.0 255.0 Ffermion 
+ 560.5  252.833333333 moveto 
+(vm~)   show
+ 580.0  245.0 moveto 
+(7)   show
+ 544.0 255.0 574.0 263.333333333 Ffermion 
+ 545.5  265.166666667 moveto 
+(mu-)   show
+ 580.0  265.0 moveto 
+(6)   show
+ 544.0 255.0 514.0 242.5 0 Fphoton 
+ 520.0  252.75 moveto 
+(w-)   show
+ 556.951599012 233.551750206 514.0 242.5 Ffermion 
+ 536.975799506  240.025875103 moveto 
+(b~)   show
+ 562.951599012  232.301750206 moveto 
+(8)   show
+ 514.0 242.5 484.0 255.0 Ffermion 
+ 500.5  250.75 moveto 
+(t~)   show
+ 484.0 255.0 525.538461538 266.538461538 0 Fgluon 
+ 500.269230769  262.769230769 moveto 
+(g)   show
+ 531.538461538  268.205128205 moveto 
+(9)   show
+ 484.0 255.0 454.0 280.0 Ffermion 
+ 470.5  269.5 moveto 
+(t~)   show
+ 558.7578284 314.391817472 514.0 317.5 Ffermion 
+ 537.8789142  317.945908736 moveto 
+(mu+)   show
+ 564.7578284  313.975150806 moveto 
+(3)   show
+ 514.0 317.5 556.951599012 326.448249794 Ffermion 
+ 526.475799506  325.974124897 moveto 
+(vm)   show
+ 562.951599012  327.698249794 moveto 
+(4)   show
+ 484.0 305.0 514.0 317.5 0 Fphoton 
+ 490.0  315.25 moveto 
+(w+)   show
+ 484.0 305.0 528.572152293 300.872948862 Ffermion 
+ 507.786076146  304.936474431 moveto 
+(b)   show
+ 534.572152293  300.317393306 moveto 
+(5)   show
+ 454.0 280.0 484.0 305.0 Ffermion 
+ 464.5  294.5 moveto 
+(t)   show
+ 424 230 454.0 280.0 Ffermion 
+ 434.5  257.0 moveto 
+(u)   show
+ 418.0  230 moveto 
+(1)   show
+ 454.0 280.0 424 330 Ffermion 
+ 440.5  307.0 moveto 
+(u~)   show
+ 418.0  330 moveto 
+(2)   show
+ 454.0  213.0 moveto 
+( diagram 57 )   show
+ 514.0  213.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=1, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 70.0 175.0 40 200 Ffermion 
+ 56.5  189.5 moveto 
+(u~)   show
+ 34.0  200 moveto 
+(2)   show
+ 70.0 175.0 112.951599012 183.948249794 0 Fgluon 
+ 86.9757995058  181.474124897 moveto 
+(g)   show
+ 118.951599012  185.198249794 moveto 
+(9)   show
+ 70.0 125.0 70.0 175.0 Ffermion 
+ 72.25  149.0 moveto 
+(u)   show
+ 190.0 116.666666667 160.0 130.0 Ffermion 
+ 176.5  125.333333333 moveto 
+(vm~)   show
+ 196.0  114.0 moveto 
+(7)   show
+ 160.0 130.0 190.0 133.333333333 Ffermion 
+ 161.5  137.666666667 moveto 
+(mu-)   show
+ 196.0  134.0 moveto 
+(6)   show
+ 160.0 130.0 130.0 116.666666667 0 Fphoton 
+ 136.0  127.333333333 moveto 
+(w-)   show
+ 171.538461538 105.128205128 130.0 116.666666667 Ffermion 
+ 152.269230769  112.897435897 moveto 
+(b~)   show
+ 177.538461538  103.461538462 moveto 
+(8)   show
+ 130.0 116.666666667 100.0 125.0 Ffermion 
+ 116.5  122.833333333 moveto 
+(t~)   show
+ 190.0 166.666666667 160.0 170.0 Ffermion 
+ 176.5  170.333333333 moveto 
+(mu+)   show
+ 196.0  166.0 moveto 
+(3)   show
+ 160.0 170.0 190.0 183.333333333 Ffermion 
+ 166.0  180.666666667 moveto 
+(vm)   show
+ 196.0  186.0 moveto 
+(4)   show
+ 130.0 150.0 160.0 170.0 0 Fphoton 
+ 136.0  164.0 moveto 
+(w+)   show
+ 130.0 150.0 175.0 150.0 Ffermion 
+ 151.0  152.5 moveto 
+(b)   show
+ 181.0  150.0 moveto 
+(5)   show
+ 100.0 125.0 130.0 150.0 Ffermion 
+ 110.5  139.5 moveto 
+(t)   show
+ 70.0 125.0 100.0 125.0 0 Fphoton 
+ 83.5  127.5 moveto 
+(a)   show
+ 40 100 70.0 125.0 Ffermion 
+ 50.5  114.5 moveto 
+(u)   show
+ 34.0  100 moveto 
+(1)   show
+ 70.0  83.0 moveto 
+( diagram 58 )   show
+ 130.0  83.0 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 262.0 175.0 232 200 Ffermion 
+ 248.5  189.5 moveto 
+(u~)   show
+ 226.0  200 moveto 
+(2)   show
+ 262.0 175.0 304.951599012 183.948249794 0 Fgluon 
+ 278.975799506  181.474124897 moveto 
+(g)   show
+ 310.951599012  185.198249794 moveto 
+(9)   show
+ 262.0 125.0 262.0 175.0 Ffermion 
+ 264.25  149.0 moveto 
+(u)   show
+ 382.0 116.666666667 352.0 130.0 Ffermion 
+ 368.5  125.333333333 moveto 
+(vm~)   show
+ 388.0  114.0 moveto 
+(7)   show
+ 352.0 130.0 382.0 133.333333333 Ffermion 
+ 353.5  137.666666667 moveto 
+(mu-)   show
+ 388.0  134.0 moveto 
+(6)   show
+ 352.0 130.0 322.0 116.666666667 0 Fphoton 
+ 328.0  127.333333333 moveto 
+(w-)   show
+ 363.538461538 105.128205128 322.0 116.666666667 Ffermion 
+ 344.269230769  112.897435897 moveto 
+(b~)   show
+ 369.538461538  103.461538462 moveto 
+(8)   show
+ 322.0 116.666666667 292.0 125.0 Ffermion 
+ 308.5  122.833333333 moveto 
+(t~)   show
+ 382.0 166.666666667 352.0 170.0 Ffermion 
+ 368.5  170.333333333 moveto 
+(mu+)   show
+ 388.0  166.0 moveto 
+(3)   show
+ 352.0 170.0 382.0 183.333333333 Ffermion 
+ 358.0  180.666666667 moveto 
+(vm)   show
+ 388.0  186.0 moveto 
+(4)   show
+ 322.0 150.0 352.0 170.0 0 Fphoton 
+ 328.0  164.0 moveto 
+(w+)   show
+ 322.0 150.0 367.0 150.0 Ffermion 
+ 343.0  152.5 moveto 
+(b)   show
+ 373.0  150.0 moveto 
+(5)   show
+ 292.0 125.0 322.0 150.0 Ffermion 
+ 302.5  139.5 moveto 
+(t)   show
+ 262.0 125.0 292.0 125.0 0 Fphoton 
+ 275.5  127.5 moveto 
+(z)   show
+ 232 100 262.0 125.0 Ffermion 
+ 242.5  114.5 moveto 
+(u)   show
+ 226.0  100 moveto 
+(1)   show
+ 262.0  83.0 moveto 
+( diagram 59 )   show
+ 322.0  83.0 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 484.0 125.0 0.9 1.0 Fblob 
+ 454.0 175.0 424 200 Ffermion 
+ 440.5  189.5 moveto 
+(u~)   show
+ 418.0  200 moveto 
+(2)   show
+ 454.0 175.0 496.951599012 183.948249794 0 Fgluon 
+ 470.975799506  181.474124897 moveto 
+(g)   show
+ 502.951599012  185.198249794 moveto 
+(9)   show
+ 454.0 125.0 454.0 175.0 Ffermion 
+ 456.25  149.0 moveto 
+(u)   show
+ 574.0 116.666666667 544.0 130.0 Ffermion 
+ 560.5  125.333333333 moveto 
+(vm~)   show
+ 580.0  114.0 moveto 
+(7)   show
+ 544.0 130.0 574.0 133.333333333 Ffermion 
+ 545.5  137.666666667 moveto 
+(mu-)   show
+ 580.0  134.0 moveto 
+(6)   show
+ 544.0 130.0 514.0 116.666666667 0 Fphoton 
+ 520.0  127.333333333 moveto 
+(w-)   show
+ 555.538461538 105.128205128 514.0 116.666666667 Ffermion 
+ 536.269230769  112.897435897 moveto 
+(b~)   show
+ 561.538461538  103.461538462 moveto 
+(8)   show
+ 514.0 116.666666667 484.0 125.0 Ffermion 
+ 500.5  122.833333333 moveto 
+(t~)   show
+ 574.0 166.666666667 544.0 170.0 Ffermion 
+ 560.5  170.333333333 moveto 
+(mu+)   show
+ 580.0  166.0 moveto 
+(3)   show
+ 544.0 170.0 574.0 183.333333333 Ffermion 
+ 550.0  180.666666667 moveto 
+(vm)   show
+ 580.0  186.0 moveto 
+(4)   show
+ 514.0 150.0 544.0 170.0 0 Fphoton 
+ 520.0  164.0 moveto 
+(w+)   show
+ 514.0 150.0 559.0 150.0 Ffermion 
+ 535.0  152.5 moveto 
+(b)   show
+ 565.0  150.0 moveto 
+(5)   show
+ 484.0 125.0 514.0 150.0 Ffermion 
+ 494.5  139.5 moveto 
+(t)   show
+ 454.0 125.0 484.0 125.0 0 Fgluon 
+ 467.5  127.5 moveto 
+(g)   show
+ 424 100 454.0 125.0 Ffermion 
+ 434.5  114.5 moveto 
+(u)   show
+ 418.0  100 moveto 
+(1)   show
+ 454.0  83.0 moveto 
+( diagram 60 )   show
+ 514.0  83.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+showpage
+%%Page: 8 8 
+%%PageBoundingBox:-20 -20 600 800
+%%PageFonts: Helvetica
+/Helvetica findfont 6 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 8/9) show
+ 260         40  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+ 70.0 695.0 40 720 Ffermion 
+ 56.5  709.5 moveto 
+(u~)   show
+ 34.0  720 moveto 
+(2)   show
+ 70.0 695.0 112.951599012 703.948249794 0 Fgluon 
+ 86.9757995058  701.474124897 moveto 
+(g)   show
+ 118.951599012  705.198249794 moveto 
+(9)   show
+ 70.0 645.0 70.0 695.0 Ffermion 
+ 72.25  669.0 moveto 
+(u)   show
+ 190.0 636.666666667 160.0 650.0 Ffermion 
+ 176.5  645.333333333 moveto 
+(vm~)   show
+ 196.0  634.0 moveto 
+(7)   show
+ 160.0 650.0 190.0 653.333333333 Ffermion 
+ 161.5  657.666666667 moveto 
+(mu-)   show
+ 196.0  654.0 moveto 
+(6)   show
+ 160.0 650.0 130.0 636.666666667 0 Fphoton 
+ 136.0  647.333333333 moveto 
+(w-)   show
+ 171.538461538 625.128205128 130.0 636.666666667 Ffermion 
+ 152.269230769  632.897435897 moveto 
+(b~)   show
+ 177.538461538  623.461538462 moveto 
+(8)   show
+ 130.0 636.666666667 100.0 645.0 Ffermion 
+ 116.5  642.833333333 moveto 
+(t~)   show
+ 190.0 686.666666667 160.0 690.0 Ffermion 
+ 176.5  690.333333333 moveto 
+(mu+)   show
+ 196.0  686.0 moveto 
+(3)   show
+ 160.0 690.0 190.0 703.333333333 Ffermion 
+ 166.0  700.666666667 moveto 
+(vm)   show
+ 196.0  706.0 moveto 
+(4)   show
+ 130.0 670.0 160.0 690.0 0 Fphoton 
+ 136.0  684.0 moveto 
+(w+)   show
+ 130.0 670.0 175.0 670.0 Ffermion 
+ 151.0  672.5 moveto 
+(b)   show
+ 181.0  670.0 moveto 
+(5)   show
+ 100.0 645.0 130.0 670.0 Ffermion 
+ 110.5  659.5 moveto 
+(t)   show
+ 70.0 645.0 100.0 645.0 0 Fgluon 
+ 83.5  647.5 moveto 
+(g)   show
+ 40 620 70.0 645.0 Ffermion 
+ 50.5  634.5 moveto 
+(u)   show
+ 34.0  620 moveto 
+(1)   show
+ 70.0  603.0 moveto 
+( diagram 61 )   show
+ 130.0  603.0 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=4, SMHLOOP=0)   show
+ 292.0 645.0 0.9 1.0 Fblob 
+ 262.0 695.0 232 720 Ffermion 
+ 248.5  709.5 moveto 
+(u~)   show
+ 226.0  720 moveto 
+(2)   show
+ 262.0 695.0 304.951599012 703.948249794 0 Fgluon 
+ 278.975799506  701.474124897 moveto 
+(g)   show
+ 310.951599012  705.198249794 moveto 
+(9)   show
+ 262.0 645.0 262.0 695.0 Ffermion 
+ 264.25  669.0 moveto 
+(u)   show
+ 382.0 636.666666667 352.0 650.0 Ffermion 
+ 368.5  645.333333333 moveto 
+(vm~)   show
+ 388.0  634.0 moveto 
+(7)   show
+ 352.0 650.0 382.0 653.333333333 Ffermion 
+ 353.5  657.666666667 moveto 
+(mu-)   show
+ 388.0  654.0 moveto 
+(6)   show
+ 352.0 650.0 322.0 636.666666667 0 Fphoton 
+ 328.0  647.333333333 moveto 
+(w-)   show
+ 363.538461538 625.128205128 322.0 636.666666667 Ffermion 
+ 344.269230769  632.897435897 moveto 
+(b~)   show
+ 369.538461538  623.461538462 moveto 
+(8)   show
+ 322.0 636.666666667 292.0 645.0 Ffermion 
+ 308.5  642.833333333 moveto 
+(t~)   show
+ 382.0 686.666666667 352.0 690.0 Ffermion 
+ 368.5  690.333333333 moveto 
+(mu+)   show
+ 388.0  686.0 moveto 
+(3)   show
+ 352.0 690.0 382.0 703.333333333 Ffermion 
+ 358.0  700.666666667 moveto 
+(vm)   show
+ 388.0  706.0 moveto 
+(4)   show
+ 322.0 670.0 352.0 690.0 0 Fphoton 
+ 328.0  684.0 moveto 
+(w+)   show
+ 322.0 670.0 367.0 670.0 Ffermion 
+ 343.0  672.5 moveto 
+(b)   show
+ 373.0  670.0 moveto 
+(5)   show
+ 292.0 645.0 322.0 670.0 Ffermion 
+ 302.5  659.5 moveto 
+(t)   show
+ 262.0 645.0 292.0 645.0 0 Fgluon 
+ 275.5  647.5 moveto 
+(g)   show
+ 232 620 262.0 645.0 Ffermion 
+ 242.5  634.5 moveto 
+(u)   show
+ 226.0  620 moveto 
+(1)   show
+ 262.0  603.0 moveto 
+( diagram 62 )   show
+ 322.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 461.5 645.0 0.9 1.0 Fblob 
+ 574.0 636.666666667 536.5 650.0 Ffermion 
+ 556.75  645.333333333 moveto 
+(vm~)   show
+ 580.0  634.533333333 moveto 
+(7)   show
+ 536.5 650.0 574.0 653.333333333 Ffermion 
+ 541.75  657.666666667 moveto 
+(mu-)   show
+ 580.0  653.866666667 moveto 
+(6)   show
+ 536.5 650.0 499.0 636.666666667 0 Fphoton 
+ 508.75  647.333333333 moveto 
+(w-)   show
+ 552.363435515 624.808125441 499.0 636.666666667 Ffermion 
+ 527.181717758  632.737396054 moveto 
+(b~)   show
+ 558.363435515  623.474792108 moveto 
+(8)   show
+ 499.0 636.666666667 461.5 645.0 Ffermion 
+ 481.75  642.833333333 moveto 
+(t~)   show
+ 574.0 686.666666667 536.5 690.0 Ffermion 
+ 556.75  690.333333333 moveto 
+(mu+)   show
+ 580.0  686.133333333 moveto 
+(3)   show
+ 536.5 690.0 574.0 703.333333333 Ffermion 
+ 546.25  700.666666667 moveto 
+(vm)   show
+ 580.0  705.466666667 moveto 
+(4)   show
+ 499.0 670.0 536.5 690.0 0 Fphoton 
+ 508.75  684.0 moveto 
+(w+)   show
+ 499.0 670.0 555.25 670.0 Ffermion 
+ 525.625  672.5 moveto 
+(b)   show
+ 561.25  670.0 moveto 
+(5)   show
+ 461.5 645.0 499.0 670.0 Ffermion 
+ 475.75  659.5 moveto 
+(t)   show
+ 461.5 695.0 424 720 Ffermion 
+ 444.25  709.5 moveto 
+(u~)   show
+ 418.0  720 moveto 
+(2)   show
+ 461.5 695.0 514.863435515 706.858541226 0 Fgluon 
+ 483.681717758  702.929270613 moveto 
+(g)   show
+ 520.863435515  708.191874559 moveto 
+(9)   show
+ 461.5 645.0 461.5 695.0 Ffermion 
+ 463.75  669.0 moveto 
+(u)   show
+ 424 620 461.5 645.0 Ffermion 
+ 438.25  634.5 moveto 
+(u)   show
+ 418.0  620 moveto 
+(1)   show
+ 454.0  603.0 moveto 
+( diagram 63 )   show
+ 514.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=1, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 77.5 515.0 0.9 1.0 Fblob 
+ 190.0 506.666666667 152.5 520.0 Ffermion 
+ 172.75  515.333333333 moveto 
+(vm~)   show
+ 196.0  504.533333333 moveto 
+(7)   show
+ 152.5 520.0 190.0 523.333333333 Ffermion 
+ 157.75  527.666666667 moveto 
+(mu-)   show
+ 196.0  523.866666667 moveto 
+(6)   show
+ 152.5 520.0 115.0 506.666666667 0 Fphoton 
+ 124.75  517.333333333 moveto 
+(w-)   show
+ 168.363435515 494.808125441 115.0 506.666666667 Ffermion 
+ 143.181717758  502.737396054 moveto 
+(b~)   show
+ 174.363435515  493.474792108 moveto 
+(8)   show
+ 115.0 506.666666667 77.5 515.0 Ffermion 
+ 97.75  512.833333333 moveto 
+(t~)   show
+ 190.0 556.666666667 152.5 560.0 Ffermion 
+ 172.75  560.333333333 moveto 
+(mu+)   show
+ 196.0  556.133333333 moveto 
+(3)   show
+ 152.5 560.0 190.0 573.333333333 Ffermion 
+ 162.25  570.666666667 moveto 
+(vm)   show
+ 196.0  575.466666667 moveto 
+(4)   show
+ 115.0 540.0 152.5 560.0 0 Fphoton 
+ 124.75  554.0 moveto 
+(w+)   show
+ 115.0 540.0 171.25 540.0 Ffermion 
+ 141.625  542.5 moveto 
+(b)   show
+ 177.25  540.0 moveto 
+(5)   show
+ 77.5 515.0 115.0 540.0 Ffermion 
+ 91.75  529.5 moveto 
+(t)   show
+ 77.5 565.0 40 590 Ffermion 
+ 60.25  579.5 moveto 
+(u~)   show
+ 34.0  590 moveto 
+(2)   show
+ 77.5 565.0 130.863435515 576.858541226 0 Fgluon 
+ 99.6817177577  572.929270613 moveto 
+(g)   show
+ 136.863435515  578.191874559 moveto 
+(9)   show
+ 77.5 515.0 77.5 565.0 Ffermion 
+ 79.75  539.0 moveto 
+(u)   show
+ 40 490 77.5 515.0 Ffermion 
+ 54.25  504.5 moveto 
+(u)   show
+ 34.0  490 moveto 
+(1)   show
+ 70.0  473.0 moveto 
+( diagram 64 )   show
+ 130.0  473.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=1, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 269.5 515.0 0.9 1.0 Fblob 
+ 382.0 506.666666667 344.5 520.0 Ffermion 
+ 364.75  515.333333333 moveto 
+(vm~)   show
+ 388.0  504.533333333 moveto 
+(7)   show
+ 344.5 520.0 382.0 523.333333333 Ffermion 
+ 349.75  527.666666667 moveto 
+(mu-)   show
+ 388.0  523.866666667 moveto 
+(6)   show
+ 344.5 520.0 307.0 506.666666667 0 Fphoton 
+ 316.75  517.333333333 moveto 
+(w-)   show
+ 360.363435515 494.808125441 307.0 506.666666667 Ffermion 
+ 335.181717758  502.737396054 moveto 
+(b~)   show
+ 366.363435515  493.474792108 moveto 
+(8)   show
+ 307.0 506.666666667 269.5 515.0 Ffermion 
+ 289.75  512.833333333 moveto 
+(t~)   show
+ 382.0 556.666666667 344.5 560.0 Ffermion 
+ 364.75  560.333333333 moveto 
+(mu+)   show
+ 388.0  556.133333333 moveto 
+(3)   show
+ 344.5 560.0 382.0 573.333333333 Ffermion 
+ 354.25  570.666666667 moveto 
+(vm)   show
+ 388.0  575.466666667 moveto 
+(4)   show
+ 307.0 540.0 344.5 560.0 0 Fphoton 
+ 316.75  554.0 moveto 
+(w+)   show
+ 307.0 540.0 363.25 540.0 Ffermion 
+ 333.625  542.5 moveto 
+(b)   show
+ 369.25  540.0 moveto 
+(5)   show
+ 269.5 515.0 307.0 540.0 Ffermion 
+ 283.75  529.5 moveto 
+(t)   show
+ 269.5 565.0 232 590 Ffermion 
+ 252.25  579.5 moveto 
+(u~)   show
+ 226.0  590 moveto 
+(2)   show
+ 269.5 565.0 322.863435515 576.858541226 0 Fgluon 
+ 291.681717758  572.929270613 moveto 
+(g)   show
+ 328.863435515  578.191874559 moveto 
+(9)   show
+ 269.5 515.0 269.5 565.0 Ffermion 
+ 271.75  539.0 moveto 
+(u)   show
+ 232 490 269.5 515.0 Ffermion 
+ 246.25  504.5 moveto 
+(u)   show
+ 226.0  490 moveto 
+(1)   show
+ 262.0  473.0 moveto 
+( diagram 65 )   show
+ 322.0  473.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=1, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 461.5 515.0 0.9 1.0 Fblob 
+ 574.0 506.666666667 536.5 520.0 Ffermion 
+ 556.75  515.333333333 moveto 
+(vm~)   show
+ 580.0  504.533333333 moveto 
+(7)   show
+ 536.5 520.0 574.0 523.333333333 Ffermion 
+ 541.75  527.666666667 moveto 
+(mu-)   show
+ 580.0  523.866666667 moveto 
+(6)   show
+ 536.5 520.0 499.0 506.666666667 0 Fphoton 
+ 508.75  517.333333333 moveto 
+(w-)   show
+ 552.363435515 494.808125441 499.0 506.666666667 Ffermion 
+ 527.181717758  502.737396054 moveto 
+(b~)   show
+ 558.363435515  493.474792108 moveto 
+(8)   show
+ 499.0 506.666666667 461.5 515.0 Ffermion 
+ 481.75  512.833333333 moveto 
+(t~)   show
+ 574.0 556.666666667 536.5 560.0 Ffermion 
+ 556.75  560.333333333 moveto 
+(mu+)   show
+ 580.0  556.133333333 moveto 
+(3)   show
+ 536.5 560.0 574.0 573.333333333 Ffermion 
+ 546.25  570.666666667 moveto 
+(vm)   show
+ 580.0  575.466666667 moveto 
+(4)   show
+ 499.0 540.0 536.5 560.0 0 Fphoton 
+ 508.75  554.0 moveto 
+(w+)   show
+ 499.0 540.0 555.25 540.0 Ffermion 
+ 525.625  542.5 moveto 
+(b)   show
+ 561.25  540.0 moveto 
+(5)   show
+ 461.5 515.0 499.0 540.0 Ffermion 
+ 475.75  529.5 moveto 
+(t)   show
+ 461.5 565.0 424 590 Ffermion 
+ 444.25  579.5 moveto 
+(u~)   show
+ 418.0  590 moveto 
+(2)   show
+ 461.5 565.0 514.863435515 576.858541226 0 Fgluon 
+ 483.681717758  572.929270613 moveto 
+(g)   show
+ 520.863435515  578.191874559 moveto 
+(9)   show
+ 461.5 515.0 461.5 565.0 Ffermion 
+ 463.75  539.0 moveto 
+(u)   show
+ 424 490 461.5 515.0 Ffermion 
+ 438.25  504.5 moveto 
+(u)   show
+ 418.0  490 moveto 
+(1)   show
+ 454.0  473.0 moveto 
+( diagram 66 )   show
+ 514.0  473.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=1, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 77.5 385.0 0.9 1.0 Fblob 
+ 190.0 376.666666667 152.5 390.0 Ffermion 
+ 172.75  385.333333333 moveto 
+(vm~)   show
+ 196.0  374.533333333 moveto 
+(7)   show
+ 152.5 390.0 190.0 393.333333333 Ffermion 
+ 157.75  397.666666667 moveto 
+(mu-)   show
+ 196.0  393.866666667 moveto 
+(6)   show
+ 152.5 390.0 115.0 376.666666667 0 Fphoton 
+ 124.75  387.333333333 moveto 
+(w-)   show
+ 168.363435515 364.808125441 115.0 376.666666667 Ffermion 
+ 143.181717758  372.737396054 moveto 
+(b~)   show
+ 174.363435515  363.474792108 moveto 
+(8)   show
+ 115.0 376.666666667 77.5 385.0 Ffermion 
+ 97.75  382.833333333 moveto 
+(t~)   show
+ 190.0 426.666666667 152.5 430.0 Ffermion 
+ 172.75  430.333333333 moveto 
+(mu+)   show
+ 196.0  426.133333333 moveto 
+(3)   show
+ 152.5 430.0 190.0 443.333333333 Ffermion 
+ 162.25  440.666666667 moveto 
+(vm)   show
+ 196.0  445.466666667 moveto 
+(4)   show
+ 115.0 410.0 152.5 430.0 0 Fphoton 
+ 124.75  424.0 moveto 
+(w+)   show
+ 115.0 410.0 171.25 410.0 Ffermion 
+ 141.625  412.5 moveto 
+(b)   show
+ 177.25  410.0 moveto 
+(5)   show
+ 77.5 385.0 115.0 410.0 Ffermion 
+ 91.75  399.5 moveto 
+(t)   show
+ 77.5 435.0 40 460 Ffermion 
+ 60.25  449.5 moveto 
+(u~)   show
+ 34.0  460 moveto 
+(2)   show
+ 77.5 435.0 130.863435515 446.858541226 0 Fgluon 
+ 99.6817177577  442.929270613 moveto 
+(g)   show
+ 136.863435515  448.191874559 moveto 
+(9)   show
+ 77.5 385.0 77.5 435.0 Ffermion 
+ 79.75  409.0 moveto 
+(u)   show
+ 40 360 77.5 385.0 Ffermion 
+ 54.25  374.5 moveto 
+(u)   show
+ 34.0  360 moveto 
+(1)   show
+ 70.0  343.0 moveto 
+( diagram 67 )   show
+ 130.0  343.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=1, QCD=1, QED=6, SMHLOOP=0)   show
+ 269.5 385.0 0.9 1.0 Fblob 
+ 382.0 376.666666667 344.5 390.0 Ffermion 
+ 364.75  385.333333333 moveto 
+(vm~)   show
+ 388.0  374.533333333 moveto 
+(7)   show
+ 344.5 390.0 382.0 393.333333333 Ffermion 
+ 349.75  397.666666667 moveto 
+(mu-)   show
+ 388.0  393.866666667 moveto 
+(6)   show
+ 344.5 390.0 307.0 376.666666667 0 Fphoton 
+ 316.75  387.333333333 moveto 
+(w-)   show
+ 360.363435515 364.808125441 307.0 376.666666667 Ffermion 
+ 335.181717758  372.737396054 moveto 
+(b~)   show
+ 366.363435515  363.474792108 moveto 
+(8)   show
+ 307.0 376.666666667 269.5 385.0 Ffermion 
+ 289.75  382.833333333 moveto 
+(t~)   show
+ 382.0 426.666666667 344.5 430.0 Ffermion 
+ 364.75  430.333333333 moveto 
+(mu+)   show
+ 388.0  426.133333333 moveto 
+(3)   show
+ 344.5 430.0 382.0 443.333333333 Ffermion 
+ 354.25  440.666666667 moveto 
+(vm)   show
+ 388.0  445.466666667 moveto 
+(4)   show
+ 307.0 410.0 344.5 430.0 0 Fphoton 
+ 316.75  424.0 moveto 
+(w+)   show
+ 307.0 410.0 363.25 410.0 Ffermion 
+ 333.625  412.5 moveto 
+(b)   show
+ 369.25  410.0 moveto 
+(5)   show
+ 269.5 385.0 307.0 410.0 Ffermion 
+ 283.75  399.5 moveto 
+(t)   show
+ 269.5 435.0 232 460 Ffermion 
+ 252.25  449.5 moveto 
+(u~)   show
+ 226.0  460 moveto 
+(2)   show
+ 269.5 435.0 322.863435515 446.858541226 0 Fgluon 
+ 291.681717758  442.929270613 moveto 
+(g)   show
+ 328.863435515  448.191874559 moveto 
+(9)   show
+ 269.5 385.0 269.5 435.0 Ffermion 
+ 271.75  409.0 moveto 
+(u)   show
+ 232 360 269.5 385.0 Ffermion 
+ 246.25  374.5 moveto 
+(u)   show
+ 226.0  360 moveto 
+(1)   show
+ 262.0  343.0 moveto 
+( diagram 68 )   show
+ 322.0  343.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=1, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 461.5 385.0 0.9 1.0 Fblob 
+ 574.0 376.666666667 536.5 390.0 Ffermion 
+ 556.75  385.333333333 moveto 
+(vm~)   show
+ 580.0  374.533333333 moveto 
+(7)   show
+ 536.5 390.0 574.0 393.333333333 Ffermion 
+ 541.75  397.666666667 moveto 
+(mu-)   show
+ 580.0  393.866666667 moveto 
+(6)   show
+ 536.5 390.0 499.0 376.666666667 0 Fphoton 
+ 508.75  387.333333333 moveto 
+(w-)   show
+ 552.363435515 364.808125441 499.0 376.666666667 Ffermion 
+ 527.181717758  372.737396054 moveto 
+(b~)   show
+ 558.363435515  363.474792108 moveto 
+(8)   show
+ 499.0 376.666666667 461.5 385.0 Ffermion 
+ 481.75  382.833333333 moveto 
+(t~)   show
+ 574.0 426.666666667 536.5 430.0 Ffermion 
+ 556.75  430.333333333 moveto 
+(mu+)   show
+ 580.0  426.133333333 moveto 
+(3)   show
+ 536.5 430.0 574.0 443.333333333 Ffermion 
+ 546.25  440.666666667 moveto 
+(vm)   show
+ 580.0  445.466666667 moveto 
+(4)   show
+ 499.0 410.0 536.5 430.0 0 Fphoton 
+ 508.75  424.0 moveto 
+(w+)   show
+ 499.0 410.0 555.25 410.0 Ffermion 
+ 525.625  412.5 moveto 
+(b)   show
+ 561.25  410.0 moveto 
+(5)   show
+ 461.5 385.0 499.0 410.0 Ffermion 
+ 475.75  399.5 moveto 
+(t)   show
+ 461.5 435.0 424 460 Ffermion 
+ 444.25  449.5 moveto 
+(u~)   show
+ 418.0  460 moveto 
+(2)   show
+ 461.5 435.0 514.863435515 446.858541226 0 Fgluon 
+ 483.681717758  442.929270613 moveto 
+(g)   show
+ 520.863435515  448.191874559 moveto 
+(9)   show
+ 461.5 385.0 461.5 435.0 Ffermion 
+ 463.75  409.0 moveto 
+(u)   show
+ 424 360 461.5 385.0 Ffermion 
+ 438.25  374.5 moveto 
+(u)   show
+ 418.0  360 moveto 
+(1)   show
+ 454.0  343.0 moveto 
+( diagram 69 )   show
+ 514.0  343.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=1, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 77.5 255.0 0.9 1.0 Fblob 
+ 190.0 246.666666667 152.5 260.0 Ffermion 
+ 172.75  255.333333333 moveto 
+(vm~)   show
+ 196.0  244.533333333 moveto 
+(7)   show
+ 152.5 260.0 190.0 263.333333333 Ffermion 
+ 157.75  267.666666667 moveto 
+(mu-)   show
+ 196.0  263.866666667 moveto 
+(6)   show
+ 152.5 260.0 115.0 246.666666667 0 Fphoton 
+ 124.75  257.333333333 moveto 
+(w-)   show
+ 168.363435515 234.808125441 115.0 246.666666667 Ffermion 
+ 143.181717758  242.737396054 moveto 
+(b~)   show
+ 174.363435515  233.474792108 moveto 
+(8)   show
+ 115.0 246.666666667 77.5 255.0 Ffermion 
+ 97.75  252.833333333 moveto 
+(t~)   show
+ 190.0 296.666666667 152.5 300.0 Ffermion 
+ 172.75  300.333333333 moveto 
+(mu+)   show
+ 196.0  296.133333333 moveto 
+(3)   show
+ 152.5 300.0 190.0 313.333333333 Ffermion 
+ 162.25  310.666666667 moveto 
+(vm)   show
+ 196.0  315.466666667 moveto 
+(4)   show
+ 115.0 280.0 152.5 300.0 0 Fphoton 
+ 124.75  294.0 moveto 
+(w+)   show
+ 115.0 280.0 171.25 280.0 Ffermion 
+ 141.625  282.5 moveto 
+(b)   show
+ 177.25  280.0 moveto 
+(5)   show
+ 77.5 255.0 115.0 280.0 Ffermion 
+ 91.75  269.5 moveto 
+(t)   show
+ 77.5 305.0 40 330 Ffermion 
+ 60.25  319.5 moveto 
+(u~)   show
+ 34.0  330 moveto 
+(2)   show
+ 77.5 305.0 130.863435515 316.858541226 0 Fgluon 
+ 99.6817177577  312.929270613 moveto 
+(g)   show
+ 136.863435515  318.191874559 moveto 
+(9)   show
+ 77.5 255.0 77.5 305.0 Ffermion 
+ 79.75  279.0 moveto 
+(u)   show
+ 40 230 77.5 255.0 Ffermion 
+ 54.25  244.5 moveto 
+(u)   show
+ 34.0  230 moveto 
+(1)   show
+ 70.0  213.0 moveto 
+( diagram 70 )   show
+ 130.0  213.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=1, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 269.5 255.0 0.9 1.0 Fblob 
+ 382.0 246.666666667 344.5 260.0 Ffermion 
+ 364.75  255.333333333 moveto 
+(vm~)   show
+ 388.0  244.533333333 moveto 
+(7)   show
+ 344.5 260.0 382.0 263.333333333 Ffermion 
+ 349.75  267.666666667 moveto 
+(mu-)   show
+ 388.0  263.866666667 moveto 
+(6)   show
+ 344.5 260.0 307.0 246.666666667 0 Fphoton 
+ 316.75  257.333333333 moveto 
+(w-)   show
+ 360.363435515 234.808125441 307.0 246.666666667 Ffermion 
+ 335.181717758  242.737396054 moveto 
+(b~)   show
+ 366.363435515  233.474792108 moveto 
+(8)   show
+ 307.0 246.666666667 269.5 255.0 Ffermion 
+ 289.75  252.833333333 moveto 
+(t~)   show
+ 382.0 296.666666667 344.5 300.0 Ffermion 
+ 364.75  300.333333333 moveto 
+(mu+)   show
+ 388.0  296.133333333 moveto 
+(3)   show
+ 344.5 300.0 382.0 313.333333333 Ffermion 
+ 354.25  310.666666667 moveto 
+(vm)   show
+ 388.0  315.466666667 moveto 
+(4)   show
+ 307.0 280.0 344.5 300.0 0 Fphoton 
+ 316.75  294.0 moveto 
+(w+)   show
+ 307.0 280.0 363.25 280.0 Ffermion 
+ 333.625  282.5 moveto 
+(b)   show
+ 369.25  280.0 moveto 
+(5)   show
+ 269.5 255.0 307.0 280.0 Ffermion 
+ 283.75  269.5 moveto 
+(t)   show
+ 269.5 305.0 232 330 Ffermion 
+ 252.25  319.5 moveto 
+(u~)   show
+ 226.0  330 moveto 
+(2)   show
+ 269.5 305.0 322.863435515 316.858541226 0 Fgluon 
+ 291.681717758  312.929270613 moveto 
+(g)   show
+ 328.863435515  318.191874559 moveto 
+(9)   show
+ 269.5 255.0 269.5 305.0 Ffermion 
+ 271.75  279.0 moveto 
+(u)   show
+ 232 230 269.5 255.0 Ffermion 
+ 246.25  244.5 moveto 
+(u)   show
+ 226.0  230 moveto 
+(1)   show
+ 262.0  213.0 moveto 
+( diagram 71 )   show
+ 322.0  213.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=1, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 461.5 255.0 0.9 1.0 Fblob 
+ 574.0 246.666666667 536.5 260.0 Ffermion 
+ 556.75  255.333333333 moveto 
+(vm~)   show
+ 580.0  244.533333333 moveto 
+(7)   show
+ 536.5 260.0 574.0 263.333333333 Ffermion 
+ 541.75  267.666666667 moveto 
+(mu-)   show
+ 580.0  263.866666667 moveto 
+(6)   show
+ 536.5 260.0 499.0 246.666666667 0 Fphoton 
+ 508.75  257.333333333 moveto 
+(w-)   show
+ 552.363435515 234.808125441 499.0 246.666666667 Ffermion 
+ 527.181717758  242.737396054 moveto 
+(b~)   show
+ 558.363435515  233.474792108 moveto 
+(8)   show
+ 499.0 246.666666667 461.5 255.0 Ffermion 
+ 481.75  252.833333333 moveto 
+(t~)   show
+ 574.0 296.666666667 536.5 300.0 Ffermion 
+ 556.75  300.333333333 moveto 
+(mu+)   show
+ 580.0  296.133333333 moveto 
+(3)   show
+ 536.5 300.0 574.0 313.333333333 Ffermion 
+ 546.25  310.666666667 moveto 
+(vm)   show
+ 580.0  315.466666667 moveto 
+(4)   show
+ 499.0 280.0 536.5 300.0 0 Fphoton 
+ 508.75  294.0 moveto 
+(w+)   show
+ 499.0 280.0 555.25 280.0 Ffermion 
+ 525.625  282.5 moveto 
+(b)   show
+ 561.25  280.0 moveto 
+(5)   show
+ 461.5 255.0 499.0 280.0 Ffermion 
+ 475.75  269.5 moveto 
+(t)   show
+ 461.5 305.0 424 330 Ffermion 
+ 444.25  319.5 moveto 
+(u~)   show
+ 418.0  330 moveto 
+(2)   show
+ 461.5 305.0 514.863435515 316.858541226 0 Fgluon 
+ 483.681717758  312.929270613 moveto 
+(g)   show
+ 520.863435515  318.191874559 moveto 
+(9)   show
+ 461.5 255.0 461.5 305.0 Ffermion 
+ 463.75  279.0 moveto 
+(u)   show
+ 424 230 461.5 255.0 Ffermion 
+ 438.25  244.5 moveto 
+(u)   show
+ 418.0  230 moveto 
+(1)   show
+ 454.0  213.0 moveto 
+( diagram 72 )   show
+ 514.0  213.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=1, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=1, QED=6, SMHLOOP=0)   show
+ 115.0 175.0 0.9 1.0 Fblob 
+ 40 100 65.0 150.0 Ffermion 
+ 48.0  127.0 moveto 
+(u)   show
+ 34.0  100 moveto 
+(1)   show
+ 65.0 150.0 40 200 Ffermion 
+ 54.0  177.0 moveto 
+(u~)   show
+ 34.0  200 moveto 
+(2)   show
+ 65.0 150.0 90.0 150.0 0 Fgluon 
+ 76.0  152.5 moveto 
+(g)   show
+ 190.0 133.333333333 165.0 150.0 Ffermion 
+ 179.0  143.666666667 moveto 
+(vm~)   show
+ 196.0  129.333333333 moveto 
+(7)   show
+ 165.0 150.0 190.0 150.0 Ffermion 
+ 176.0  152.5 moveto 
+(mu-)   show
+ 196.0  150.0 moveto 
+(6)   show
+ 165.0 150.0 140.0 150.0 0 Fphoton 
+ 151.0  152.5 moveto 
+(w-)   show
+ 166.516504294 132.32233047 140.0 150.0 Ffermion 
+ 154.758252147  143.161165235 moveto 
+(b~)   show
+ 172.516504294  128.32233047 moveto 
+(8)   show
+ 140.0 150.0 115.0 175.0 Ffermion 
+ 129.0  164.5 moveto 
+(t~)   show
+ 190.0 183.333333333 165.0 190.0 Ffermion 
+ 179.0  188.666666667 moveto 
+(mu+)   show
+ 196.0  181.733333333 moveto 
+(3)   show
+ 165.0 190.0 190.0 200 Ffermion 
+ 168.5  199.0 moveto 
+(vm)   show
+ 196.0  202.4 moveto 
+(4)   show
+ 140.0 183.333333333 165.0 190.0 0 Fphoton 
+ 143.5  190.666666667 moveto 
+(w+)   show
+ 140.0 183.333333333 173.541019662 172.152993446 Ffermion 
+ 158.270509831  179.74316339 moveto 
+(b)   show
+ 179.541019662  170.152993446 moveto 
+(5)   show
+ 115.0 175.0 140.0 183.333333333 Ffermion 
+ 123.0  181.166666667 moveto 
+(t)   show
+ 90.0 150.0 115.0 175.0 0 Fgluon 
+ 98.0  164.5 moveto 
+(g)   show
+ 90.0 150.0 120.0 135.0 0 Fgluon 
+ 106.5  144.5 moveto 
+(g)   show
+ 126.0  132.0 moveto 
+(9)   show
+ 70.0  83.0 moveto 
+( diagram 73 )   show
+ 130.0  83.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 232 100 257.0 150.0 Ffermion 
+ 240.0  127.0 moveto 
+(u)   show
+ 226.0  100 moveto 
+(1)   show
+ 257.0 150.0 232 200 Ffermion 
+ 246.0  177.0 moveto 
+(u~)   show
+ 226.0  200 moveto 
+(2)   show
+ 257.0 150.0 282.0 150.0 0 Fgluon 
+ 268.0  152.5 moveto 
+(g)   show
+ 382.0 133.333333333 357.0 150.0 Ffermion 
+ 371.0  143.666666667 moveto 
+(vm~)   show
+ 388.0  129.333333333 moveto 
+(7)   show
+ 357.0 150.0 382.0 150.0 Ffermion 
+ 368.0  152.5 moveto 
+(mu-)   show
+ 388.0  150.0 moveto 
+(6)   show
+ 357.0 150.0 332.0 150.0 0 Fphoton 
+ 343.0  152.5 moveto 
+(w-)   show
+ 358.516504294 132.32233047 332.0 150.0 Ffermion 
+ 346.758252147  143.161165235 moveto 
+(b~)   show
+ 364.516504294  128.32233047 moveto 
+(8)   show
+ 332.0 150.0 307.0 175.0 Ffermion 
+ 321.0  164.5 moveto 
+(t~)   show
+ 382.0 183.333333333 357.0 190.0 Ffermion 
+ 371.0  188.666666667 moveto 
+(mu+)   show
+ 388.0  181.733333333 moveto 
+(3)   show
+ 357.0 190.0 382.0 200 Ffermion 
+ 360.5  199.0 moveto 
+(vm)   show
+ 388.0  202.4 moveto 
+(4)   show
+ 332.0 183.333333333 357.0 190.0 0 Fphoton 
+ 335.5  190.666666667 moveto 
+(w+)   show
+ 332.0 183.333333333 365.541019662 172.152993446 Ffermion 
+ 350.270509831  179.74316339 moveto 
+(b)   show
+ 371.541019662  170.152993446 moveto 
+(5)   show
+ 307.0 175.0 332.0 183.333333333 Ffermion 
+ 315.0  181.166666667 moveto 
+(t)   show
+ 282.0 150.0 307.0 175.0 0 Fgluon 
+ 290.0  164.5 moveto 
+(g)   show
+ 282.0 150.0 312.0 135.0 0 Fgluon 
+ 298.5  144.5 moveto 
+(g)   show
+ 318.0  132.0 moveto 
+(9)   show
+ 262.0  83.0 moveto 
+( diagram 74 )   show
+ 322.0  83.0 moveto 
+ (NP=0, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=0, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=4, SMHLOOP=0)   show
+ 499.0 175.0 0.9 1.0 Fblob 
+ 424 100 449.0 150.0 Ffermion 
+ 432.0  127.0 moveto 
+(u)   show
+ 418.0  100 moveto 
+(1)   show
+ 449.0 150.0 424 200 Ffermion 
+ 438.0  177.0 moveto 
+(u~)   show
+ 418.0  200 moveto 
+(2)   show
+ 449.0 150.0 474.0 150.0 0 Fgluon 
+ 460.0  152.5 moveto 
+(g)   show
+ 574.0 133.333333333 549.0 150.0 Ffermion 
+ 563.0  143.666666667 moveto 
+(vm~)   show
+ 580.0  129.333333333 moveto 
+(7)   show
+ 549.0 150.0 574.0 150.0 Ffermion 
+ 560.0  152.5 moveto 
+(mu-)   show
+ 580.0  150.0 moveto 
+(6)   show
+ 549.0 150.0 524.0 150.0 0 Fphoton 
+ 535.0  152.5 moveto 
+(w-)   show
+ 550.516504294 132.32233047 524.0 150.0 Ffermion 
+ 538.758252147  143.161165235 moveto 
+(b~)   show
+ 556.516504294  128.32233047 moveto 
+(8)   show
+ 524.0 150.0 499.0 175.0 Ffermion 
+ 513.0  164.5 moveto 
+(t~)   show
+ 574.0 183.333333333 549.0 190.0 Ffermion 
+ 563.0  188.666666667 moveto 
+(mu+)   show
+ 580.0  181.733333333 moveto 
+(3)   show
+ 549.0 190.0 574.0 200 Ffermion 
+ 552.5  199.0 moveto 
+(vm)   show
+ 580.0  202.4 moveto 
+(4)   show
+ 524.0 183.333333333 549.0 190.0 0 Fphoton 
+ 527.5  190.666666667 moveto 
+(w+)   show
+ 524.0 183.333333333 557.541019662 172.152993446 Ffermion 
+ 542.270509831  179.74316339 moveto 
+(b)   show
+ 563.541019662  170.152993446 moveto 
+(5)   show
+ 499.0 175.0 524.0 183.333333333 Ffermion 
+ 507.0  181.166666667 moveto 
+(t)   show
+ 474.0 150.0 499.0 175.0 0 Fgluon 
+ 482.0  164.5 moveto 
+(g)   show
+ 474.0 150.0 504.0 135.0 0 Fgluon 
+ 490.5  144.5 moveto 
+(g)   show
+ 510.0  132.0 moveto 
+(9)   show
+ 454.0  83.0 moveto 
+( diagram 75 )   show
+ 514.0  83.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+showpage
+%%Page: 9 9 
+%%PageBoundingBox:-20 -20 600 800
+%%PageFonts: Helvetica
+/Helvetica findfont 6 scalefont setfont
+ 50         770  moveto
+ () show
+ 525         770  moveto
+ (page 9/9) show
+ 260         40  moveto
+ (Diagrams made by MadGraph5_aMC@NLO) show
+ 100.0 670.0 0.9 1.0 Fblob 
+ 190.0 636.666666667 160.0 650.0 Ffermion 
+ 176.5  645.333333333 moveto 
+(vm~)   show
+ 196.0  634.0 moveto 
+(7)   show
+ 160.0 650.0 190.0 653.333333333 Ffermion 
+ 161.5  657.666666667 moveto 
+(mu-)   show
+ 196.0  654.0 moveto 
+(6)   show
+ 160.0 650.0 130.0 636.666666667 0 Fphoton 
+ 136.0  647.333333333 moveto 
+(w-)   show
+ 171.538461538 625.128205128 130.0 636.666666667 Ffermion 
+ 152.269230769  632.897435897 moveto 
+(b~)   show
+ 177.538461538  623.461538462 moveto 
+(8)   show
+ 130.0 636.666666667 100.0 670.0 Ffermion 
+ 116.5  655.333333333 moveto 
+(t~)   show
+ 190.0 686.666666667 160.0 690.0 Ffermion 
+ 176.5  690.333333333 moveto 
+(mu+)   show
+ 196.0  686.0 moveto 
+(3)   show
+ 160.0 690.0 190.0 703.333333333 Ffermion 
+ 166.0  700.666666667 moveto 
+(vm)   show
+ 196.0  706.0 moveto 
+(4)   show
+ 130.0 670.0 160.0 690.0 0 Fphoton 
+ 136.0  684.0 moveto 
+(w+)   show
+ 130.0 670.0 175.0 670.0 Ffermion 
+ 151.0  672.5 moveto 
+(b)   show
+ 181.0  670.0 moveto 
+(5)   show
+ 100.0 670.0 130.0 670.0 Ffermion 
+ 113.5  672.5 moveto 
+(t)   show
+ 100.0 670.0 134.569957582 689.20553199 0 Fgluon 
+ 112.784978791  681.602765995 moveto 
+(g)   show
+ 140.569957582  692.538865323 moveto 
+(9)   show
+ 70.0 670.0 100.0 670.0 0 Fgluon 
+ 83.5  672.5 moveto 
+(g)   show
+ 40 620 70.0 670.0 Ffermion 
+ 50.5  647.0 moveto 
+(u)   show
+ 34.0  620 moveto 
+(1)   show
+ 70.0 670.0 40 720 Ffermion 
+ 56.5  697.0 moveto 
+(u~)   show
+ 34.0  720 moveto 
+(2)   show
+ 70.0  603.0 moveto 
+( diagram 76 )   show
+ 130.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=0, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+ 292.0 670.0 0.9 1.0 Fblob 
+ 382.0 636.666666667 352.0 650.0 Ffermion 
+ 368.5  645.333333333 moveto 
+(vm~)   show
+ 388.0  634.0 moveto 
+(7)   show
+ 352.0 650.0 382.0 653.333333333 Ffermion 
+ 353.5  657.666666667 moveto 
+(mu-)   show
+ 388.0  654.0 moveto 
+(6)   show
+ 352.0 650.0 322.0 636.666666667 0 Fphoton 
+ 328.0  647.333333333 moveto 
+(w-)   show
+ 363.538461538 625.128205128 322.0 636.666666667 Ffermion 
+ 344.269230769  632.897435897 moveto 
+(b~)   show
+ 369.538461538  623.461538462 moveto 
+(8)   show
+ 322.0 636.666666667 292.0 670.0 Ffermion 
+ 308.5  655.333333333 moveto 
+(t~)   show
+ 382.0 686.666666667 352.0 690.0 Ffermion 
+ 368.5  690.333333333 moveto 
+(mu+)   show
+ 388.0  686.0 moveto 
+(3)   show
+ 352.0 690.0 382.0 703.333333333 Ffermion 
+ 358.0  700.666666667 moveto 
+(vm)   show
+ 388.0  706.0 moveto 
+(4)   show
+ 322.0 670.0 352.0 690.0 0 Fphoton 
+ 328.0  684.0 moveto 
+(w+)   show
+ 322.0 670.0 367.0 670.0 Ffermion 
+ 343.0  672.5 moveto 
+(b)   show
+ 373.0  670.0 moveto 
+(5)   show
+ 292.0 670.0 322.0 670.0 Ffermion 
+ 305.5  672.5 moveto 
+(t)   show
+ 292.0 670.0 326.569957582 689.20553199 0 Fgluon 
+ 304.784978791  681.602765995 moveto 
+(g)   show
+ 332.569957582  692.538865323 moveto 
+(9)   show
+ 262.0 670.0 292.0 670.0 0 Fgluon 
+ 275.5  672.5 moveto 
+(g)   show
+ 232 620 262.0 670.0 Ffermion 
+ 242.5  647.0 moveto 
+(u)   show
+ 226.0  620 moveto 
+(1)   show
+ 262.0 670.0 232 720 Ffermion 
+ 248.5  697.0 moveto 
+(u~)   show
+ 226.0  720 moveto 
+(2)   show
+ 262.0  603.0 moveto 
+( diagram 77 )   show
+ 322.0  603.0 moveto 
+ (NP=1, NPcQQ8=0, NPcQd1=0, NPcQd8=0, NPcQj11=0, NPcQj18=0, NPcQj31=0, NPcQj38=0, NPcQt1=0, NPcQt8=0, NPcQu1=0, NPcQu8=0, NPcjj31=0, NPcpv=1, NPctG=1, NPctd1=0, NPctd8=0, NPctj1=0, NPctj8=0, NPctu1=0, NPctu8=0, QCD=3, QED=5, SMHLOOP=0)   show
+showpage
+%%trailer

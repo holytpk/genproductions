@@ -1,0 +1,57 @@
+# reweight card file created with https://github.com/schoef/gridpacks on 2022-02-17 11:11:19
+# Command line arguments: make_reweight_card.py --couplings 2 cpq3i 1 cpqMi 1 cpW 1 --filename WH_LeptonicW_NLO_reweight_card.dat
+# Polynomial order: 2
+change rwgt_dir rwgt
+
+launch --rwgt_name=dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.
+
+launch --rwgt_name=cpq3i_0p_cpqMi_0p_cpW_0p
+set cpq3i 0.000000
+set cpqMi 0.000000
+set cpW 0.000000
+
+launch --rwgt_name=cpq3i_1p_cpqMi_0p_cpW_0p
+set cpq3i 1.000000
+set cpqMi 0.000000
+set cpW 0.000000
+
+launch --rwgt_name=cpq3i_0p_cpqMi_1p_cpW_0p
+set cpq3i 0.000000
+set cpqMi 1.000000
+set cpW 0.000000
+
+launch --rwgt_name=cpq3i_0p_cpqMi_0p_cpW_1p
+set cpq3i 0.000000
+set cpqMi 0.000000
+set cpW 1.000000
+
+launch --rwgt_name=cpq3i_2p_cpqMi_0p_cpW_0p
+set cpq3i 2.000000
+set cpqMi 0.000000
+set cpW 0.000000
+
+launch --rwgt_name=cpq3i_1p_cpqMi_1p_cpW_0p
+set cpq3i 1.000000
+set cpqMi 1.000000
+set cpW 0.000000
+
+launch --rwgt_name=cpq3i_1p_cpqMi_0p_cpW_1p
+set cpq3i 1.000000
+set cpqMi 0.000000
+set cpW 1.000000
+
+launch --rwgt_name=cpq3i_0p_cpqMi_2p_cpW_0p
+set cpq3i 0.000000
+set cpqMi 2.000000
+set cpW 0.000000
+
+launch --rwgt_name=cpq3i_0p_cpqMi_1p_cpW_1p
+set cpq3i 0.000000
+set cpqMi 1.000000
+set cpW 1.000000
+
+launch --rwgt_name=cpq3i_0p_cpqMi_0p_cpW_2p
+set cpq3i 0.000000
+set cpqMi 0.000000
+set cpW 2.000000
+

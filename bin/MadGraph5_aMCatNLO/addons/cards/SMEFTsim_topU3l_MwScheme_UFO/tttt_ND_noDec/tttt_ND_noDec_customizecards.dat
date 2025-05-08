@@ -1,0 +1,12 @@
+set param_card mass 6 172.5
+set param_card yukawa 6 172.5
+set param_card MB 0.0
+set param_card ymb 0.0
+
+set param_card cQQ8 1.000000
+set param_card cQQ1 1.000000
+set param_card cQt1 1.000000
+set param_card ctt 1.000000
+set param_card cQt8 1.000000
+set param_card ctHRe 10.000000
+set param_card ctHIm 10.000000

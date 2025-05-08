@@ -1,0 +1,21 @@
+set group_subprocesses Auto
+set ignore_six_quark_processes False
+set loop_optimized_output True
+set complex_mass_scheme False
+import model SMEFTatNLO-LO 
+define l+ = e+ mu+
+define l- = e- mu-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+define p = p b b~
+define j = j b b~
+define lep = e+ mu+ ta+ e- mu- ta-
+define nu = ve vm vt ve~ vm~ vt~
+define w = w+ w-
+generate p p > w a NP=2, w > j j @0
+add process p p > w j a NP=2, w > j j @1
+add process p p > w j j a NP=2, w > j j @2
+#add process p p > w j j j a NP=2, w > j j @3
+output WGTojjG -nojpeg

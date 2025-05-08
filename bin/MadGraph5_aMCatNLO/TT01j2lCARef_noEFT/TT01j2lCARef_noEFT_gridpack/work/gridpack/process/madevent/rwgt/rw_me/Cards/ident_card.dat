@@ -1,0 +1,69 @@
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+c      written by the UFO converter
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+smeft 15 mdl_ctGRe
+
+smeft 38 mdl_cjj31
+
+smeft 40 mdl_cQj11
+
+smeft 41 mdl_cQj18
+
+smeft 42 mdl_cQj31
+
+smeft 43 mdl_cQj38
+
+smeft 45 mdl_cQQ8
+
+smeft 49 mdl_ctu1
+
+smeft 50 mdl_ctu8
+
+smeft 58 mdl_ctd1
+
+smeft 62 mdl_ctd8
+
+smeft 67 mdl_cQu1
+
+smeft 69 mdl_cQu8
+
+smeft 70 mdl_ctj1
+
+smeft 71 mdl_ctj8
+
+smeft 72 mdl_cQt1
+
+smeft 73 mdl_cQt8
+
+smeft 76 mdl_cQd1
+
+smeft 77 mdl_cQd8
+
+smeftcpv 8 mdl_ctGIm
+
+smeftcutoff 1 mdl_LambdaSMEFT
+
+sminputs 1 mdl_MW
+
+sminputs 2 mdl_Gf
+
+sminputs 3 aS
+
+yukawa 5 mdl_ymb
+
+yukawa 6 mdl_ymt
+
+mass 23 mdl_MZ
+
+mass 6 mdl_MT
+
+mass 25 mdl_MH
+
+decay 23 mdl_WZ
+
+decay 24 mdl_WW
+
+decay 6 mdl_WT
+
+decay 25 mdl_WH

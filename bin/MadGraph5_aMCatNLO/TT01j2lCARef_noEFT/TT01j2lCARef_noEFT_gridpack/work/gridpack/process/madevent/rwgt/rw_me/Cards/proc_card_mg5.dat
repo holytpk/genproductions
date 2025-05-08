@@ -1,0 +1,39 @@
+#************************************************************
+#*                     MadGraph5_aMC@NLO                    *
+#*                                                          *
+#*                *                       *                 *
+#*                  *        * *        *                   *
+#*                    * * * * 5 * * * *                     *
+#*                  *        * *        *                   *
+#*                *                       *                 *
+#*                                                          *
+#*                                                          *
+#*         VERSION 2.6.5                 2018-02-03         *
+#*                                                          *
+#*    The MadGraph5_aMC@NLO Development Team - Find us at   *
+#*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+#*                                                          *
+#************************************************************
+#*                                                          *
+#*               Command File for MadGraph5_aMC@NLO         *
+#*                                                          *
+#*     run as ./bin/mg5_aMC  filename                       *
+#*                                                          *
+#************************************************************
+set default_unset_couplings 99
+set ignore_six_quark_processes False
+set loop_optimized_output True
+set loop_color_flows False
+set gauge unitary
+set complex_mass_scheme False
+set max_npoint_for_channel 0
+define p = g u c d s u~ c~ d~ s~
+define p = g u c d s u~ c~ d~ s~
+set group_subprocesses False
+generate p p > t t~, (t > l+ vl b NPprop=0 SMHLOOP=0 NP=0), (t~ > l- v\
+l~ b~ NPprop=0 SMHLOOP=0 NP=0)    @0  NPprop=0 SMHLOOP=0 NP=1
+add process p p > t t~ j, (t > l+ vl b NPprop=0 SMHLOOP=0 NP=0), (t~ >\
+ l- vl~ b~ NPprop=0 SMHLOOP=0 NP=0) @1 NPprop=0 SMHLOOP=0 NP=1
+output standalone_rw /afs/cern.ch/user/l/lingqian/EFT_FullRun2/genprod\
+uctions/bin/MadGraph5_aMCatNLO/TT01j2lCARef_noEFT/TT01j2lCARef_noEFT_g\
+ridpack/work/process/madevent/rwgt/rw_me --prefix=int

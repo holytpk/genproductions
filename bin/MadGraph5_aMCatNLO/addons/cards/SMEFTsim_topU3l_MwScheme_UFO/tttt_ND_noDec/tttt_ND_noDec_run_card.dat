@@ -1,0 +1,268 @@
+#*********************************************************************
+#                       MadGraph5_aMC@NLO                            *
+#                                                                    *
+#                     run_card.dat MadEvent                          *
+#                                                                    *
+#  This file is used to set the parameters of the run.               *
+#                                                                    *
+#  Some notation/conventions:                                        *
+#                                                                    *
+#   Lines starting with a '# ' are info or comments                  *
+#                                                                    *
+#   mind the format:   value    = variable     ! comment             *
+#*********************************************************************
+#
+#*******************                                                 
+# Running parameters
+#*******************                                                 
+#                                                                    
+#*********************************************************************
+# Tag name for the run (one word)                                    *
+#*********************************************************************
+  tag_1     = run_tag ! name of the run 
+#*********************************************************************
+# Run to generate the grid pack                                      *
+#*********************************************************************
+  T           = gridpack  !True = setting up the grid pack
+#*********************************************************************
+# Number of events and rnd seed                                      *
+# Warning: Do not generate more than 1M events in a single run       *
+# If you want to run Pythia, avoid more than 50k events in a run.    *
+#*********************************************************************
+  15000 = nevents ! Number of unweighted events requested 
+      0       = iseed   ! rnd seed (0=assigned automatically=default))
+#*********************************************************************
+# Collider type and energy                                           *
+# lpp: 0=No PDF, 1=proton, -1=antiproton, 2=photon from proton,      *
+#                                         3=photon from electron     *
+#*********************************************************************
+        1     = lpp1    ! beam 1 type 
+        1     = lpp2    ! beam 2 type
+     6500     = ebeam1  ! beam 1 total energy in GeV
+     6500     = ebeam2  ! beam 2 total energy in GeV
+#*********************************************************************
+# Beam polarization from -100 (left-handed) to 100 (right-handed)    *
+#*********************************************************************
+        0     = polbeam1 ! beam polarization for beam 1
+        0     = polbeam2 ! beam polarization for beam 2
+#*********************************************************************
+# PDF CHOICE: this automatically fixes also alpha_s and its evol.    *
+#*********************************************************************
+ 'lhapdf'    = pdlabel     ! PDF set                                  
+$DEFAULT_PDF_SETS = lhaid
+$DEFAULT_PDF_MEMBERS = reweight_PDF     ! if pdlabel=lhapdf, this is the lhapdf number 
+#*********************************************************************
+# Renormalization and factorization scales                           *
+#*********************************************************************
+ F        = fixed_ren_scale  ! if .true. use fixed ren scale
+ F        = fixed_fac_scale  ! if .true. use fixed fac scale
+ 91.1880  = scale            ! fixed ren scale
+ 91.1880  = dsqrt_q2fact1    ! fixed fact scale for pdf1
+ 91.1880  = dsqrt_q2fact2    ! fixed fact scale for pdf2
+ -1       = dynamical_scale_choice
+ 1        = scalefact        ! scale factor for event-by-event scales
+#*********************************************************************
+# Matching - Warning! ickkw > 1 is still beta
+#*********************************************************************
+ 0        = ickkw            ! 0 no matching, 1 MLM, 2 CKKW matching
+ 1        = alpsfact         ! scale factor for QCD emission vx
+ F        = chcluster        ! cluster only according to channel diag
+ 5        = asrwgtflavor     ! highest quark flavor for a_s reweight
+ T        = clusinfo         ! include clustering tag in output
+ 3.0      = lhe_version       ! Change the way clustering information pass to shower.        
+#*********************************************************************
+#**********************************************************
+#
+#**********************************************************
+# Automatic ptj and mjj cuts if xqcut > 0
+# (turn off for VBF and single top processes)
+#**********************************************************
+   F  = auto_ptj_mjj  ! Automatic setting of ptj and mjj
+#**********************************************************
+#                                                                    
+#**********************************
+# BW cutoff (M+/-bwcutoff*Gamma)
+#**********************************
+  15  = bwcutoff      ! (M+/-bwcutoff*Gamma)
+#**********************************************************
+# Apply pt/E/eta/dr/mij cuts on decay products or not
+# (note that etmiss/ptll/ptheavy/ht/sorted cuts always apply)
+#**********************************************************
+   T  = cut_decays    ! Cut decay products 
+#*************************************************************
+# Number of helicities to sum per event (0 = all helicities)
+# 0 gives more stable result, but longer run time (needed for
+# long decay chains e.g.).
+# Use >=2 if most helicities contribute, e.g. pure QCD.
+#*************************************************************
+   0  = nhel          ! Number of helicities used per event
+#*********************************************************************
+# Standard Cuts                                                      *
+#*********************************************************************
+# Minimum and maximum pt's (for max, -1 means no cut)                *
+#*********************************************************************
+                  0.1 = ptj
+                  0.0 = ptb
+                  0.0 = pta
+                  0.0 = ptl
+                  0.0 = misset
+                 -1.0 = ptjmax
+                 -1.0 = ptbmax
+                 -1.0 = ptamax
+                 -1.0 = ptlmax
+                 -1.0 = missetmax
+#*********************************************************************
+# Minimum and maximum E's (in the center of mass frame)              *
+#*********************************************************************
+                  0.0 = ej
+                  0.0 = eb
+                  0.0 = ea
+                  0.0 = el
+                 -1.0 = ejmax
+                 -1.0 = ebmax
+                 -1.0 = eamax
+                 -1.0 = elmax
+#*********************************************************************
+# Maximum and minimum absolute rapidity (for max, -1 means no cut)   *
+#*********************************************************************
+                  5.0 = etaj
+                 -1.0 = etab
+                  2.5 = etaa
+                  2.5 = etal
+                  0.0 = etajmin
+                  0.0 = etabmin
+                  0.0 = etaamin
+                  0.0 = etalmin
+#*********************************************************************
+# Minimum and maximum DeltaR distance                                *
+#*********************************************************************
+                  0.4 = drjj
+                  0.0 = drbb
+                  0.4 = drll
+                  0.4 = draa
+                  0.0 = drbj
+                  0.4 = draj
+                  0.4 = drjl
+                  0.0 = drab
+                  0.0 = drbl
+                  0.4 = dral
+                 -1.0 = drjjmax
+                 -1.0 = drbbmax
+                 -1.0 = drllmax
+                 -1.0 = draamax
+                 -1.0 = drbjmax
+                 -1.0 = drajmax
+                 -1.0 = drjlmax
+                 -1.0 = drabmax
+                 -1.0 = drblmax
+                 -1.0 = dralmax
+#*********************************************************************
+# Minimum and maximum invariant mass for pairs                       *
+# WARNING: for four lepton final state mmll cut require to have      *
+#          different lepton masses for each flavor
+#*********************************************************************
+                  0.0 = mmjj
+                  0.0 = mmbb
+                  0.0 = mmaa
+                  0.0 = mmll
+                 -1.0 = mmjjmax
+                 -1.0 = mmbbmax
+                 -1.0 = mmaamax
+                 -1.0 = mmllmax
+#*********************************************************************
+# Minimum and maximum invariant mass for all letpons                 *
+#*********************************************************************
+                  0.0 = mmnl
+                 -1.0 = mmnlmax
+#*********************************************************************
+# Minimum and maximum pt for 4-momenta sum of leptons                *
+#*********************************************************************
+                  0.0 = ptllmin
+                 -1.0 = ptllmax
+#*********************************************************************
+# Inclusive cuts                                                     *
+#*********************************************************************
+                  0.0 = ptheavy
+                  0.0 = xptj
+                  0.0 = xptb
+                  0.0 = xpta
+                  0.0 = xptl
+#*********************************************************************
+# Control the pt's of the jets sorted by pt                          *
+#*********************************************************************
+                  0.0 = ptj1min
+                  0.0 = ptj2min
+                  0.0 = ptj3min
+                  0.0 = ptj4min
+                 -1.0 = ptj1max
+                 -1.0 = ptj2max
+                 -1.0 = ptj3max
+                 -1.0 = ptj4max
+                    0 = cutuse
+#*********************************************************************
+# Control the pt's of leptons sorted by pt                           *
+#*********************************************************************
+                  0.0 = ptl1min
+                  0.0 = ptl2min
+                  0.0 = ptl3min
+                  0.0 = ptl4min
+                 -1.0 = ptl1max
+                 -1.0 = ptl2max
+                 -1.0 = ptl3max
+                 -1.0 = ptl4max
+#*********************************************************************
+# Control the Ht(k)=Sum of k leading jets                            *
+#*********************************************************************
+                  0.0 = htjmin
+                 -1.0 = htjmax
+                  0.0 = ihtmin
+                 -1.0 = ihtmax
+                  0.0 = ht2min
+                  0.0 = ht3min
+                  0.0 = ht4min
+                 -1.0 = ht2max
+                 -1.0 = ht3max
+                 -1.0 = ht4max
+#***********************************************************************
+# Photon-isolation cuts, according to hep-ph/9801442                   *
+# When ptgmin=0, all the other parameters are ignored                  *
+# When ptgmin>0, pta and draj are not going to be used                 *
+#***********************************************************************
+                  0.0 = ptgmin
+                  0.4 = R0gamma
+                  1.0 = xn
+                  1.0 = epsgamma
+                 True = isoEM
+#*********************************************************************
+# WBF cuts                                                           *
+#*********************************************************************
+                  0.0 = xetamin
+                  0.0 = deltaeta
+#***********************************************************************
+# Turn on either the ktdurham or ptlund cut to activate                *
+# CKKW(L) merging with Pythia8 [arXiv:1410.3012, arXiv:1109.4829]      *
+#***********************************************************************
+                 -1.0 = ktdurham
+                  0.4 = dparameter
+                 -1.0 = ptlund
+ 1, 2, 3, 4, 5, 6, 21 = pdgs_for_merging_cut
+#*********************************************************************
+# maximal pdg code for quark to be considered as a light jet         *
+# (otherwise b cuts are applied)                                     *
+#*********************************************************************
+
+#*********************************************************************
+ 5 = maxjetflavor    ! Maximum jet pdg code
+#*********************************************************************
+# Jet measure cuts                                                   *
+#*********************************************************************
+ 0   = xqcut   ! minimum kt jet measure between partons
+#*********************************************************************
+#
+#*********************************************************************
+# Store info for systematics studies                                 *
+# WARNING: If use_syst is T, matched Pythia output is                *
+#          meaningful ONLY if plotted taking matchscale              *
+#          reweighting into account!                                 *
+#*********************************************************************
+   F  = use_syst      ! Enable systematics studies

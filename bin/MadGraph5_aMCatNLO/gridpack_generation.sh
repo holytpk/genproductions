@@ -1,7 +1,4 @@
-#!/bin/bash
-
-##########################################################################################
-#GENERAL INSTRUCTIONS:                                                                   #
+AL INSTRUCTIONS:                                                                   #
 #You should take care of having the following ingredients in order to have this recipe   #
 #working: run card and proc card (in a "cards" folder), MadGraph release, this script    #
 #all in the same folder!                                                                 #
@@ -79,14 +76,7 @@ make_gridpack () {
       echo $CARDSDIR/${name}_run_card.dat " does not exist!"
       if [ "${BASH_SOURCE[0]}" != "${0}" ]; then return 1; else exit 1; fi
     fi
-
-    if [ -e $CARDSDIR/${name}_madspin_card.dat ]; then
-      if grep -F "Nevents_for_max_weight" $CARDSDIR/${name}_madspin_card.dat; then
-        sed -i 's|Nevents_for_max_weight|Nevents_for_max_weigth|g' $CARDSDIR/${name}_madspin_card.dat
-        echo "Unfixing the typo fix : Nevents_for_max_weight -> Nevents_for_max_weigth"
-      fi
-    fi
-
+    
     # avoid compute_widths in customizecards 
     if [ -e $CARDSDIR/${name}_customizecards.dat ]; then
         if grep -F "compute_widths" $CARDSDIR/${name}_customizecards.dat ; then
@@ -176,7 +166,8 @@ make_gridpack () {
       wget --no-check-certificate ${MGSOURCE}
       tar xzf ${MG}
       rm "$MG"
-    
+      cp -r /afs/cern.ch/user/l/lingqian/EFT_FullRun2/genproductions/bin/MadGraph5_aMCatNLO/addons/models/SMEFTsim_topU3l_MwScheme_UFO_ctGpatched $MGBASEDIRORIG/models
+ 
       #############################################
       #Apply any necessary patches on top of official release
       #############################################
@@ -288,7 +279,7 @@ make_gridpack () {
       echo `pwd`
 
       cp $CARDSDIR/${name}_proc_card.dat ${name}_proc_card.dat
-      
+
       #*FIXME* workaround for broken cluster_local_path handling. 
       # This needs to happen before the code-generation step, as fortran templates
       # are modified based on this parameter.
@@ -818,3 +809,4 @@ else
 fi
 
 make_tarball
+
