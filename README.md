@@ -149,7 +149,6 @@ scram b -j 8
 Create the appropriate directory and copy the fragment from genproductions into place:
 
 ```bash
-cd genproductions 
 mkdir -p CMSSW_10_6_26/src/Configuration/GenProduction/python
 cp pythia_fragment.py CMSSW_10_6_26/src/Configuration/GenProduction/python/pythia_fragment.py
 ```
