@@ -77,7 +77,7 @@ addons/cards/SMEFTsim_topU3l_MwScheme_UFO_ctGpatched/TT01j2lCARef_*.dat
 
 ## Part 2: Produce EFT NanoAODv9 Samples with CMSSW
 
-For this section, you may want to install CMSSW in the directory that is parallel to genproductions. 
+For this section, you may want to install CMSSW in the directory that is parallel to genproductions. You may not need singularity container from now on. 
 To generate NAOD files that include the EFT weights, you must use a patched CMSSW release with custom NanoAOD modifications:
 
 ### 1. Setup Environment and Base Release
