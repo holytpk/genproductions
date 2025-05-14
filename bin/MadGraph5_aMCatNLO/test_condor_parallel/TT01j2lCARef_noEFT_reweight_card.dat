@@ -1,0 +1,2762 @@
+# reweight card file created with https://github.com/schoef/gridpacks on 2025-05-13 21:17:02
+# Command line arguments: make_reweight_card.py --couplings 2 ctGRe 1 ctGIm 1 cQj18 1 cQj38 1 cQj11 1 cQj31 1 ctu8 1 ctd8 1 ctj8 1 cQu8 1 cQd8 1 ctu1 1 ctd1 1 ctj1 1 cQu1 1 cQd1 1 --referencepoint ctGIm 1 cQj18 3 cQj38 3 cQj11 3 cQj31 3 ctu8 3 ctd8 3 ctj8 3 cQu8 3 cQd8 3 ctu1 3 ctd1 3 ctj1 3 cQu1 3 cQd1 3 --filename TT01j2lCARef_noEFT_reweight_card.dat
+# Polynomial order: 2
+# Reference Point: ctGIm 1 cQj18 3 cQj38 3 cQj11 3 cQj31 3 ctu8 3 ctd8 3 ctj8 3 cQu8 3 cQd8 3 ctu1 3 ctd1 3 ctj1 3 cQu1 3 cQd1 3
+change rwgt_dir rwgt
+
+launch --rwgt_name=dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.
+
+launch --rwgt_name=EFTrwgt0_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt1_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt2_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt3_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt4_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt5_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt6_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt7_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt8_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt9_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt10_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt11_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt12_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt13_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt14_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt15_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt16_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt17_ctGRe_2.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 2.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt18_ctGRe_1.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt19_ctGRe_1.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt20_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt21_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt22_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt23_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt24_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt25_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt26_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt27_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt28_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt29_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt30_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt31_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt32_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 1.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt33_ctGRe_0.0_ctGIm_2.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 2.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt34_ctGRe_0.0_ctGIm_1.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt35_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt36_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt37_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt38_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt39_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt40_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt41_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt42_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt43_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt44_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt45_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt46_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt47_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 1.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt48_ctGRe_0.0_ctGIm_0.0_cQj18_2.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 2.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt49_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt50_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt51_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt52_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt53_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt54_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt55_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt56_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt57_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt58_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt59_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt60_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt61_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 1.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt62_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_2.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 2.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt63_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt64_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt65_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt66_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt67_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt68_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt69_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt70_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt71_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt72_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt73_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt74_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 1.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt75_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_2.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 2.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt76_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt77_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt78_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt79_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt80_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt81_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt82_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt83_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt84_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt85_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt86_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 1.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt87_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_2.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 2.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt88_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt89_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt90_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt91_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt92_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt93_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt94_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt95_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt96_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt97_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 1.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt98_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_2.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 2.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt99_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt100_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt101_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt102_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt103_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt104_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt105_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt106_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt107_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 1.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt108_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_2.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 2.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt109_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt110_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt111_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt112_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt113_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt114_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt115_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt116_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 1.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt117_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_2.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 2.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt118_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt119_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt120_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt121_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt122_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt123_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt124_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 1.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt125_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_2.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 2.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt126_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt127_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt128_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt129_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt130_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt131_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 1.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt132_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_2.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 2.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt133_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt134_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt135_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt136_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt137_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 1.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt138_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_2.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 2.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt139_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt140_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt141_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt142_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 1.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt143_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_2.0_ctj1_0.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 2.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt144_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_1.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt145_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt146_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 1.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt147_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_2.0_cQu1_0.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 2.000000
+set cQu1 0.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt148_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_1.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 1.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt149_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 1.000000
+set cQu1 0.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt150_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_2.0_cQd1_0.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 2.000000
+set cQd1 0.000000
+
+launch --rwgt_name=EFTrwgt151_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_1.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 1.000000
+set cQd1 1.000000
+
+launch --rwgt_name=EFTrwgt152_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_2.0
+set ctGRe 0.000000
+set ctGIm 0.000000
+set cQj18 0.000000
+set cQj38 0.000000
+set cQj11 0.000000
+set cQj31 0.000000
+set ctu8 0.000000
+set ctd8 0.000000
+set ctj8 0.000000
+set cQu8 0.000000
+set cQd8 0.000000
+set ctu1 0.000000
+set ctd1 0.000000
+set ctj1 0.000000
+set cQu1 0.000000
+set cQd1 2.000000
+
