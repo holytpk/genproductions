@@ -182,7 +182,7 @@ cmsRun nanogen_TT01j2lCARef_noEFT_cfg.py
 
 ---
 
-Hopefully this works. 
+Hopefully this work. If you encounter seg fault related to HTXS and genWeightTable, just remove the genWeightTable feature (check the end of test_condor_parallel/nanogen_TT01j2l_SM_cfg.py).  
 
 
 ## Part 4: Running NanoGEN with HTCondor
@@ -271,3 +271,4 @@ condor_submit submit_nanogen_TT01j2lCARef_noEFT.sh
 
 This setup will run `cmsRun` using the provided config, and write the output NanoGEN file directly to your EOS path.
 
+Using all the tips above, you can find a working example under test_condor_parallel directory. Just do `condor_submit submit_nanogen_TT01j2l_SM.jdl` to submit. 
