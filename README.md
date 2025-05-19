@@ -271,4 +271,4 @@ condor_submit submit_nanogen_TT01j2lCARef_noEFT.sh
 
 This setup will run `cmsRun` using the provided config, and write the output NanoGEN file directly to your EOS path.
 
-Using all the tips above, you can find a working example under test_condor_parallel directory. Just do `condor_submit submit_nanogen_TT01j2l_SM.jdl` to submit. 
+Using all the tips above, you can find a working example under `test_condor_parallel` directory. Just modify the path to the gridpack in `pythia_fragment.py`, then do `condor_submit submit_nanogen_TT01j2l_SM.jdl` to submit. 
