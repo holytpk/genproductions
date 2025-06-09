@@ -1,5 +1,6 @@
 universe = vanilla
 executable = run_nanogen_TT01j2lCARef_noEFT.sh
+
 output = logs/job_$(ClusterId)_$(ProcId).out
 error  = logs/job_$(ClusterId)_$(ProcId).err
 log    = logs/job_$(ClusterId)_$(ProcId).log
@@ -7,14 +8,16 @@ log    = logs/job_$(ClusterId)_$(ProcId).log
 transfer_input_files = nanogen_TT01j2lCARef_noEFT_cfg.py, run_nanogen_TT01j2lCARef_noEFT.sh, CMSSW_10_6_26.tar.gz
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
+
+environment = "NANOGEN_SEED=$(ProcId) NANOGEN_OUTFILE=/eos/user/l/lingqian/EFT_FullRun2/nanogen_TT01j2lCARef_noEFT/nanogen_TT01j2lCARef_noEFT_$(ProcId).root"
+
 request_cpus = 1
 request_memory = 2000M
-+JobFlavour = "nextweek"
++JobFlavour = "tomorrow"
 
-#+SingularityImage = "/cvmfs/singularity.opensciencegrid.org/cmssw/el7:latest"
-#+SingularityBindCVMFS = True
-#requirements = (HAS_SINGULARITY == True)
-
-environment = "NANOGEN_SEED=$(ProcId) NANOGEN_OUTFILE=file:nanogen_TT01j2lCARef_noEFT_$(ProcId).root"
+# 🟢 Simplified requirement — avoids NODE_MOUNTS_AFS and AlmaLinux lock-in
+# requirements = (HAS_SINGULARITY == true)
+# +SingularityImage = "/cvmfs/singularity.opensciencegrid.org/cmssw/el7:latest"
+# +SingularityBindCVMFS = True
 
 queue 50

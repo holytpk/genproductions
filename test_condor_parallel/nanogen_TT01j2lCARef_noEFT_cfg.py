@@ -3,7 +3,7 @@ import os
 
 # Get environment variables (set by HTCondor script)
 seed = int(os.getenv('NANOGEN_SEED', '123'))
-outfile = os.getenv('NANOGEN_OUTFILE', 'file:nanogen_TT01j2lCARef_noEFT.root')
+outfile = os.getenv('NANOGEN_OUTFILE', 'file:nanogen_TT01j2l_SM.root')
 
 from Configuration.Eras.Era_Run2_2018_cff import Run2_2018
 process = cms.Process('NANOGEN', Run2_2018)
@@ -31,7 +31,6 @@ process.options = cms.untracked.PSet(
     allowUnscheduled = cms.untracked.bool(False)
 )
 
-
 # Metadata
 process.configurationMetadata = cms.untracked.PSet(
     annotation = cms.untracked.string('NanoGEN production'),
@@ -39,7 +38,7 @@ process.configurationMetadata = cms.untracked.PSet(
     version = cms.untracked.string('$Revision: 1.19 $')
 )
 
-# Output file (dynamic)
+# Output file
 process.NANOAODGENoutput = cms.OutputModule("NanoAODOutputModule",
     SelectEvents = cms.untracked.PSet(
         SelectEvents = cms.vstring('generation_step')
@@ -119,7 +118,7 @@ process.generator = cms.EDFilter("Pythia8HadronizerFilter",
 
 # External LHE Producer
 process.externalLHEProducer = cms.EDProducer("ExternalLHEProducer",
-    args = cms.vstring('/afs/cern.ch/user/l/lingqian/EFT_FullRun2/genproductions/bin/MadGraph5_aMCatNLO/TT01j2lCARef_noEFT_slc7_amd64_gcc700_CMSSW_10_6_19_tarball.tar.xz'),
+    args = cms.vstring('/eos/user/l/lingqian/EFT_FullRun2/gridpack/TT01j2lCARef_noEFT_slc7_amd64_gcc700_CMSSW_10_6_19_tarball.tar.xz'),
     nEvents = cms.untracked.uint32(10000),
     numberOfParameters = cms.uint32(1),
     outputFile = cms.string('cmsgrid_final.lhe'),
@@ -155,9 +154,14 @@ for path in process.paths:
 from PhysicsTools.NanoAOD.nanogen_cff import customizeNanoGEN
 process = customizeNanoGEN(process)
 
+# Remove genWeightsTable to prevent crash due to weight mismatch
+if hasattr(process, "genWeightsTable"):
+    process.nanoAOD_step.remove(process.genWeightsTable)
+
 from Configuration.DataProcessing.Utils import addMonitoring
 process = addMonitoring(process)
 
+# Seeds
 process.RandomNumberGeneratorService = cms.Service("RandomNumberGeneratorService",
     externalLHEProducer = cms.PSet(
         initialSeed = cms.untracked.uint32(seed)
@@ -172,164 +176,6 @@ process.RandomNumberGeneratorService = cms.Service("RandomNumberGeneratorService
     )
 )
 
-# Reduce memory (optional)
+# Early deletion
 from Configuration.StandardSequences.earlyDeleteSettings_cff import customiseEarlyDelete
 process = customiseEarlyDelete(process)
-named_weights = [  
-"dummy # Name of first argument seems to be rwgt_1. Add dummy to fix it.",
-"EFTrwgt0_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt1_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt2_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt3_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt4_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt5_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt6_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt7_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt8_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt9_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt10_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt11_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt12_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt13_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt14_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt15_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt16_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt17_ctGRe_2.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt18_ctGRe_1.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt19_ctGRe_1.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt20_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt21_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt22_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt23_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt24_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt25_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt26_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt27_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt28_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt29_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt30_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt31_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt32_ctGRe_1.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt33_ctGRe_0.0_ctGIm_2.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt34_ctGRe_0.0_ctGIm_1.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt35_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt36_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt37_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt38_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt39_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt40_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt41_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt42_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt43_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt44_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt45_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt46_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt47_ctGRe_0.0_ctGIm_1.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt48_ctGRe_0.0_ctGIm_0.0_cQj18_2.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt49_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt50_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt51_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt52_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt53_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt54_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt55_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt56_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt57_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt58_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt59_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt60_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt61_ctGRe_0.0_ctGIm_0.0_cQj18_1.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt62_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_2.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt63_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt64_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt65_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt66_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt67_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt68_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt69_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt70_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt71_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt72_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt73_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt74_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_1.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt75_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_2.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt76_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt77_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt78_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt79_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt80_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt81_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt82_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt83_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt84_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt85_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt86_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_1.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt87_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_2.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt88_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt89_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt90_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt91_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt92_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt93_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt94_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt95_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt96_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt97_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_1.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt98_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_2.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt99_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt100_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt101_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt102_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt103_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt104_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt105_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt106_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt107_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_1.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt108_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_2.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt109_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt110_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt111_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt112_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt113_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt114_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt115_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt116_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_1.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt117_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_2.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt118_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt119_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt120_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt121_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt122_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt123_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt124_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_1.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt125_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_2.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt126_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt127_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt128_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt129_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt130_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt131_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_1.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt132_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_2.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt133_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt134_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt135_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt136_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt137_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_1.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt138_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_2.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt139_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt140_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt141_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt142_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_1.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt143_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_2.0_ctj1_0.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt144_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_1.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt145_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt146_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_1.0_ctj1_0.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt147_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_2.0_cQu1_0.0_cQd1_0.0",
-"EFTrwgt148_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_1.0_cQd1_0.0",
-"EFTrwgt149_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_1.0_cQu1_0.0_cQd1_1.0",
-"EFTrwgt150_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_2.0_cQd1_0.0",
-"EFTrwgt151_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_1.0_cQd1_1.0",
-"EFTrwgt152_ctGRe_0.0_ctGIm_0.0_cQj18_0.0_cQj38_0.0_cQj11_0.0_cQj31_0.0_ctu8_0.0_ctd8_0.0_ctj8_0.0_cQu8_0.0_cQd8_0.0_ctu1_0.0_ctd1_0.0_ctj1_0.0_cQu1_0.0_cQd1_2.0",
-]
-process.genWeightsTable.namedWeightIDs = named_weights
-process.genWeightsTable.namedWeightLabels = named_weights
