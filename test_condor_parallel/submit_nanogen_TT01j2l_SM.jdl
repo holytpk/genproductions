@@ -5,11 +5,12 @@ output = logs/job_$(ClusterId)_$(ProcId).out
 error  = logs/job_$(ClusterId)_$(ProcId).err
 log    = logs/job_$(ClusterId)_$(ProcId).log
 
-transfer_input_files = nanogen_TT01j2l_SM_cfg.py, run_nanogen_TT01j2l_SM.sh, CMSSW_10_6_26.tar.gz
+transfer_input_files = root://eosuser.cern.ch//eos/user/l/lingqian/MC_Production/cmseft/generation/nanogen_TT01j2l_SM_cfg.py, root://eosuser.cern.ch//eos/user/l/lingqian/MC_Production/cmseft/generation/run_nanogen_TT01j2l_SM.sh, root://eosuser.cern.ch//eos/user/l/lingqian/MC_Production/cmseft/generation/CMSSW_10_6_26.tar.gz
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
+output_destination = root://eosuser.cern.ch//eos/user/l/lingqian/EFT_FullRun2/nanogen_TT01j2l_SM/
 
-environment = "NANOGEN_SEED=$(ProcId) NANOGEN_OUTFILE=/eos/user/l/lingqian/EFT_FullRun2/nanogen_TT01j2l_SM/nanogen_TT01j2l_SM_$(ProcId).root"
+environment = "NANOGEN_SEED=$(ProcId) NANOGEN_OUTFILE=nanogen_TT01j2l_SM_$(ProcId).root"
 
 request_cpus = 1
 request_memory = 2000M
