@@ -1,4 +1,4 @@
-AL INSTRUCTIONS:                                                                   #
+#GENERAL INSTRUCTIONS:                                                                   #
 #You should take care of having the following ingredients in order to have this recipe   #
 #working: run card and proc card (in a "cards" folder), MadGraph release, this script    #
 #all in the same folder!                                                                 #
