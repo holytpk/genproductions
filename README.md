@@ -102,13 +102,6 @@ scram b
 cd ../..
 ```
 
-Then copy the pythia fragment for cmsDriver to CMSSW_10_6_42/src/Configuration/python/.
-
-### Patch Summary
-- `GenWeightsTableProducer.cc`: correctly reads EFT reweight points and supports DJR plots.
-- `nanogen_cff.py`: aligns neutrino exclusion in GenJet definition with miniAOD.
-- `globals_cff.py`: adds `mc_nMEPartonsFiltered` for DJR plotting support.
-
 ---
 
 ## Part 3: Generate NanoAOD with EFT Gridpack
@@ -118,8 +111,8 @@ Then copy the pythia fragment for cmsDriver to CMSSW_10_6_42/src/Configuration/p
 Create the appropriate directory and copy the fragment from genproductions into place:
 
 ```bash
-mkdir -p CMSSW_10_6_26/src/Configuration/GenProduction/python
-cp pythia_fragment.py CMSSW_10_6_26/src/Configuration/GenProduction/python/pythia_fragment.py
+mkdir -p CMSSW_10_6_42/src/Configuration/GenProduction/python
+cp pythia_fragment.py CMSSW_10_6_42/src/Configuration/GenProduction/python/pythia_fragment.py
 ```
 
 > 🔧 **Reminder**: Edit the gridpack path in `pythia_fragment.py` to match the full path to your `.tar.xz` gridpack.
