@@ -58,7 +58,7 @@ chmod 755 gridpack_generation.sh
 For example:
 
 ```bash
-./gridpack_generation.sh TT01j2lCARef addons/model/SMEFTsim_topU3l_MwScheme_UFO_ctGpatched
+./gridpack_generation.sh TT01j2lCARef addons/cards/SMEFTsim_topU3l_MwScheme_UFO_ctGpatched/TT01j2lCARef/
 ```
 
 This command assumes you have the corresponding cards in:
@@ -69,7 +69,7 @@ addons/cards/SMEFTsim_topU3l_MwScheme_UFO_ctGpatched/TT01j2lCARef_*.dat
 
 ### Notes
 
-- Make sure `TT01j2lCARef_run_card.dat`, `TT01j2lCARef_proc_card.dat`, and optionally `TT01j2lCARef_madspin_card.dat` are present in the specified card directory.
+- Make sure `TT01j2lCARef_run_card.dat`, `TT01j2lCARef_proc_card.dat`, and optionally `TT01j2lCARef_madspin_card.dat` are present in the specified card directory. For EFT reweighting, there are reweight cards as well. 
 - MadGraph will automatically use the `madspin_card.dat` if present and compatible with the process.
 - Ensure that your model UFO is compatible with the version of MadGraph you are using.
 
@@ -84,56 +84,25 @@ To generate NAOD files that include the EFT weights, you must use a patched CMSS
 
 ```bash
 cd ..
-cmsrel CMSSW_10_6_26
-cd CMSSW_10_6_26/src
+#!/bin/bash
+
 export SCRAM_ARCH=slc7_amd64_gcc700
-cmsenv
+
+source /cvmfs/cms.cern.ch/cmsset_default.sh
+if [ -r CMSSW_10_6_42/src ] ; then
+  echo release CMSSW_10_6_42 already exists
+else
+  scram p CMSSW CMSSW_10_6_42
+fi
+cd CMSSW_10_6_42/src
+eval `scram runtime -sh`
+
+mv ../../Configuration .
+scram b
+cd ../..
 ```
 
-### 2. Add and Patch NanoAOD
-
-```bash
-git cms-addpkg PhysicsTools/NanoAOD
-cd PhysicsTools/NanoAOD/
-git remote add eftfit https://github.com/GonzalezFJR/cmssw.git
-git fetch eftfit
-git cherry-pick c0901cfc459a8d5282ebb1bc74374903d29e3eee
-git cherry-pick 4068e48b02b1fcb46949b3ebeac6a7b59062c2e0
-git cherry-pick 76d0a24615c2b2b3aa7333c5aed5cc7bb6a7fd1d
-```
-
-### 3. Clone EFTGenReader
-
-```bash
-cd ../../
-git clone https://github.com/TopEFT/EFTGenReader.git
-```
-
-### 4. Add NanoAODTools
-
-```bash
-cd PhysicsTools
-git clone https://github.com/cms-nanoAOD/nanoAOD-tools.git NanoAODTools
-```
-
-### 5. Apply Custom Patches from mc_production
-
-Clone the patch repo somewhere and replace the necessary files:
-
-```bash
-git clone https://github.com/hannahbnelson/mc_production.git
-cd mc_production
-cp nanogen_setup/GenWeightsTableProducer.cc ~/CMSSW_10_6_26/src/PhysicsTools/NanoAOD/plugins/GenWeightsTableProducer.cc
-cp nanogen_setup/nanogen_cff.py ~/CMSSW_10_6_26/src/PhysicsTools/NanoAOD/python/nanogen_cff.py
-cp nanogen_setup/globals_cff.py ~/CMSSW_10_6_26/src/PhysicsTools/NanoAOD/python/globals_cff.py
-```
-
-### 6. Compile Everything
-
-```bash
-cd ~/CMSSW_10_6_26/src
-scram b -j 8
-```
+Then copy the pythia fragment for cmsDriver to CMSSW_10_6_42/src/Configuration/python/.
 
 ### Patch Summary
 - `GenWeightsTableProducer.cc`: correctly reads EFT reweight points and supports DJR plots.
