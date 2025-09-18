@@ -234,3 +234,9 @@ condor_submit submit_nanogen_TT01j2lCARef_noEFT.sh
 This setup will run `cmsRun` using the provided config, and write the output NanoGEN file directly to your EOS path.
 
 Using all the tips above, you can find a working example under `test_condor_parallel` directory. Just modify the path to the gridpack in `pythia_fragment.py`, then do `condor_submit submit_nanogen_TT01j2l_SM.jdl` to submit. 
+
+If you are submitting from the EOS space then you might need the `--spool` option and please refer to `TT01j2lCARef_minimal_cut` scripts. 
+
+# Computation of Spin Correlation Observables from GenPart Collection, Histogramming and Plotting Stage
+
+Please checkout the `spin_corr_process_all.py` and `spin_corr_plot_histogram.py` scripts. The python environment dependencies are described in `python_environment_dependencies.txt`. 
