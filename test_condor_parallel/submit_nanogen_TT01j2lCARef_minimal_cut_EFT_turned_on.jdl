@@ -1,0 +1,30 @@
+universe = vanilla
+executable = run_nanogen_TT01j2lCARef_minimal_cut_EFT_turned_on.sh
+
+OUTDIR = /eos/user/l/lingqian/EFT_FullRun2/nanogen_TT01j2lCARef_minimal_cut_EFT_turned_on_test
+LOGDIR = $(OUTDIR)/logs
+OUTFILE = nanogen_TT01j2lCARef_minimal_cut_EFT_turned_on_$(ProcId).root
+
+output = $(LOGDIR)/job_$(ClusterId)_$(ProcId).out
+error  = $(LOGDIR)/job_$(ClusterId)_$(ProcId).err
+log    = $(LOGDIR)/job_$(ClusterId)_$(ProcId).log
+
+transfer_input_files = root://eosuser.cern.ch//eos/user/l/lingqian/MC_Production/cmseft/generation/genproductions/test_condor_parallel/nanogen_TT01j2lCARef_minimal_cut_EFT_turned_on_cfg.py, root://eosuser.cern.ch//eos/user/l/lingqian/MC_Production/cmseft/generation/genproductions/test_condor_parallel/run_nanogen_TT01j2lCARef_minimal_cut_EFT_turned_on.sh, root://eosuser.cern.ch//eos/user/l/lingqian/MC_Production/cmseft/generation/genproductions/test_condor_parallel/CMSSW_10_6_26.tar.gz
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_output_files = $(OUTFILE)
+output_destination = root://eosuser.cern.ch//eos/user/l/lingqian/EFT_FullRun2/nanogen_TT01j2lCARef_minimal_cut_EFT_turned_on_test/
+
+environment = "NANOGEN_SEED=$(ProcId) NANOGEN_OUTFILE=$(OUTFILE) NANOGEN_NEVENTS=50000"
+
+request_cpus = 1
+request_memory = 2000M
+#+JobFlavour = "tomorrow"
++JobFlavour = "nextweek"
+
+# 🟢 Simplified requirement — avoids NODE_MOUNTS_AFS and AlmaLinux lock-in
+# requirements = (HAS_SINGULARITY == true)
+# +SingularityImage = "/cvmfs/singularity.opensciencegrid.org/cmssw/el7:latest"
+# +SingularityBindCVMFS = True
+
+queue 1200
