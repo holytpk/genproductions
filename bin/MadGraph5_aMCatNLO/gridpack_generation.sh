@@ -39,7 +39,7 @@ make_tarball () {
     if [ -e merge.pl ]; then
         EXTRA_TAR_ARGS+="merge.pl "
     fi
-    XZ_OPT="$XZ_OPT" tar -cJpsf ${PRODHOME}/${name}_${scram_arch}_${cmssw_version}_tarball.tar.xz mgbasedir process runcmsgrid.sh gridpack_generation*.log InputCards $EXTRA_TAR_ARGS
+    XZ_OPT="$XZ_OPT" tar -cJpf ${PRODHOME}/${name}_${scram_arch}_${cmssw_version}_tarball.tar.xz mgbasedir process runcmsgrid.sh gridpack_generation*.log InputCards $EXTRA_TAR_ARGS
 
     echo "Gridpack created successfully at ${PRODHOME}/${name}_${scram_arch}_${cmssw_version}_tarball.tar.xz"
     echo "End of job"
@@ -166,7 +166,7 @@ make_gridpack () {
       wget --no-check-certificate ${MGSOURCE}
       tar xzf ${MG}
       rm "$MG"
-      cp -r /afs/cern.ch/user/l/lingqian/EFT_FullRun2/genproductions/bin/MadGraph5_aMCatNLO/addons/models/SMEFTsim_topU3l_MwScheme_UFO_ctGpatched $MGBASEDIRORIG/models
+      cp -r /eos/user/l/lingqian/MC_Production/cmseft/generation/genproductions/bin/MadGraph5_aMCatNLO/addons/models/SMEFTsim_topU3l_MwScheme_UFO_ctGpatched $MGBASEDIRORIG/models
  
       #############################################
       #Apply any necessary patches on top of official release
@@ -809,4 +809,3 @@ else
 fi
 
 make_tarball
-

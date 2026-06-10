@@ -1,0 +1,22 @@
+set param_card mass   6  172.5
+set param_card yukawa 6  172.5
+set param_card mass   25 125.0
+set param_card decay 6 auto
+set param_card MB 0.0
+set param_card ymb 0.0
+set param_card ctG 0.5 
+set param_card ctGI 0.5
+set param_card cQq38 1.5
+set param_card cQq18 1.5
+set param_card cQu8 1.5
+set param_card cQd8 1.5
+set param_card ctq8 1.5
+set param_card ctu8 1.5
+set param_card ctd8 1.5
+set param_card cQq13 1.5
+set param_card cQq11 1.5
+set param_card cQu1 1.5
+set param_card cQd1 1.5
+set param_card ctq1 1.5
+set param_card ctu1 1.5
+set param_card ctd1 1.5
