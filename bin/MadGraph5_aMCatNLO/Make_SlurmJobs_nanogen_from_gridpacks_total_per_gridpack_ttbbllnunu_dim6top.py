@@ -20,7 +20,7 @@ Dim6top-specific changes relative to the BSMRef version:
 
 # python3 Make_SlurmJobs_nanogen_from_gridpacks_total_per_gridpack_ttbbllnunu_dim6top.py \
 #   --gridpack-glob '/depot/cms/top/he614/cmseft/generation/genproductions/bin/MadGraph5_aMCatNLO/ttbbllnunu_dim6top_*_slc7_amd64_gcc700_CMSSW_10_6_19_tarball.tar.xz' \
-#   --total-events-per-gridpack 50000 --events-per-job 5000 --debug
+#   --total-events-per-gridpack 500000 --events-per-job 25000 --debug
 
 import argparse
 import glob
@@ -278,7 +278,7 @@ def main():
                         help='Maximum events per SLURM job.')
     parser.add_argument('--cpu', default='1')
     parser.add_argument('--mem', default='4000')
-    parser.add_argument('--time', default='8:00:00')
+    parser.add_argument('--time', default='24:00:00')
     parser.add_argument('--account', default='cms')
     parser.add_argument('--scram-arch', default='slc7_amd64_gcc700')
     parser.add_argument('--sample-prefix', default=DEFAULT_SAMPLE_PREFIX,

@@ -115,7 +115,7 @@ def write_job(job_path, idx, cmd, workdir, account, partition, cpu, mem, time,
 #SBATCH --error={err}
 
 # Keep this close to the BSMRef working style: no global lock, one independent job.
-set -euo pipefail
+# set -euo pipefail
 {trace}
 
 cd {workdir_q}
@@ -208,7 +208,7 @@ def main():
     written = 0
     skipped = 0
     with runfile.open("w") as rf:
-        rf.write("#!/usr/bin/env bash\nset -euo pipefail\n\n")
+        #rf.write("#!/usr/bin/env bash\nset -euo pipefail\n\n")
         for i, cmd in enumerate(commands):
             parts = shlex.split(cmd)
             name = parts[1]

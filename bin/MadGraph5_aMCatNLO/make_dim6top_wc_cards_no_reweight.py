@@ -21,7 +21,8 @@ Usage from genproductions/bin/MadGraph5_aMCatNLO:
     --outdir addons/cards/dim6top/generated_no_reweight \
     --prefix ttbbllnunu_dim6top \
     --force-rewrite-existing-card-dirs \
-    --max-extra-jets 1
+    
+    --max-extra-jets 1 # may not need this 
 
 Check if all gridpacks are produced:
 
@@ -110,23 +111,21 @@ def read_template(template_dir, suffix):
 
 
 def clean_run_card(text):
-    """Remove MadSpin/reweight controls and MG5-2.6.5-incompatible options."""
     text = text.replace("_madspin", "")
+
     lines = []
     for line in text.splitlines():
-        low = line.lower()
-        if "sde_strategy" in low:
+
+        # only remove MG menu directives
+        if re.match(r'^\s*(ON|OFF)\s*=\s*madspin\b', line, re.I):
             continue
-        if re.search(r"\bmadspin\b", line, re.I):
+
+        if re.match(r'^\s*(ON|OFF)\s*=\s*reweight\b', line, re.I):
             continue
-        if re.search(r"\breweight\b", line, re.I):
-            continue
+
         lines.append(line)
 
-    lines.append("")
-    lines.append("# No-MadSpin fixed-WC debug production")
-    return "\n".join(lines).rstrip() + "\n"
-
+    return "\n".join(lines) + "\n"
 
 def make_proc_card(name, max_extra_jets):
     """Stable-top production only.  No inline decays, no MadSpin."""
@@ -152,11 +151,11 @@ def make_proc_card(name, max_extra_jets):
         "define vl = ve vm vt",
         "define vl~ = ve~ vm~ vt~",
         "",
-        "generate p p > t t~ FCNC=0 DIM6=1 @0",
+        "generate p p > t t~ FCNC=0 DIM6=1, (t > b l+ vl FCNC=0 DIM6=0), (t~ > b~ l- vl~ FCNC=0 DIM6=0)",
     ]
-    for njet in range(1, max_extra_jets + 1):
-        jets = " ".join(["j"] * njet)
-        lines.append("add process p p > t t~ {} FCNC=0 DIM6=1 @{}".format(jets, njet))
+    # for njet in range(1, max_extra_jets + 1):
+    #     jets = " ".join(["j"] * njet)
+    #     lines.append("add process p p > t t~ {} FCNC=0 DIM6=1 @{}".format(jets, njet))
     lines += ["", "output {} -nojpeg".format(name), ""]
     return "\n".join(lines)
 
